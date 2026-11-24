@@ -1,131 +1,187 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VAJRA SMP | Premium Coin Store</title>
+<title>VAJRA SMP | Official Coin Store</title>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 
 body{
 font-family:Arial,sans-serif;
-background:linear-gradient(135deg,#f5f8ff,#edf2ff);
-color:#18243a;
-min-height:100vh
+background:#0d1020;
+color:white;
+min-height:100vh;
 }
 
 header{
-padding:20px 7%;
+padding:14px 7%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:white;
-box-shadow:0 4px 20px #15264a12
+background:#11162a;
+border-bottom:1px solid #ffffff18;
 }
 
-.logo{font-size:23px;font-weight:900;letter-spacing:1px}
+.logo{font-size:21px;font-weight:900;letter-spacing:2px}
+nav a{color:white;text-decoration:none;margin-left:22px;font-weight:bold;font-size:13px}
 
-nav a{
-text-decoration:none;
-color:#34445e;
-font-weight:bold;
-margin-left:20px
+.hero{
+text-align:center;
+padding:45px 20px 55px;
+background:radial-gradient(ellipse at top,#47317a,#17172f 60%,#0d1020);
 }
 
-.hero{text-align:center;padding:45px 20px 25px}
-
-.tag{
-display:inline-block;
-background:#fff2cf;
-color:#a36b00;
-padding:8px 15px;
-border-radius:30px;
-font-size:12px;
-font-weight:bold
+.server-logo{
+width:190px;
+height:150px;
+object-fit:contain;
+filter:drop-shadow(0 0 25px #9b73ff);
 }
 
-h1{font-size:clamp(30px,5vw,48px);margin:18px 0 10px}
+.hero h1{
+font-size:clamp(32px,6vw,55px);
+font-weight:1000;
+margin:12px 0;
+letter-spacing:2px;
+}
 
-.hero p{color:#65738a;line-height:1.7}
+.hero h1 span{color:#f6c65b}
+.hero p{color:#c2c4d8;line-height:1.7}
 
-.container{max-width:1050px;margin:auto;padding:25px 20px 70px}
+.container{max-width:1150px;margin:auto;padding:35px 20px 70px}
+
+.section{
+margin-bottom:55px;
+padding:28px;
+border-radius:25px;
+background:#171c30;
+border:1px solid #ffffff16;
+}
+
+.survival{
+border-top:4px solid #43d68a;
+box-shadow:0 15px 45px #1a9c4b12;
+}
+
+.lifesteal{
+border-top:4px solid #ff535e;
+background:linear-gradient(145deg,#28151f,#171c30);
+box-shadow:0 15px 45px #ff263012;
+}
+
+.section-heading{text-align:center;margin-bottom:25px}
+
+.section-heading h2{
+font-size:clamp(26px,4vw,38px);
+margin-bottom:10px;
+}
+
+.survival h2{color:#54e39a}
+.lifesteal h2{color:#ff6570}
+
+.section-heading p{color:#aeb5c9;font-size:14px;line-height:1.6}
 
 .grid{
 display:grid;
 grid-template-columns:repeat(4,1fr);
-gap:20px
+gap:18px;
 }
 
 .card{
-background:white;
-border:1px solid #e5eaf3;
-border-radius:22px;
-padding:22px 14px;
+background:#222941;
+border:1px solid #ffffff16;
+border-radius:19px;
+padding:20px 13px;
 text-align:center;
-box-shadow:0 12px 30px #23385b0c;
-transition:.25s
+transition:.3s;
 }
 
-.card:hover{
-transform:translateY(-7px);
-box-shadow:0 18px 35px #23385b20
-}
+.card:hover{transform:translateY(-8px);border-color:#f4c75d}
 
 .chest{
-height:145px;
+height:140px;
 display:flex;
 align-items:center;
 justify-content:center;
-overflow:hidden
 }
 
 .chest img{
 width:100%;
-height:140px;
+height:135px;
 object-fit:contain;
-filter:drop-shadow(0 0 12px #eab83c);
-animation:floatChest 3s ease-in-out infinite
+filter:drop-shadow(0 0 13px #e8b83f);
+animation:float 3s ease-in-out infinite;
 }
 
-@keyframes floatChest{
+@keyframes float{
 0%,100%{transform:translateY(0)}
-50%{transform:translateY(-9px)}
+50%{transform:translateY(-8px)}
 }
 
-.coins{
+.coin-count{
 font-size:22px;
 font-weight:900;
-margin:10px 0;
-color:#bd8215
+margin:12px 0;
+color:#f5ca65;
 }
 
-.price{font-size:27px;font-weight:900;margin:8px 0 15px}
+.price{
+font-size:30px;
+font-weight:900;
+margin:8px 0 16px;
+}
 
 .buy{
-display:block;
 width:100%;
-padding:12px;
+padding:13px;
 border:0;
-border-radius:12px;
-background:linear-gradient(135deg,#e9b94f,#f3d47c);
-color:#49300a;
+border-radius:11px;
+background:linear-gradient(135deg,#eab84c,#ffe39a);
+color:#392606;
 font-weight:900;
-font-size:14px
+font-size:13px;
+cursor:not-allowed;
 }
 
-.note{text-align:center;color:#8490a3;font-size:13px;margin-top:28px}
+.lifesteal .buy{
+background:linear-gradient(135deg,#e84955,#ff8a74);
+color:white;
+}
 
-footer{text-align:center;padding:25px;color:#8290a4}
+.lifesteal .card:hover{border-color:#ff6570}
 
-@media(max-width:750px){
+.note{
+text-align:center;
+color:#9ba5bd;
+font-size:13px;
+margin-top:24px;
+}
+
+footer{
+text-align:center;
+padding:25px;
+background:#11162a;
+color:#8992aa;
+font-size:13px;
+}
+
+@media(max-width:850px){
 .grid{grid-template-columns:repeat(2,1fr)}
 }
 
-@media(max-width:380px){
-.grid{grid-template-columns:1fr}
+@media(max-width:480px){
+header{padding:15px 5%}
+nav a{margin-left:12px;font-size:11px}
+.section{padding:18px 12px}
+.grid{gap:12px}
+.card{padding:15px 9px}
+.chest{height:115px}
+.chest img{height:110px}
+.coin-count{font-size:18px}
+.price{font-size:25px}
 }
 </style>
 </head>
@@ -141,57 +197,125 @@ footer{text-align:center;padding:25px;color:#8290a4}
 </header>
 
 <section class="hero">
-<span class="tag">✦ OFFICIAL COIN SHOP</span>
-<h1>Premium Coin Store</h1>
-<p>Unlock more possibilities with VAJRA Coins.<br>
-Choose your treasure chest below!</p>
+<img class="server-logo"
+src="../assets/vajra-logo.png"
+alt="VAJRA SMP Logo">
+
+<h1>OFFICIAL <span>COIN STORE</span></h1>
+<p>Choose your world. Unlock your rewards.<br>
+Welcome to the VAJRA SMP Premium Store.</p>
 </section>
 
 <main class="container">
+
+<!-- SURVIVAL STORE -->
+
+<section class="section survival">
+
+<div class="section-heading">
+<h2>🌿 SURVIVAL COINS</h2>
+<p>Explore Survival and unlock amazing rewards!</p>
+</div>
+
 <div class="grid">
 
 <div class="card">
 <div class="chest">
-<img src="../assets/a_clean_transparent_background_illustration_sheet.png" alt="VAJRA Treasure Chest">
+<img src="../assets/a_clean_transparent_background_illustration_sheet.png" alt="Treasure Chest">
 </div>
-<div class="coins">100 COINS</div>
+<div class="coin-count">100 COINS</div>
 <div class="price">₹30</div>
 <button class="buy">COMING SOON</button>
 </div>
 
 <div class="card">
 <div class="chest">
-<img src="../assets/a_clean_transparent_background_illustration_sheet.png" alt="VAJRA Treasure Chest">
+<img src="../assets/a_clean_transparent_background_illustration_sheet.png" alt="Treasure Chest">
 </div>
-<div class="coins">200 COINS</div>
+<div class="coin-count">200 COINS</div>
 <div class="price">₹60</div>
 <button class="buy">COMING SOON</button>
 </div>
 
 <div class="card">
 <div class="chest">
-<img src="../assets/a_clean_transparent_background_illustration_sheet.png" alt="VAJRA Treasure Chest">
+<img src="../assets/a_clean_transparent_background_illustration_sheet.png" alt="Treasure Chest">
 </div>
-<div class="coins">400 COINS</div>
+<div class="coin-count">400 COINS</div>
 <div class="price">₹120</div>
 <button class="buy">COMING SOON</button>
 </div>
 
 <div class="card">
 <div class="chest">
-<img src="../assets/a_clean_transparent_background_illustration_sheet.png" alt="VAJRA Treasure Chest">
+<img src="../assets/a_clean_transparent_background_illustration_sheet.png" alt="Treasure Chest">
 </div>
-<div class="coins">1000 COINS</div>
+<div class="coin-count">1000 COINS</div>
 <div class="price">₹240</div>
 <button class="buy">COMING SOON</button>
 </div>
 
 </div>
+<p class="note">Survival Coin purchases are coming soon!</p>
+</section>
 
-<p class="note">Coin purchases are not available yet. Stay tuned!</p>
+
+<!-- LIFESTEAL STORE -->
+
+<section class="section lifesteal">
+
+<div class="section-heading">
+<h2>❤️ LIFESTEAL COINS</h2>
+<p>Enter the battle. Collect rewards. Dominate Lifesteal!</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<div class="chest">
+<img src="../assets/a_clean_transparent_background_illustration_sheet.png" alt="Lifesteal Treasure Chest">
+</div>
+<div class="coin-count">100 COINS</div>
+<div class="price">₹50</div>
+<button class="buy">COMING SOON</button>
+</div>
+
+<div class="card">
+<div class="chest">
+<img src="../assets/a_clean_transparent_background_illustration_sheet.png" alt="Lifesteal Treasure Chest">
+</div>
+<div class="coin-count">200 COINS</div>
+<div class="price">₹80</div>
+<button class="buy">COMING SOON</button>
+</div>
+
+<div class="card">
+<div class="chest">
+<img src="../assets/a_clean_transparent_background_illustration_sheet.png" alt="Lifesteal Treasure Chest">
+</div>
+<div class="coin-count">400 COINS</div>
+<div class="price">₹140</div>
+<button class="buy">COMING SOON</button>
+</div>
+
+<div class="card">
+<div class="chest">
+<img src="../assets/a_clean_transparent_background_illustration_sheet.png" alt="Lifesteal Treasure Chest">
+</div>
+<div class="coin-count">1000 COINS</div>
+<div class="price">₹260</div>
+<button class="buy">COMING SOON</button>
+</div>
+
+</div>
+<p class="note">Lifesteal Coin purchases are coming soon!</p>
+</section>
+
 </main>
 
-<footer>© 2026 VAJRA SMP. All Rights Reserved.</footer>
+<footer>
+© 2026 VAJRA SMP. All Rights Reserved.
+</footer>
 
 </body>
 </html>

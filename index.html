@@ -10,7 +10,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Rajdhani:wght@600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
 
 <style>
 :root{--ink:#101a36;--muted:#5d6d8c;--blue:#087cf0;--cyan:#20c8ee;--line:#d6e8f7;--white:#fff;--navy:#101d3d;--shadow:0 18px 55px rgba(34,91,145,.13)}
@@ -172,24 +172,42 @@ display:grid;
 grid-template-columns:1fr 1fr;
 gap:13px;
 }
+
+/* MINECRAFT STYLE JAVA AND BEDROCK BUTTONS */
 .edition-card{
-border:1px solid var(--line);
-background:linear-gradient(145deg,#f7fbff,#edf7ff);
-border-radius:17px;
-padding:25px 10px;
+border:3px solid #263b59;
+background:linear-gradient(145deg,#eaf7ff,#cce8ff);
+border-radius:8px;
+padding:28px 10px;
 cursor:pointer;
 text-align:center;
 transition:.2s;
-color:var(--ink);
+color:#172b49;
+font-family:'Press Start 2P',cursive;
+box-shadow:5px 5px 0 #263b59;
 }
 .edition-card:hover{
 transform:translateY(-4px);
 border-color:#087cf0;
-box-shadow:0 10px 25px #087cf022;
+box-shadow:5px 9px 0 #263b59,0 12px 24px #087cf033;
 }
-.edition-icon{font-size:30px;margin-bottom:10px}
-.edition-card strong{display:block;font-size:19px;margin-bottom:7px}
-.edition-card small{color:var(--muted);font-size:10px;font-weight:700}
+.edition-icon{display:none}
+.edition-card strong{
+display:block;
+font-family:'Press Start 2P',cursive;
+font-size:clamp(10px,2vw,14px);
+line-height:1.8;
+margin-bottom:10px;
+}
+.edition-card small{
+display:block;
+color:#49617d;
+font-family:'Press Start 2P',cursive;
+font-size:7px;
+line-height:1.8;
+font-weight:400;
+}
+
 .login-form{display:none}
 .login-form.show{display:block}
 .login-form h3{margin:15px 0;font-size:20px}
@@ -401,13 +419,11 @@ h1{letter-spacing:-2px}
 
 <div class="edition-grid">
 <button class="edition-card" onclick="selectEdition('Java')">
-<div class="edition-icon">☕</div>
 <strong>JAVA</strong>
 <small>JAVA EDITION</small>
 </button>
 
 <button class="edition-card" onclick="selectEdition('Bedrock')">
-<div class="edition-icon">🟩</div>
 <strong>BEDROCK</strong>
 <small>BEDROCK EDITION</small>
 </button>

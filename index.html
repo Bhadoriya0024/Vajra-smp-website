@@ -1,80 +1,464 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="google-site-verification" content="DawQEBBcU5eHMi6YFnlGIYB2sjlM2h6r9orqC34-Ai8" />
+<meta name="google-site-verification" content="DawQEBBcU5eHMi6YFnlGIYB2sjlM2h6r9orqC34-Ai8" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#eaf7ff">
 <meta name="description" content="VAJRA SMP — The Elemental Minecraft Network. Coming soon.">
 <title>VAJRA SMP | The Elemental Network</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+
 <style>
 :root{--ink:#101a36;--muted:#5d6d8c;--blue:#087cf0;--cyan:#20c8ee;--line:#d6e8f7;--white:#fff;--navy:#101d3d;--shadow:0 18px 55px rgba(34,91,145,.13)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font-family:Inter,system-ui,sans-serif;background:radial-gradient(ellipse at 8% 4%,#d9f5ff 0,transparent 31%),radial-gradient(ellipse at 93% 18%,#e9e0ff 0,transparent 29%),linear-gradient(135deg,#f8fcff 0%,#edf7ff 48%,#f7f5ff 100%);min-height:100vh}
-a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}.wrap{width:min(1160px,92%);margin:auto}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font-family:Inter,system-ui,sans-serif;background:radial-gradient(ellipse at 8% 4%,#d9f5ff 0,transparent 31%),radial-gradient(ellipse at 93% 18%,#e9e0ff 0,transparent 29%),linear-gradient(135deg,#f8fcff 0%,#edf7ff 48%,#f7f5ff 100%);min-height:100vh}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+.wrap{width:min(1160px,92%);margin:auto}
+
 header{position:sticky;top:0;z-index:20;background:rgba(250,253,255,.84);backdrop-filter:blur(18px);border-bottom:1px solid rgba(180,211,238,.75)}
-.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:11px;font-weight:900;letter-spacing:-.8px;font-size:21px}.brand img{width:54px;height:48px;object-fit:contain}.brand span{color:var(--blue)}.navlinks{display:flex;align-items:center;gap:7px}.navlinks button,.mobilelinks button{border:0;background:transparent;padding:11px 14px;border-radius:12px;color:#53627f;font-weight:700;font-size:13px}.navlinks button:hover,.navlinks button.active{background:#e6f4ff;color:#087cf0}.play{background:linear-gradient(110deg,#087cf0,#20c8ee)!important;color:white!important;box-shadow:0 8px 20px #1c9be544}.menu{display:none;border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px;color:var(--ink)}.mobilelinks{display:none;padding:0 0 12px;flex-wrap:wrap}.mobilelinks.show{display:flex}
-main{padding:34px 0 70px}.hero{position:relative;overflow:hidden;border:1px solid #d5e9fa;border-radius:32px;background:linear-gradient(120deg,rgba(255,255,255,.94),rgba(232,247,255,.91) 55%,rgba(239,235,255,.94));box-shadow:var(--shadow);padding:clamp(28px,6vw,70px);min-height:440px;display:flex;align-items:center}.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;pointer-events:none}.hero:before{width:370px;height:370px;right:-75px;top:-145px;background:radial-gradient(circle,#7edfff77,transparent 68%)}.hero:after{width:300px;height:300px;right:13%;bottom:-210px;background:radial-gradient(circle,#9d8bff55,transparent 70%)}.hero-content{position:relative;z-index:1;max-width:700px}.eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid #b8e7ff;background:#e9f8ff;color:#0875d8;padding:9px 14px;border-radius:999px;font-size:11px;font-weight:900;letter-spacing:1.7px}.dot{width:8px;height:8px;background:#18c98b;border-radius:50%;box-shadow:0 0 0 5px #18c98b22}.hero-logo{width:min(260px,65vw);height:auto;object-fit:contain;display:block;margin:25px 0 8px;filter:drop-shadow(0 12px 15px #0a5a9c20)}h1{font-size:clamp(42px,7vw,76px);line-height:.98;letter-spacing:-4px;margin:12px 0 18px;font-weight:900}.gradient{background:linear-gradient(100deg,#087cf0,#16bce5 55%,#795cf4);-webkit-background-clip:text;background-clip:text;color:transparent}.lead{font-size:clamp(15px,2vw,18px);line-height:1.8;color:var(--muted);max-width:610px;margin:0 0 26px}.actions{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 20px;border-radius:14px;border:1px solid transparent;font-weight:800;font-size:13px;transition:.2s}.btn:hover{transform:translateY(-2px)}.primary{background:linear-gradient(110deg,#087cf0,#20c8ee);color:#fff;box-shadow:0 10px 24px #138fe43b}.secondary{background:#fff;border-color:#cfe4f5;color:#23517c}.hero-note{margin-top:22px;display:flex;gap:18px;flex-wrap:wrap;color:#637590;font-size:12px;font-weight:700}.hero-note span:before{content:"✦";color:#0ca7ed;margin-right:7px}
-.section{padding:72px 0 0;scroll-margin-top:95px}.section-head{margin-bottom:24px}.kicker{font-size:11px;letter-spacing:2px;color:#087cf0;font-weight:900;text-transform:uppercase}.section h2{font-size:clamp(30px,4vw,44px);letter-spacing:-1.8px;margin:8px 0 10px}.sub{color:var(--muted);line-height:1.7;max-width:680px;margin:0}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:rgba(255,255,255,.85);border:1px solid var(--line);border-radius:22px;padding:23px;box-shadow:0 10px 28px rgba(40,91,140,.07)}.card-icon{width:45px;height:45px;border-radius:14px;background:linear-gradient(135deg,#e3f7ff,#eeeaff);display:grid;place-items:center;font-size:22px;margin-bottom:16px}.card h3{margin:0 0 8px;font-size:18px}.card p{margin:0;color:var(--muted);line-height:1.7;font-size:13px}
-.staff{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.staff-card{display:flex;align-items:center;gap:17px;background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 10px 28px rgba(40,91,140,.07)}.avatar{width:60px;height:60px;flex:0 0 60px;border-radius:18px;background:linear-gradient(135deg,#dff6ff,#eae4ff);display:grid;place-items:center;font-size:25px}.role{font-size:10px;font-weight:900;letter-spacing:1.5px;color:#087cf0}.staff-card h3{margin:5px 0;font-size:19px}.staff-card p{margin:0;color:var(--muted);font-size:12px}
-.rules{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.rule{background:#fff;border:1px solid var(--line);border-radius:17px;padding:17px;display:flex;gap:13px}.rule-num{width:31px;height:31px;flex:0 0 31px;border-radius:10px;background:#e8f6ff;color:#087cf0;display:grid;place-items:center;font-size:11px;font-weight:900}.rule h3{font-size:14px;margin:1px 0 6px}.rule p{font-size:12px;line-height:1.65;color:var(--muted);margin:0}
-.store-banner{border-radius:24px;padding:28px;background:linear-gradient(110deg,#102c58,#176bb0 60%,#6250b8);color:white;margin-bottom:18px;position:relative;overflow:hidden}.store-banner:after{content:"⚡";position:absolute;right:28px;top:-30px;font-size:150px;color:#ffffff18;transform:rotate(12deg)}.store-banner h3{font-size:26px;margin:0 0 8px}.store-banner p{margin:0;color:#d9edff;font-size:13px;max-width:570px;line-height:1.6}.rank-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.rank{background:#fff;border:1px solid var(--line);border-radius:21px;padding:20px;text-align:left;box-shadow:0 10px 25px rgba(40,91,140,.07);transition:.2s}.rank:hover{transform:translateY(-5px);border-color:#8bcfff;box-shadow:0 15px 30px #218fe51c}.rank-gem{width:43px;height:43px;border-radius:14px;background:linear-gradient(135deg,#e6f7ff,#eeeaff);display:grid;place-items:center;font-size:22px}.rank h3{margin:14px 0 5px;font-size:17px}.price{font-size:25px;font-weight:900;color:#087cf0}.rank small{display:block;color:var(--muted);font-size:11px;margin-top:8px}.rank-detail{display:none;margin-top:16px;background:#fff;border:1px solid #b9e0fa;border-radius:22px;padding:24px;box-shadow:var(--shadow)}.rank-detail.show{display:block}.detail-top{display:flex;align-items:center;justify-content:space-between;gap:12px}.detail-top h3{font-size:25px;margin:0}.close{border:1px solid var(--line);background:#f4faff;border-radius:10px;padding:8px 12px;color:#42617d;font-weight:800}.notice{margin-top:14px;background:#eef8ff;border-radius:13px;padding:13px;color:#416584;font-size:12px;line-height:1.6}
-.join-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.join-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px}.join-card .big{font-size:27px;font-weight:900;color:#087cf0;margin:10px 0}.join-card p{font-size:12px;color:var(--muted);line-height:1.6;margin:0}
-footer{margin-top:75px;background:#102344;color:#fff;padding:35px 0}.foot{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}.foot-brand{font-size:20px;font-weight:900}.foot p{color:#b8cbe1;font-size:11px;margin:7px 0 0}.foot-nav{display:flex;gap:8px;flex-wrap:wrap}.foot-nav button{border:1px solid #ffffff24;background:#ffffff0d;color:#e6f4ff;border-radius:10px;padding:9px 12px;font-size:11px;font-weight:700}
-@media(max-width:850px){.navlinks{display:none}.menu{display:block}.cards{grid-template-columns:repeat(2,1fr)}.rank-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:580px){.nav{height:66px}.brand{font-size:18px}.brand img{width:45px;height:42px}.hero{padding:28px 22px;min-height:0;border-radius:24px}.hero-logo{width:190px;margin:20px auto 12px}h1{letter-spacing:-2px}.hero-content{text-align:center}.lead{margin-left:auto;margin-right:auto}.actions{justify-content:center}.hero-note{justify-content:center}.cards,.staff,.rules,.join-grid{grid-template-columns:1fr}.section{padding-top:54px}.rank-grid{gap:10px}.rank{padding:16px}.foot{align-items:flex-start;flex-direction:column}}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:900;letter-spacing:-.8px;font-size:21px}
+.brand img{width:54px;height:48px;object-fit:contain}
+.brand span{color:var(--blue)}
+.navlinks{display:flex;align-items:center;gap:7px}
+.navlinks button,.mobilelinks button{border:0;background:transparent;padding:11px 14px;border-radius:12px;color:#53627f;font-weight:700;font-size:13px}
+.navlinks button:hover,.navlinks button.active{background:#e6f4ff;color:#087cf0}
+.play{background:linear-gradient(110deg,#087cf0,#20c8ee)!important;color:white!important;box-shadow:0 8px 20px #1c9be544}
+.menu{display:none;border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px;color:var(--ink)}
+.mobilelinks{display:none;padding:0 0 12px;flex-wrap:wrap}
+.mobilelinks.show{display:flex}
+
+.login-btn{
+border:0!important;
+background:linear-gradient(110deg,#6548e8,#087cf0)!important;
+color:white!important;
+box-shadow:0 8px 20px #6548e844;
+}
+
+main{padding:34px 0 70px}
+.hero{position:relative;overflow:hidden;border:1px solid #d5e9fa;border-radius:32px;background:linear-gradient(120deg,rgba(255,255,255,.94),rgba(232,247,255,.91) 55%,rgba(239,235,255,.94));box-shadow:var(--shadow);padding:clamp(28px,6vw,70px);min-height:440px;display:flex;align-items:center}
+.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;pointer-events:none}
+.hero:before{width:370px;height:370px;right:-75px;top:-145px;background:radial-gradient(circle,#7edfff77,transparent 68%)}
+.hero:after{width:300px;height:300px;right:13%;bottom:-210px;background:radial-gradient(circle,#9d8bff55,transparent 70%)}
+.hero-content{position:relative;z-index:1;max-width:700px}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid #b8e7ff;background:#e9f8ff;color:#0875d8;padding:9px 14px;border-radius:999px;font-size:11px;font-weight:900;letter-spacing:1.7px}
+.dot{width:8px;height:8px;background:#18c98b;border-radius:50%;box-shadow:0 0 0 5px #18c98b22}
+.hero-logo{width:min(260px,65vw);height:auto;object-fit:contain;display:block;margin:25px 0 8px;filter:drop-shadow(0 12px 15px #0a5a9c20)}
+h1{font-size:clamp(42px,7vw,76px);line-height:.98;letter-spacing:-4px;margin:12px 0 18px;font-weight:900}
+.gradient{background:linear-gradient(100deg,#087cf0,#16bce5 55%,#795cf4);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:clamp(15px,2vw,18px);line-height:1.8;color:var(--muted);max-width:610px;margin:0 0 26px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 20px;border-radius:14px;border:1px solid transparent;font-weight:800;font-size:13px;transition:.2s}
+.btn:hover{transform:translateY(-2px)}
+.primary{background:linear-gradient(110deg,#087cf0,#20c8ee);color:#fff;box-shadow:0 10px 24px #138fe43b}
+.secondary{background:#fff;border-color:#cfe4f5;color:#23517c}
+.hero-note{margin-top:22px;display:flex;gap:18px;flex-wrap:wrap;color:#637590;font-size:12px;font-weight:700}
+.hero-note span:before{content:"✦";color:#0ca7ed;margin-right:7px}
+
+.section{padding:72px 0 0;scroll-margin-top:95px}
+.section-head{margin-bottom:24px}
+.kicker{font-size:11px;letter-spacing:2px;color:#087cf0;font-weight:900;text-transform:uppercase}
+.section h2{font-size:clamp(30px,4vw,44px);letter-spacing:-1.8px;margin:8px 0 10px}
+.sub{color:var(--muted);line-height:1.7;max-width:680px;margin:0}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:rgba(255,255,255,.85);border:1px solid var(--line);border-radius:22px;padding:23px;box-shadow:0 10px 28px rgba(40,91,140,.07)}
+.card-icon{width:45px;height:45px;border-radius:14px;background:linear-gradient(135deg,#e3f7ff,#eeeaff);display:grid;place-items:center;font-size:22px;margin-bottom:16px}
+.card h3{margin:0 0 8px;font-size:18px}
+.card p{margin:0;color:var(--muted);line-height:1.7;font-size:13px}
+
+.staff{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.staff-card{display:flex;align-items:center;gap:17px;background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 10px 28px rgba(40,91,140,.07)}
+.avatar{width:60px;height:60px;flex:0 0 60px;border-radius:18px;background:linear-gradient(135deg,#dff6ff,#eae4ff);display:grid;place-items:center;font-size:25px}
+.role{font-size:10px;font-weight:900;letter-spacing:1.5px;color:#087cf0}
+.staff-card h3{margin:5px 0;font-size:19px}
+.staff-card p{margin:0;color:var(--muted);font-size:12px}
+
+.rules{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.rule{background:#fff;border:1px solid var(--line);border-radius:17px;padding:17px;display:flex;gap:13px}
+.rule-num{width:31px;height:31px;flex:0 0 31px;border-radius:10px;background:#e8f6ff;color:#087cf0;display:grid;place-items:center;font-size:11px;font-weight:900}
+.rule h3{font-size:14px;margin:1px 0 6px}
+.rule p{font-size:12px;line-height:1.65;color:var(--muted);margin:0}
+
+.store-banner{border-radius:24px;padding:28px;background:linear-gradient(110deg,#102c58,#176bb0 60%,#6250b8);color:white;margin-bottom:18px;position:relative;overflow:hidden}
+.store-banner:after{content:"⚡";position:absolute;right:28px;top:-30px;font-size:150px;color:#ffffff18;transform:rotate(12deg)}
+.store-banner h3{font-size:26px;margin:0 0 8px}
+.store-banner p{margin:0;color:#d9edff;font-size:13px;max-width:570px;line-height:1.6}
+.rank-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.rank{background:#fff;border:1px solid var(--line);border-radius:21px;padding:20px;text-align:left;box-shadow:0 10px 25px rgba(40,91,140,.07);transition:.2s}
+.rank:hover{transform:translateY(-5px);border-color:#8bcfff;box-shadow:0 15px 30px #218fe51c}
+.rank-gem{width:43px;height:43px;border-radius:14px;background:linear-gradient(135deg,#e6f7ff,#eeeaff);display:grid;place-items:center;font-size:22px}
+.rank h3{margin:14px 0 5px;font-size:17px}
+.price{font-size:25px;font-weight:900;color:#087cf0}
+.rank small{display:block;color:var(--muted);font-size:11px;margin-top:8px}
+.rank-detail{display:none;margin-top:16px;background:#fff;border:1px solid #b9e0fa;border-radius:22px;padding:24px;box-shadow:var(--shadow)}
+.rank-detail.show{display:block}
+.detail-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.detail-top h3{font-size:25px;margin:0}
+.close{border:1px solid var(--line);background:#f4faff;border-radius:10px;padding:8px 12px;color:#42617d;font-weight:800}
+.notice{margin-top:14px;background:#eef8ff;border-radius:13px;padding:13px;color:#416584;font-size:12px;line-height:1.6}
+
+.join-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.join-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px}
+.join-card .big{font-size:27px;font-weight:900;color:#087cf0;margin:10px 0}
+.join-card p{font-size:12px;color:var(--muted);line-height:1.6;margin:0}
+
+footer{margin-top:75px;background:#102344;color:#fff;padding:35px 0}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.foot-brand{font-size:20px;font-weight:900}
+.foot p{color:#b8cbe1;font-size:11px;margin:7px 0 0}
+.foot-nav{display:flex;gap:8px;flex-wrap:wrap}
+.foot-nav button{border:1px solid #ffffff24;background:#ffffff0d;color:#e6f4ff;border-radius:10px;padding:9px 12px;font-size:11px;font-weight:700}
+
+/* LOGIN POPUP */
+.login-overlay{
+position:fixed;
+inset:0;
+z-index:1000;
+background:rgba(7,16,38,.75);
+backdrop-filter:blur(9px);
+display:none;
+align-items:center;
+justify-content:center;
+padding:18px;
+}
+.login-overlay.show{display:flex}
+
+.login-modal{
+width:min(440px,100%);
+background:#fff;
+border:1px solid #d6e8f7;
+border-radius:25px;
+padding:28px;
+box-shadow:0 25px 80px #0005;
+position:relative;
+animation:loginPop .25s ease;
+}
+@keyframes loginPop{
+from{opacity:0;transform:translateY(15px) scale(.97)}
+to{opacity:1;transform:translateY(0) scale(1)}
+}
+.login-close{
+position:absolute;
+right:17px;
+top:17px;
+border:1px solid var(--line);
+background:#f4faff;
+border-radius:10px;
+padding:8px 11px;
+color:#42617d;
+font-weight:800;
+}
+.login-brand{
+text-align:center;
+font-size:25px;
+font-weight:900;
+margin:5px 0;
+}
+.login-brand span{color:var(--blue)}
+.login-sub{
+text-align:center;
+color:var(--muted);
+font-size:12px;
+margin:8px 0 25px;
+}
+.edition-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:13px;
+}
+.edition-card{
+border:1px solid var(--line);
+background:linear-gradient(145deg,#f7fbff,#edf7ff);
+border-radius:17px;
+padding:25px 10px;
+cursor:pointer;
+text-align:center;
+transition:.2s;
+color:var(--ink);
+}
+.edition-card:hover{
+transform:translateY(-4px);
+border-color:#087cf0;
+box-shadow:0 10px 25px #087cf022;
+}
+.edition-icon{font-size:30px;margin-bottom:10px}
+.edition-card strong{display:block;font-size:19px;margin-bottom:7px}
+.edition-card small{color:var(--muted);font-size:10px;font-weight:700}
+.login-form{display:none}
+.login-form.show{display:block}
+.login-form h3{margin:15px 0;font-size:20px}
+.login-form label{
+display:block;
+font-size:12px;
+font-weight:800;
+margin:20px 0 8px;
+}
+.login-input{
+width:100%;
+padding:14px;
+border:1px solid var(--line);
+border-radius:12px;
+outline:none;
+font:inherit;
+font-size:14px;
+}
+.login-input:focus{border-color:#087cf0;box-shadow:0 0 0 3px #087cf018}
+.login-action{
+width:100%;
+margin-top:17px;
+padding:14px;
+border:0;
+border-radius:12px;
+background:linear-gradient(110deg,#087cf0,#20c8ee);
+color:white;
+font-weight:900;
+cursor:pointer;
+}
+.login-back{
+border:0;
+background:transparent;
+color:#087cf0;
+font-weight:800;
+cursor:pointer;
+padding:8px 0;
+}
+.login-message{
+font-size:12px;
+line-height:1.6;
+color:#53627f;
+margin-top:13px;
+text-align:center;
+min-height:20px;
+}
+
+@media(max-width:850px){
+.navlinks{display:none}
+.menu{display:block}
+.cards{grid-template-columns:repeat(2,1fr)}
+.rank-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:580px){
+.nav{height:66px}
+.brand{font-size:18px}
+.brand img{width:45px;height:42px}
+.hero{padding:28px 22px;min-height:0;border-radius:24px}
+.hero-logo{width:190px;margin:20px auto 12px}
+h1{letter-spacing:-2px}
+.hero-content{text-align:center}
+.lead{margin-left:auto;margin-right:auto}
+.actions{justify-content:center}
+.hero-note{justify-content:center}
+.cards,.staff,.rules,.join-grid{grid-template-columns:1fr}
+.section{padding-top:54px}
+.rank-grid{gap:10px}
+.rank{padding:16px}
+.foot{align-items:flex-start;flex-direction:column}
+.login-modal{padding:24px 20px}
+}
 </style>
 </head>
+
 <body>
-<header><div class="wrap nav">
-  <a class="brand" href="#home"><img src="assets/vajra-logo.png" alt="VAJRA SMP logo"><div>VAJRA<span>SMP</span></div></a>
-  <nav class="navlinks" aria-label="Main navigation">
-    <button class="active" data-go="home">Home</button><button data-go="about">About</button><button data-go="rules">Rules</button><button data-go="staff">Staff</button><button type="button" onclick="window.location.href='/store/'">Store</button><button data-go="join">How to join</button><button class="play" data-go="join">COMING SOON ↗</button><button type="button" onclick="window.location.href='/coinstore/'">
-🪙 Coin Store
-</button>
-  </nav>
-  <button class="menu" id="menuBtn" aria-label="Open menu">☰</button>
-</div><div class="wrap mobilelinks" id="mobileLinks">
-  <button data-go="home">Home</button><button data-go="about">About</button><button data-go="rules">Rules</button><button data-go="staff">Staff</button><button type="button" onclick="window.location.href='/store/'">Store</button><button data-go="join">How to join</button><button type="button" onclick="window.location.href='/coinstore/'">🪙 Coin Store</button>
-</div></header>
+
+<header>
+<div class="wrap nav">
+<a class="brand" href="#home">
+<img src="assets/vajra-logo.png" alt="VAJRA SMP logo">
+<div>VAJRA<span>SMP</span></div>
+</a>
+
+<nav class="navlinks" aria-label="Main navigation">
+<button class="active" data-go="home">Home</button>
+<button data-go="about">About</button>
+<button data-go="rules">Rules</button>
+<button data-go="staff">Staff</button>
+<button type="button" onclick="window.location.href='/store/'">Store</button>
+<button data-go="join">How to join</button>
+<button class="play" data-go="join">COMING SOON ↗</button>
+<button type="button" onclick="window.location.href='/coinstore/'">🪙 Coin Store</button>
+<button class="login-btn" type="button" onclick="openLogin()">LOGIN ↗</button>
+</nav>
+
+<button class="menu" id="menuBtn" aria-label="Open menu">☰</button>
+</div>
+
+<div class="wrap mobilelinks" id="mobileLinks">
+<button data-go="home">Home</button>
+<button data-go="about">About</button>
+<button data-go="rules">Rules</button>
+<button data-go="staff">Staff</button>
+<button type="button" onclick="window.location.href='/store/'">Store</button>
+<button data-go="join">How to join</button>
+<button type="button" onclick="window.location.href='/coinstore/'">🪙 Coin Store</button>
+<button class="login-btn" type="button" onclick="openLogin()">LOGIN ↗</button>
+</div>
+</header>
+
 <main class="wrap">
-<section class="hero" id="home"><div class="hero-content">
-  <div class="eyebrow"><span class="dot"></span> THE ELEMENTAL NETWORK · LAUNCHING SOON</div>
-  <img class="hero-logo" src="assets/vajra-logo.png" alt="VAJRA SMP original server logo">
-  <h1>YOUR WORLD.<br><span class="gradient">YOUR LEGACY.</span></h1>
-  <p class="lead">A new Minecraft adventure is taking shape. Prepare for survival, lifesteal and PvP in a world built for players who dare to stand out.</p>
-  <div class="actions"><button class="btn primary" data-go="join">GET READY TO PLAY <span>↗</span></button><button class="btn secondary" data-go="about">EXPLORE VAJRA</button></div>
-  <div class="hero-note"><span>Survival</span><span>Lifesteal</span><span>PvP</span><span>Community first</span></div>
-</div></section>
 
-<section class="section" id="about"><div class="section-head"><div class="kicker">THE VAJRA EXPERIENCE</div><h2>Enter a world of <span class="gradient">possibilities.</span></h2><p class="sub">VAJRA SMP is being prepared as a place to build, battle, explore and make your mark. Choose your path and create your own story.</p></div>
+<section class="hero" id="home">
+<div class="hero-content">
+<div class="eyebrow"><span class="dot"></span> THE ELEMENTAL NETWORK · LAUNCHING SOON</div>
+<img class="hero-logo" src="assets/vajra-logo.png" alt="VAJRA SMP original server logo">
+<h1>YOUR WORLD.<br><span class="gradient">YOUR LEGACY.</span></h1>
+<p class="lead">A new Minecraft adventure is taking shape. Prepare for survival, lifesteal and PvP in a world built for players who dare to stand out.</p>
+<div class="actions">
+<button class="btn primary" data-go="join">GET READY TO PLAY <span>↗</span></button>
+<button class="btn secondary" data-go="about">EXPLORE VAJRA</button>
+</div>
+<div class="hero-note"><span>Survival</span><span>Lifesteal</span><span>PvP</span><span>Community first</span></div>
+</div>
+</section>
+
+<section class="section" id="about">
+<div class="section-head">
+<div class="kicker">THE VAJRA EXPERIENCE</div>
+<h2>Enter a world of <span class="gradient">possibilities.</span></h2>
+<p class="sub">VAJRA SMP is being prepared as a place to build, battle, explore and make your mark. Choose your path and create your own story.</p>
+</div>
 <div class="cards">
-  <article class="card"><div class="card-icon">⚔️</div><h3>Lifesteal</h3><p>Take on challenges, compete with other players and fight your way to the top.</p></article>
-  <article class="card"><div class="card-icon">🌍</div><h3>Survival</h3><p>Gather resources, build your base and create something worth protecting.</p></article>
-  <article class="card"><div class="card-icon">⚡</div><h3>PvP Arena</h3><p>Sharpen your skills and prove yourself in player-versus-player battles.</p></article>
-</div></section>
+<article class="card"><div class="card-icon">⚔️</div><h3>Lifesteal</h3><p>Take on challenges, compete with other players and fight your way to the top.</p></article>
+<article class="card"><div class="card-icon">🌍</div><h3>Survival</h3><p>Gather resources, build your base and create something worth protecting.</p></article>
+<article class="card"><div class="card-icon">⚡</div><h3>PvP Arena</h3><p>Sharpen your skills and prove yourself in player-versus-player battles.</p></article>
+</div>
+</section>
 
-<section class="section" id="rules"><div class="section-head"><div class="kicker">PLAY FAIR · STAY RESPECTFUL</div><h2>Server <span class="gradient">rules.</span></h2><p class="sub">Every player helps shape the community. Follow these rules to keep the server fair, safe and fun.</p></div><div class="rules" id="rulesList"></div><p class="sub" style="font-size:12px;margin-top:15px">Staff may issue warnings, temporary suspensions or permanent bans depending on the severity and frequency of a violation. Rules may be updated before launch.</p></section>
+<section class="section" id="rules">
+<div class="section-head">
+<div class="kicker">PLAY FAIR · STAY RESPECTFUL</div>
+<h2>Server <span class="gradient">rules.</span></h2>
+<p class="sub">Every player helps shape the community. Follow these rules to keep the server fair, safe and fun.</p>
+</div>
+<div class="rules" id="rulesList"></div>
+<p class="sub" style="font-size:12px;margin-top:15px">Staff may issue warnings, temporary suspensions or permanent bans depending on the severity and frequency of a violation. Rules may be updated before launch.</p>
+</section>
 
-<section class="section" id="staff"><div class="section-head"><div class="kicker">THE PEOPLE BEHIND THE SERVER</div><h2>Meet the <span class="gradient">team.</span></h2><p class="sub">The team working to bring VAJRA SMP to life.</p></div>
+<section class="section" id="staff">
+<div class="section-head">
+<div class="kicker">THE PEOPLE BEHIND THE SERVER</div>
+<h2>Meet the <span class="gradient">team.</span></h2>
+<p class="sub">The team working to bring VAJRA SMP to life.</p>
+</div>
 <div class="staff">
-  <article class="staff-card"><div class="avatar">👑</div><div><div class="role">OWNER</div><h3>S07KS</h3><p>Founder · Server owner</p></div></article>
-  <article class="staff-card"><div class="avatar">🛡️</div><div><div class="role">ADMIN</div><h3>_NotAaradhay</h3><p>Administration · Community team</p></div></article>
-</div></section>
+<article class="staff-card"><div class="avatar">👑</div><div><div class="role">OWNER</div><h3>S07KS</h3><p>Founder · Server owner</p></div></article>
+<article class="staff-card"><div class="avatar">🛡️</div><div><div class="role">ADMIN</div><h3>_NotAaradhay</h3><p>Administration · Community team</p></div></article>
+</div>
+</section>
 
-<section class="section" id="store"><div class="section-head"><div class="kicker">SUPPORT THE NETWORK</div><h2>VAJRA <span class="gradient">store.</span></h2><p class="sub">Choose a rank to view its details. All prices are in Indian Rupees.</p></div>
-<div class="store-banner"><h3>Find your rank. Own your journey.</h3><p>Four rank tiers are planned for the VAJRA community. Select a card below to open its rank details.</p></div>
+<section class="section" id="store">
+<div class="section-head">
+<div class="kicker">SUPPORT THE NETWORK</div>
+<h2>VAJRA <span class="gradient">store.</span></h2>
+<p class="sub">Choose a rank to view its details. All prices are in Indian Rupees.</p>
+</div>
+<div class="store-banner">
+<h3>Find your rank. Own your journey.</h3>
+<p>Four rank tiers are planned for the VAJRA community. Select a card below to open its rank details.</p>
+</div>
 <div class="rank-grid" id="rankGrid"></div>
-<div class="rank-detail" id="rankDetail" aria-live="polite"><div class="detail-top"><h3 id="detailName">Rank</h3><button class="close" id="closeRank">✕ Close</button></div><div class="price" id="detailPrice"></div><p id="detailDesc" style="color:#5d6d8c;font-size:13px;line-height:1.7"></p><div class="notice">Rank perks and secure purchasing will be announced when the server launches. No payment is being accepted through this preview.</div></div>
+<div class="rank-detail" id="rankDetail" aria-live="polite">
+<div class="detail-top">
+<h3 id="detailName">Rank</h3>
+<button class="close" id="closeRank">✕ Close</button>
+</div>
+<div class="price" id="detailPrice"></div>
+<p id="detailDesc" style="color:#5d6d8c;font-size:13px;line-height:1.7"></p>
+<div class="notice">Rank perks and secure purchasing will be announced when the server launches. No payment is being accepted through this preview.</div>
+</div>
 </section>
 
-<section class="section" id="join"><div class="section-head"><div class="kicker">YOUR ADVENTURE STARTS HERE</div><h2>How to <span class="gradient">join.</span></h2><p class="sub">The server is currently in preparation. Official connection details will be posted here before launch.</p></div>
-<div class="join-grid"><article class="join-card"><div class="card-icon">🖥️</div><div class="role">MINECRAFT SERVER IP</div><div class="big">Coming Soon</div><p>Our official Java server address will be announced before launch.</p></article><article class="join-card"><div class="card-icon">💬</div><div class="role">DISCORD COMMUNITY</div><div class="big">Coming Soon</div><p>Our official Discord invitation will be shared here when it is ready.</p></article></div>
+<section class="section" id="join">
+<div class="section-head">
+<div class="kicker">YOUR ADVENTURE STARTS HERE</div>
+<h2>How to <span class="gradient">join.</span></h2>
+<p class="sub">The server is currently in preparation. Official connection details will be posted here before launch.</p>
+</div>
+<div class="join-grid">
+<article class="join-card"><div class="card-icon">🖥️</div><div class="role">MINECRAFT SERVER IP</div><div class="big">Coming Soon</div><p>Our official Java server address will be announced before launch.</p></article>
+<article class="join-card"><div class="card-icon">💬</div><div class="role">DISCORD COMMUNITY</div><div class="big">Coming Soon</div><p>Our official Discord invitation will be shared here when it is ready.</p></article>
+</div>
 </section>
+
 </main>
-<footer><div class="wrap foot"><div><div class="foot-brand">⚡ VAJRA SMP</div><p>THE ELEMENTAL NETWORK · © 2026 VAJRA SMP</p><p>Not an official Minecraft or Mojang product. Not approved by or associated with Mojang or Microsoft.</p></div><div class="foot-nav"><button data-go="home">Home</button><button data-go="rules">Rules</button><button data-go="staff">Staff</button><button data-go="store">Store</button></div></div></footer>
+
+<!-- LOGIN POPUP -->
+<div class="login-overlay" id="loginOverlay">
+<div class="login-modal">
+
+<button class="login-close" onclick="closeLogin()" aria-label="Close login">✕</button>
+
+<div class="login-brand">⚡ VAJRA<span>SMP</span></div>
+<p class="login-sub">PLAYER ACCOUNT LOGIN</p>
+
+<div id="editionSelect">
+<h3 style="text-align:center;margin-bottom:18px">SELECT YOUR EDITION</h3>
+
+<div class="edition-grid">
+<button class="edition-card" onclick="selectEdition('Java')">
+<div class="edition-icon">☕</div>
+<strong>JAVA</strong>
+<small>JAVA EDITION</small>
+</button>
+
+<button class="edition-card" onclick="selectEdition('Bedrock')">
+<div class="edition-icon">🟩</div>
+<strong>BEDROCK</strong>
+<small>BEDROCK EDITION</small>
+</button>
+</div>
+</div>
+
+<div class="login-form" id="usernameForm">
+<button class="login-back" onclick="backToEdition()">← Back</button>
+
+<h3 id="editionTitle">JAVA LOGIN</h3>
+
+<form id="playerLoginForm">
+<label id="usernameLabel">Minecraft Username</label>
+
+<input
+class="login-input"
+id="minecraftUsername"
+type="text"
+placeholder="Enter your Java username"
+maxlength="32"
+required
+autocomplete="off"
+>
+
+<button class="login-action" type="submit">CONTINUE ↗</button>
+</form>
+
+<p class="login-message" id="loginMessage">
+Account verification will be available when VAJRA SMP launches.
+</p>
+</div>
+
+</div>
+</div>
+
+<footer>
+<div class="wrap foot">
+<div>
+<div class="foot-brand">⚡ VAJRA SMP</div>
+<p>THE ELEMENTAL NETWORK · © 2026 VAJRA SMP</p>
+<p>Not an official Minecraft or Mojang product. Not approved by or associated with Mojang or Microsoft.</p>
+</div>
+<div class="foot-nav">
+<button data-go="home">Home</button>
+<button data-go="rules">Rules</button>
+<button data-go="staff">Staff</button>
+<button data-go="store">Store</button>
+</div>
+</div>
+</footer>
+
 <script>
 const rules=[
 ["Respect every player","Treat everyone respectfully. Harassment, bullying, hate speech, discrimination and targeted abuse are not allowed."],
@@ -90,12 +474,115 @@ const rules=[
 ["Follow staff instructions","Cooperate with staff. If you believe a decision is unfair, raise it calmly through the official appeal process."],
 ["Protect the server and community","Threats, malicious attacks, doxxing, sharing private information or attempts to disrupt the server are prohibited."]
 ];
-document.getElementById("rulesList").innerHTML=rules.map((r,i)=>`<article class="rule"><div class="rule-num">${String(i+1).padStart(2,"0")}</div><div><h3>${r[0]}</h3><p>${r[1]}</p></div></article>`).join("");
-const ranks=[["TITAN",50,"Your first step into the VAJRA community."],["KNIGHT",100,"A special rank tier for dedicated players."],["LEGEND",150,"Stand out among the legends of VAJRA."],["HERO",200,"The highest planned rank tier in this store lineup."]];
-document.getElementById("rankGrid").innerHTML=ranks.map((r,i)=>`<button class="rank" data-rank="${i}"><div class="rank-gem">${["✦","◆","♛","⚡"][i]}</div><h3>${r[0]}</h3><div class="price">₹${r[1]}</div><small>VIEW RANK DETAILS ↗</small></button>`).join("");
-document.querySelectorAll("[data-go]").forEach(b=>b.addEventListener("click",()=>{const id=b.dataset.go;document.getElementById(id).scrollIntoView({behavior:"smooth"});document.querySelectorAll(".navlinks [data-go]").forEach(x=>x.classList.toggle("active",x.dataset.go===id));document.getElementById("mobileLinks").classList.remove("show")}));
-document.getElementById("menuBtn").addEventListener("click",()=>document.getElementById("mobileLinks").classList.toggle("show"));
-document.querySelectorAll("[data-rank]").forEach(b=>b.addEventListener("click",()=>{const r=ranks[Number(b.dataset.rank)];document.getElementById("detailName").textContent=r[0]+" RANK";document.getElementById("detailPrice").textContent="₹"+r[1];document.getElementById("detailDesc").textContent=r[2]+" Official perks and purchase details will be announced before launch.";const d=document.getElementById("rankDetail");d.classList.add("show");d.scrollIntoView({behavior:"smooth",block:"center"})}));
-document.getElementById("closeRank").addEventListener("click",()=>document.getElementById("rankDetail").classList.remove("show"));
+
+document.getElementById("rulesList").innerHTML=rules.map((r,i)=>
+`<article class="rule"><div class="rule-num">${String(i+1).padStart(2,"0")}</div><div><h3>${r[0]}</h3><p>${r[1]}</p></div></article>`
+).join("");
+
+const ranks=[
+["TITAN",50,"Your first step into the VAJRA community."],
+["KNIGHT",100,"A special rank tier for dedicated players."],
+["LEGEND",150,"Stand out among the legends of VAJRA."],
+["HERO",200,"The highest planned rank tier in this store lineup."]
+];
+
+document.getElementById("rankGrid").innerHTML=ranks.map((r,i)=>
+`<button class="rank" data-rank="${i}"><div class="rank-gem">${["✦","◆","♛","⚡"][i]}</div><h3>${r[0]}</h3><div class="price">₹${r[1]}</div><small>VIEW RANK DETAILS ↗</small></button>`
+).join("");
+
+document.querySelectorAll("[data-go]").forEach(b=>
+b.addEventListener("click",()=>{
+const id=b.dataset.go;
+document.getElementById(id).scrollIntoView({behavior:"smooth"});
+document.querySelectorAll(".navlinks [data-go]").forEach(x=>
+x.classList.toggle("active",x.dataset.go===id)
+);
+document.getElementById("mobileLinks").classList.remove("show");
+})
+);
+
+document.getElementById("menuBtn").addEventListener("click",()=>
+document.getElementById("mobileLinks").classList.toggle("show")
+);
+
+document.querySelectorAll("[data-rank]").forEach(b=>
+b.addEventListener("click",()=>{
+const r=ranks[Number(b.dataset.rank)];
+document.getElementById("detailName").textContent=r[0]+" RANK";
+document.getElementById("detailPrice").textContent="₹"+r[1];
+document.getElementById("detailDesc").textContent=r[2]+" Official perks and purchase details will be announced before launch.";
+const d=document.getElementById("rankDetail");
+d.classList.add("show");
+d.scrollIntoView({behavior:"smooth",block:"center"});
+})
+);
+
+document.getElementById("closeRank").addEventListener("click",()=>
+document.getElementById("rankDetail").classList.remove("show")
+);
+
+/* LOGIN SYSTEM */
+
+let selectedEdition="";
+
+function openLogin(){
+document.getElementById("loginOverlay").classList.add("show");
+document.getElementById("editionSelect").style.display="block";
+document.getElementById("usernameForm").classList.remove("show");
+document.getElementById("minecraftUsername").value="";
+document.getElementById("loginMessage").textContent=
+"Account verification will be available when VAJRA SMP launches.";
+}
+
+function closeLogin(){
+document.getElementById("loginOverlay").classList.remove("show");
+}
+
+function selectEdition(edition){
+selectedEdition=edition;
+
+document.getElementById("editionSelect").style.display="none";
+document.getElementById("usernameForm").classList.add("show");
+
+document.getElementById("editionTitle").textContent=
+edition.toUpperCase()+" LOGIN";
+
+document.getElementById("usernameLabel").textContent=
+edition==="Java"?"Java Minecraft Username":"Bedrock Gamertag";
+
+document.getElementById("minecraftUsername").placeholder=
+edition==="Java"?"Enter your Java username":"Enter your Bedrock gamertag";
+
+document.getElementById("minecraftUsername").value="";
+document.getElementById("loginMessage").textContent=
+"Account verification will be available when VAJRA SMP launches.";
+}
+
+function backToEdition(){
+document.getElementById("editionSelect").style.display="block";
+document.getElementById("usernameForm").classList.remove("show");
+}
+
+document.getElementById("playerLoginForm").addEventListener("submit",function(event){
+event.preventDefault();
+
+const username=document.getElementById("minecraftUsername").value.trim();
+
+if(!username)return;
+
+document.getElementById("loginMessage").textContent=
+"Thanks, "+username+"! "+selectedEdition+
+" account verification will be available after VAJRA SMP launches.";
+});
+
+document.getElementById("loginOverlay").addEventListener("click",function(e){
+if(e.target===this)closeLogin();
+});
+
+document.addEventListener("keydown",function(e){
+if(e.key==="Escape")closeLogin();
+});
 </script>
-</body></html>
+
+</body>
+</html>

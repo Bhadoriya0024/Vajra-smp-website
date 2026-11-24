@@ -89,7 +89,7 @@ const rules=[
 ["Protect the server and community","Threats, malicious attacks, doxxing, sharing private information or attempts to disrupt the server are prohibited."]
 ];
 document.getElementById("rulesList").innerHTML=rules.map((r,i)=>`<article class="rule"><div class="rule-num">${String(i+1).padStart(2,"0")}</div><div><h3>${r[0]}</h3><p>${r[1]}</p></div></article>`).join("");
-const ranks=[["TWINK",50,"Your first step into the VAJRA community."],["CAKE",100,"A special rank tier for dedicated players."],["LEGEND",150,"Stand out among the legends of VAJRA."],["HERO",200,"The highest planned rank tier in this store lineup."]];
+const ranks=[["TITAN",50,"Your first step into the VAJRA community."],["KNIGHT",100,"A special rank tier for dedicated players."],["LEGEND",150,"Stand out among the legends of VAJRA."],["HERO",200,"The highest planned rank tier in this store lineup."]];
 document.getElementById("rankGrid").innerHTML=ranks.map((r,i)=>`<button class="rank" data-rank="${i}"><div class="rank-gem">${["✦","◆","♛","⚡"][i]}</div><h3>${r[0]}</h3><div class="price">₹${r[1]}</div><small>VIEW RANK DETAILS ↗</small></button>`).join("");
 document.querySelectorAll("[data-go]").forEach(b=>b.addEventListener("click",()=>{const id=b.dataset.go;document.getElementById(id).scrollIntoView({behavior:"smooth"});document.querySelectorAll(".navlinks [data-go]").forEach(x=>x.classList.toggle("active",x.dataset.go===id));document.getElementById("mobileLinks").classList.remove("show")}));
 document.getElementById("menuBtn").addEventListener("click",()=>document.getElementById("mobileLinks").classList.toggle("show"));

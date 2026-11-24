@@ -59,7 +59,7 @@ header{
  position:sticky;
  top:0;
  z-index:100;
- background:#080b19eF;
+ background:#080b19ef;
  border-bottom:1px solid #ffffff18;
  backdrop-filter:blur(15px);
 }
@@ -249,10 +249,7 @@ section{padding:85px 22px}
  border-color:var(--blue);
  box-shadow:0 10px 35px #38bdf822;
 }
-.mode-icon{
- font-size:50px;
- margin-bottom:22px;
-}
+.mode-icon{font-size:50px;margin-bottom:22px}
 .mode-card h3{
  font-family:'Press Start 2P';
  font-size:13px;
@@ -270,11 +267,7 @@ section{padding:85px 22px}
  border-top:1px solid #ffffff12;
  border-bottom:1px solid #ffffff12;
 }
-.about-box{
- max-width:850px;
- margin:auto;
- text-align:center;
-}
+.about-box{max-width:850px;margin:auto;text-align:center}
 .about-box p{
  color:#bdc9dc;
  font-size:19px;
@@ -310,7 +303,29 @@ section{padding:85px 22px}
  transition:.3s;
 }
 .store-card:hover{transform:translateY(-7px);border-color:var(--gold)}
-.store-card .store-icon{font-size:48px;margin-bottom:20px}
+.store-icon{font-size:48px;margin-bottom:20px}
+
+/* GOLD COIN ICON */
+.coin-symbol{
+ width:65px;
+ height:65px;
+ margin:0 auto;
+ border-radius:50%;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ background:
+ linear-gradient(145deg,#fff0a3 0%,#ffcf35 35%,#d99508 70%,#fff0a3 100%);
+ border:5px solid #ffe58a;
+ box-shadow:
+ 0 0 0 3px #9b6508,
+ 0 0 22px #ffc10788,
+ inset 0 0 8px #fff8c5;
+ color:#8b5300;
+ font-family:'Press Start 2P';
+ font-size:25px;
+ text-shadow:1px 2px #fff3;
+}
 .store-card h3{
  font-family:'Press Start 2P';
  font-size:15px;
@@ -381,11 +396,7 @@ section{padding:85px 22px}
  border-top:1px solid #38bdf855;
  border-bottom:1px solid #a855f755;
 }
-.join p{
- color:#cbd5e1;
- font-size:19px;
- margin:20px 0 28px;
-}
+.join p{color:#cbd5e1;font-size:19px;margin:20px 0 28px}
 .server-box{
  display:inline-flex;
  align-items:center;
@@ -513,25 +524,25 @@ footer span{color:var(--blue)}
 <body>
 
 <header>
- <nav class="nav">
-  <a href="#home" class="brand">
-   <div class="brand-mark">V</div>
-   VAJRA <span>SMP</span>
-  </a>
+<nav class="nav">
+ <a href="#home" class="brand">
+  <div class="brand-mark">V</div>
+  VAJRA <span>SMP</span>
+ </a>
 
-  <div class="nav-links" id="navLinks">
-   <a href="#home">HOME</a>
-   <a href="#about">ABOUT</a>
-   <a href="#modes">MODES</a>
-   <a href="#rules">RULES</a>
-   <a href="#staff">STAFF</a>
-   <a href="/Vajra-smp-website/store/">RANK STORE</a>
-   <a href="/Vajra-smp-website/coinstore/">COIN STORE</a>
-   <a href="#" class="nav-btn" onclick="openLogin();return false">LOGIN</a>
-  </div>
+ <div class="nav-links" id="navLinks">
+  <a href="#home">HOME</a>
+  <a href="#about">ABOUT</a>
+  <a href="#modes">MODES</a>
+  <a href="#rules">RULES</a>
+  <a href="#staff">STAFF</a>
+  <a href="/Vajra-smp-website/store/">RANK STORE</a>
+  <a href="/Vajra-smp-website/coinstore/">COIN STORE</a>
+  <a href="#" class="nav-btn" onclick="openLogin();return false">LOGIN</a>
+ </div>
 
-  <button class="menu-btn" onclick="toggleMenu()">☰</button>
- </nav>
+ <button class="menu-btn" onclick="toggleMenu()">☰</button>
+</nav>
 </header>
 
 <main>
@@ -629,7 +640,9 @@ footer span{color:var(--blue)}
    </div>
 
    <div class="store-card coin">
-    <div class="store-icon">🪙</div>
+    <div class="store-icon">
+     <div class="coin-symbol">V</div>
+    </div>
     <h3>COIN STORE</h3>
     <p>Get coins and discover exciting in-game rewards.</p>
     <a class="btn btn-secondary" href="/Vajra-smp-website/coinstore/">BUY COINS</a>
@@ -705,7 +718,6 @@ footer span{color:var(--blue)}
  <span>BUILT FOR MINECRAFT PLAYERS</span>
 </footer>
 
-<!-- LOGIN POPUP -->
 <div class="popup" id="loginPopup">
  <div class="popup-box">
   <button class="close" onclick="closeLogin()">×</button>
@@ -714,25 +726,17 @@ footer span{color:var(--blue)}
    <h2>PLAYER LOGIN</h2>
    <p>Select your Minecraft edition.</p>
 
-   <button class="edition" onclick="selectEdition('Java')">
-    JAVA EDITION
-   </button>
-
-   <button class="edition" onclick="selectEdition('Bedrock')">
-    BEDROCK EDITION
-   </button>
+   <button class="edition" onclick="selectEdition('Java')">JAVA EDITION</button>
+   <button class="edition" onclick="selectEdition('Bedrock')">BEDROCK EDITION</button>
   </div>
 
   <div id="usernameForm">
    <h2 id="editionTitle">JAVA LOGIN</h2>
    <p>Enter your Minecraft username.</p>
    <input type="text" id="username" placeholder="Minecraft Username" maxlength="16">
-   <button class="btn btn-primary" style="width:100%;margin-top:10px" onclick="submitLogin()">
-    CONTINUE
-   </button>
+   <button class="btn btn-primary" style="width:100%;margin-top:10px" onclick="submitLogin()">CONTINUE</button>
    <button class="back" onclick="backToEdition()">← BACK</button>
   </div>
-
  </div>
 </div>
 

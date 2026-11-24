@@ -4,10 +4,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VAJRA SMP | Official Coin Store</title>
+
+<title>VAJRA SMP | Premium Coin Store</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
 
 body{
 font-family:Arial,sans-serif;
@@ -16,8 +21,10 @@ color:white;
 min-height:100vh;
 }
 
+/* HEADER */
+
 header{
-padding:14px 7%;
+padding:17px 7%;
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -25,37 +32,77 @@ background:#11162a;
 border-bottom:1px solid #ffffff18;
 }
 
-.logo{font-size:21px;font-weight:900;letter-spacing:2px}
-nav a{color:white;text-decoration:none;margin-left:22px;font-weight:bold;font-size:13px}
+.logo{
+font-size:23px;
+font-weight:900;
+letter-spacing:2px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:22px;
+font-weight:bold;
+font-size:13px;
+transition:.2s;
+}
+
+nav a:hover{
+color:#f6c65b;
+}
+
+/* HERO */
 
 .hero{
 text-align:center;
-padding:45px 20px 55px;
-background:radial-gradient(ellipse at top,#47317a,#17172f 60%,#0d1020);
+padding:55px 20px 65px;
+background:
+radial-gradient(ellipse at top,#563b91,#211b43 55%,#0d1020);
 }
 
 .server-logo{
-width:190px;
-height:150px;
+width:320px;
+height:240px;
+max-width:85vw;
 object-fit:contain;
-filter:drop-shadow(0 0 25px #9b73ff);
+filter:drop-shadow(0 0 35px #9b73ff);
+transition:.3s;
+}
+
+.server-logo:hover{
+transform:scale(1.04);
 }
 
 .hero h1{
 font-size:clamp(32px,6vw,55px);
 font-weight:1000;
-margin:12px 0;
+margin:10px 0;
 letter-spacing:2px;
 }
 
-.hero h1 span{color:#f6c65b}
-.hero p{color:#c2c4d8;line-height:1.7}
+.hero h1 span{
+color:#f6c65b;
+}
 
-.container{max-width:1150px;margin:auto;padding:35px 20px 70px}
+.hero p{
+color:#d0cbe7;
+line-height:1.8;
+font-size:15px;
+}
+
+/* MAIN */
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:40px 20px 75px;
+}
+
+/* SECTIONS */
 
 .section{
-margin-bottom:55px;
-padding:28px;
+margin-bottom:65px;
+padding:30px;
 border-radius:25px;
 background:#171c30;
 border:1px solid #ffffff16;
@@ -72,73 +119,103 @@ background:linear-gradient(145deg,#28151f,#171c30);
 box-shadow:0 15px 45px #ff263012;
 }
 
-.section-heading{text-align:center;margin-bottom:25px}
-
-.section-heading h2{
-font-size:clamp(26px,4vw,38px);
-margin-bottom:10px;
+.section-heading{
+text-align:center;
+margin-bottom:30px;
 }
 
-.survival h2{color:#54e39a}
-.lifesteal h2{color:#ff6570}
+.section-heading h2{
+font-size:clamp(27px,4vw,40px);
+margin-bottom:12px;
+}
 
-.section-heading p{color:#aeb5c9;font-size:14px;line-height:1.6}
+.survival .section-heading h2{
+color:#54e39a;
+}
+
+.lifesteal .section-heading h2{
+color:#ff6570;
+}
+
+.section-heading p{
+color:#aeb5c9;
+font-size:14px;
+line-height:1.7;
+}
+
+/* COIN CARDS */
 
 .grid{
 display:grid;
 grid-template-columns:repeat(4,1fr);
-gap:18px;
+gap:20px;
 }
 
 .card{
 background:#222941;
 border:1px solid #ffffff16;
-border-radius:19px;
-padding:20px 13px;
+border-radius:20px;
+padding:20px 14px;
 text-align:center;
 transition:.3s;
 }
 
-.card:hover{transform:translateY(-8px);border-color:#f4c75d}
+.card:hover{
+transform:translateY(-9px);
+border-color:#f4c75d;
+box-shadow:0 15px 35px #eab83c18;
+}
+
+.lifesteal .card:hover{
+border-color:#ff6570;
+box-shadow:0 15px 35px #ff263018;
+}
+
+/* CHEST */
 
 .chest{
-height:140px;
+height:150px;
 display:flex;
 align-items:center;
 justify-content:center;
+overflow:hidden;
 }
 
 .chest img{
 width:100%;
-height:135px;
+height:145px;
 object-fit:contain;
-filter:drop-shadow(0 0 13px #e8b83f);
-animation:float 3s ease-in-out infinite;
+filter:drop-shadow(0 0 15px #e8b83f);
+animation:floatChest 3s ease-in-out infinite;
 }
 
-@keyframes float{
-0%,100%{transform:translateY(0)}
-50%{transform:translateY(-8px)}
+@keyframes floatChest{
+0%,100%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(-10px);
+}
 }
 
 .coin-count{
-font-size:22px;
+font-size:23px;
 font-weight:900;
-margin:12px 0;
+margin:13px 0;
 color:#f5ca65;
 }
 
 .price{
-font-size:30px;
+font-size:32px;
 font-weight:900;
-margin:8px 0 16px;
+margin:10px 0 17px;
 }
 
 .buy{
 width:100%;
-padding:13px;
+padding:14px;
 border:0;
-border-radius:11px;
+border-radius:12px;
 background:linear-gradient(135deg,#eab84c,#ffe39a);
 color:#392606;
 font-weight:900;
@@ -151,37 +228,95 @@ background:linear-gradient(135deg,#e84955,#ff8a74);
 color:white;
 }
 
-.lifesteal .card:hover{border-color:#ff6570}
-
 .note{
 text-align:center;
 color:#9ba5bd;
 font-size:13px;
-margin-top:24px;
+margin-top:25px;
 }
+
+/* FOOTER */
 
 footer{
 text-align:center;
-padding:25px;
+padding:28px;
 background:#11162a;
 color:#8992aa;
 font-size:13px;
 }
 
-@media(max-width:850px){
-.grid{grid-template-columns:repeat(2,1fr)}
+/* RESPONSIVE */
+
+@media(max-width:900px){
+.grid{
+grid-template-columns:repeat(2,1fr);
+}
 }
 
-@media(max-width:480px){
-header{padding:15px 5%}
-nav a{margin-left:12px;font-size:11px}
-.section{padding:18px 12px}
-.grid{gap:12px}
-.card{padding:15px 9px}
-.chest{height:115px}
-.chest img{height:110px}
-.coin-count{font-size:18px}
-.price{font-size:25px}
+@media(max-width:550px){
+
+header{
+padding:15px 5%;
+}
+
+.logo{
+font-size:18px;
+}
+
+nav a{
+margin-left:12px;
+font-size:11px;
+}
+
+.hero{
+padding:40px 15px 50px;
+}
+
+.server-logo{
+width:280px;
+height:210px;
+max-width:90vw;
+}
+
+.section{
+padding:20px 12px;
+border-radius:19px;
+}
+
+.grid{
+gap:12px;
+}
+
+.card{
+padding:15px 9px;
+}
+
+.chest{
+height:120px;
+}
+
+.chest img{
+height:115px;
+}
+
+.coin-count{
+font-size:18px;
+}
+
+.price{
+font-size:26px;
+}
+
+.buy{
+padding:12px 5px;
+font-size:11px;
+}
+}
+
+@media(max-width:360px){
+.grid{
+grid-template-columns:1fr;
+}
 }
 </style>
 </head>
@@ -190,20 +325,30 @@ nav a{margin-left:12px;font-size:11px}
 
 <header>
 <div class="logo">⚡ VAJRA SMP</div>
+
 <nav>
 <a href="/">HOME</a>
 <a href="/store/">RANK STORE</a>
 </nav>
 </header>
 
+<!-- MAIN SERVER LOGO -->
+
 <section class="hero">
-<img class="server-logo"
+
+<img
+class="server-logo"
 src="../assets/vajra-logo.png"
-alt="VAJRA SMP Logo">
+alt="VAJRA SMP Official Logo"
+>
 
 <h1>OFFICIAL <span>COIN STORE</span></h1>
-<p>Choose your world. Unlock your rewards.<br>
-Welcome to the VAJRA SMP Premium Store.</p>
+
+<p>
+Choose your world. Unlock your rewards.<br>
+Welcome to the VAJRA SMP Premium Store.
+</p>
+
 </section>
 
 <main class="container">
@@ -256,9 +401,10 @@ Welcome to the VAJRA SMP Premium Store.</p>
 </div>
 
 </div>
-<p class="note">Survival Coin purchases are coming soon!</p>
-</section>
 
+<p class="note">Survival Coin purchases are coming soon!</p>
+
+</section>
 
 <!-- LIFESTEAL STORE -->
 
@@ -308,7 +454,9 @@ Welcome to the VAJRA SMP Premium Store.</p>
 </div>
 
 </div>
+
 <p class="note">Lifesteal Coin purchases are coming soon!</p>
+
 </section>
 
 </main>

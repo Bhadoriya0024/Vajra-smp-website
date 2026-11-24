@@ -1,36 +1,137 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VAJRA SMP | Premium Coin Store</title>
+
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:linear-gradient(135deg,#f5f8ff,#edf2ff);color:#18243a;min-height:100vh}
-header{padding:20px 7%;display:flex;justify-content:space-between;align-items:center;background:white;box-shadow:0 4px 20px #15264a12}
+
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#f5f8ff,#edf2ff);
+color:#18243a;
+min-height:100vh
+}
+
+header{
+padding:20px 7%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:white;
+box-shadow:0 4px 20px #15264a12
+}
+
 .logo{font-size:23px;font-weight:900;letter-spacing:1px}
-nav a{text-decoration:none;color:#34445e;font-weight:bold;margin-left:20px}
+
+nav a{
+text-decoration:none;
+color:#34445e;
+font-weight:bold;
+margin-left:20px
+}
+
 .hero{text-align:center;padding:45px 20px 25px}
-.tag{display:inline-block;background:#fff2cf;color:#a36b00;padding:8px 15px;border-radius:30px;font-size:12px;font-weight:bold}
+
+.tag{
+display:inline-block;
+background:#fff2cf;
+color:#a36b00;
+padding:8px 15px;
+border-radius:30px;
+font-size:12px;
+font-weight:bold
+}
+
 h1{font-size:clamp(30px,5vw,48px);margin:18px 0 10px}
+
 .hero p{color:#65738a;line-height:1.7}
+
 .container{max-width:1050px;margin:auto;padding:25px 20px 70px}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.card{background:white;border:1px solid #e5eaf3;border-radius:22px;padding:22px 14px;text-align:center;box-shadow:0 12px 30px #23385b0c;transition:.25s}
-.card:hover{transform:translateY(-7px);box-shadow:0 18px 35px #23385b20}
-.chest{height:145px;display:flex;align-items:center;justify-content:center}
-.chest img{width:100%;height:140px;object-fit:contain}
-.coins{font-size:22px;font-weight:900;margin:10px 0;color:#bd8215}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px
+}
+
+.card{
+background:white;
+border:1px solid #e5eaf3;
+border-radius:22px;
+padding:22px 14px;
+text-align:center;
+box-shadow:0 12px 30px #23385b0c;
+transition:.25s
+}
+
+.card:hover{
+transform:translateY(-7px);
+box-shadow:0 18px 35px #23385b20
+}
+
+.chest{
+height:145px;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden
+}
+
+.chest img{
+width:100%;
+height:140px;
+object-fit:contain;
+filter:drop-shadow(0 0 12px #eab83c);
+animation:floatChest 3s ease-in-out infinite
+}
+
+@keyframes floatChest{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-9px)}
+}
+
+.coins{
+font-size:22px;
+font-weight:900;
+margin:10px 0;
+color:#bd8215
+}
+
 .price{font-size:27px;font-weight:900;margin:8px 0 15px}
-.buy{display:block;width:100%;padding:12px;border:0;border-radius:12px;background:linear-gradient(135deg,#e9b94f,#f3d47c);color:#49300a;font-weight:900;font-size:14px}
+
+.buy{
+display:block;
+width:100%;
+padding:12px;
+border:0;
+border-radius:12px;
+background:linear-gradient(135deg,#e9b94f,#f3d47c);
+color:#49300a;
+font-weight:900;
+font-size:14px
+}
+
 .note{text-align:center;color:#8490a3;font-size:13px;margin-top:28px}
+
 footer{text-align:center;padding:25px;color:#8290a4}
-@media(max-width:750px){.grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:380px){.grid{grid-template-columns:1fr}}
+
+@media(max-width:750px){
+.grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:380px){
+.grid{grid-template-columns:1fr}
+}
 </style>
 </head>
+
 <body>
+
 <header>
 <div class="logo">⚡ VAJRA SMP</div>
 <nav>
@@ -42,43 +143,55 @@ footer{text-align:center;padding:25px;color:#8290a4}
 <section class="hero">
 <span class="tag">✦ OFFICIAL COIN SHOP</span>
 <h1>Premium Coin Store</h1>
-<p>Unlock more possibilities with VAJRA Coins.<br>Choose your treasure chest below!</p>
+<p>Unlock more possibilities with VAJRA Coins.<br>
+Choose your treasure chest below!</p>
 </section>
 
 <main class="container">
 <div class="grid">
 
 <div class="card">
-<div class="chest"><img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f4e6/512.gif" alt="Treasure chest"></div>
+<div class="chest">
+<img src="../assets/a_clean_transparent_background_illustration_sheet.png" alt="VAJRA Treasure Chest">
+</div>
 <div class="coins">100 COINS</div>
 <div class="price">₹30</div>
 <button class="buy">COMING SOON</button>
 </div>
 
 <div class="card">
-<div class="chest"><img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f4e6/512.gif" alt="Treasure chest"></div>
+<div class="chest">
+<img src="../assets/a_clean_transparent_background_illustration_sheet.png" alt="VAJRA Treasure Chest">
+</div>
 <div class="coins">200 COINS</div>
 <div class="price">₹60</div>
 <button class="buy">COMING SOON</button>
 </div>
 
 <div class="card">
-<div class="chest"><img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f4e6/512.gif" alt="Treasure chest"></div>
+<div class="chest">
+<img src="../assets/a_clean_transparent_background_illustration_sheet.png" alt="VAJRA Treasure Chest">
+</div>
 <div class="coins">400 COINS</div>
 <div class="price">₹120</div>
 <button class="buy">COMING SOON</button>
 </div>
 
 <div class="card">
-<div class="chest"><img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f4e6/512.gif" alt="Treasure chest"></div>
+<div class="chest">
+<img src="../assets/a_clean_transparent_background_illustration_sheet.png" alt="VAJRA Treasure Chest">
+</div>
 <div class="coins">1000 COINS</div>
 <div class="price">₹240</div>
 <button class="buy">COMING SOON</button>
 </div>
 
 </div>
+
 <p class="note">Coin purchases are not available yet. Stay tuned!</p>
 </main>
+
 <footer>© 2026 VAJRA SMP. All Rights Reserved.</footer>
+
 </body>
 </html>

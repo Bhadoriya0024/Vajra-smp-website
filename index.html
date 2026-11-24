@@ -81,15 +81,15 @@ header{
  color:#fff;
 }
 .brand span{color:var(--blue)}
-.brand-mark{
- width:40px;height:40px;
- border:2px solid var(--blue);
- background:linear-gradient(135deg,#243b78,#10172b);
- display:grid;place-items:center;
- color:var(--gold);
- box-shadow:0 0 15px #38bdf855;
- font-size:19px;
+
+/* ORIGINAL VAJRA LOGO IN NAVBAR */
+.nav-logo{
+ width:52px;
+ height:52px;
+ object-fit:contain;
+ filter:drop-shadow(0 0 10px #38bdf855);
 }
+
 .nav-links{
  display:flex;
  align-items:center;
@@ -509,6 +509,7 @@ footer span{color:var(--blue)}
  .logo{height:150px}
  .section-title{font-size:17px}
  .brand{font-size:12px}
+ .nav-logo{width:43px;height:43px}
 }
 @media(max-width:480px){
  section{padding:65px 17px}
@@ -526,7 +527,7 @@ footer span{color:var(--blue)}
 <header>
 <nav class="nav">
  <a href="#home" class="brand">
-  <div class="brand-mark">V</div>
+  <img src="assets/vajra-logo.png" class="nav-logo" alt="VAJRA SMP Logo">
   VAJRA <span>SMP</span>
  </a>
 
@@ -718,6 +719,7 @@ footer span{color:var(--blue)}
  <span>BUILT FOR MINECRAFT PLAYERS</span>
 </footer>
 
+<!-- LOGIN POPUP -->
 <div class="popup" id="loginPopup">
  <div class="popup-box">
   <button class="close" onclick="closeLogin()">×</button>

@@ -2,283 +2,510 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="google-site-verification" content="DawQEBBcU5eHMi6YFnlGIYB2sjlM2h6r9orqC34-Ai8" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#eaf7ff">
-<meta name="description" content="VAJRA SMP — The Elemental Minecraft Network. Coming soon.">
-<title>VAJRA SMP | The Elemental Network</title>
+<meta name="google-site-verification" content="DawQEBBcU5eHMi6YFnlGIYB2sjlM2h6r9orqC34-Ai8">
+<title>VAJRA SMP | Minecraft Network</title>
+<meta name="description" content="Welcome to VAJRA SMP - A premium Minecraft network featuring Survival, Lifesteal and PvP.">
+<meta name="theme-color" content="#080b19">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Rajdhani:wght@600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-:root{--ink:#101a36;--muted:#5d6d8c;--blue:#087cf0;--cyan:#20c8ee;--line:#d6e8f7;--white:#fff;--navy:#101d3d;--shadow:0 18px 55px rgba(34,91,145,.13)}
-*{box-sizing:border-box}
+*{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;color:var(--ink);font-family:Inter,system-ui,sans-serif;background:radial-gradient(ellipse at 8% 4%,#d9f5ff 0,transparent 31%),radial-gradient(ellipse at 93% 18%,#e9e0ff 0,transparent 29%),linear-gradient(135deg,#f8fcff 0%,#edf7ff 48%,#f7f5ff 100%);min-height:100vh}
-a{color:inherit;text-decoration:none}
-button{font:inherit;cursor:pointer}
-.wrap{width:min(1160px,92%);margin:auto}
+body{
+ background:#080b19;
+ color:#fff;
+ font-family:'Rajdhani',sans-serif;
+ overflow-x:hidden;
+}
+:root{
+ --blue:#38bdf8;
+ --purple:#a855f7;
+ --gold:#ffd166;
+ --dark:#080b19;
+ --card:#10172b;
+}
+.pixel{font-family:'Press Start 2P',cursive}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer}
 
-header{position:sticky;top:0;z-index:20;background:rgba(250,253,255,.84);backdrop-filter:blur(18px);border-bottom:1px solid rgba(180,211,238,.75)}
-.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand{display:flex;align-items:center;gap:11px;font-weight:900;letter-spacing:-.8px;font-size:21px}
-.brand img{width:54px;height:48px;object-fit:contain}
-.brand span{color:var(--blue)}
-.navlinks{display:flex;align-items:center;gap:7px}
-.navlinks button,.mobilelinks button{border:0;background:transparent;padding:11px 14px;border-radius:12px;color:#53627f;font-weight:700;font-size:13px}
-.navlinks button:hover,.navlinks button.active{background:#e6f4ff;color:#087cf0}
-.play{background:linear-gradient(110deg,#087cf0,#20c8ee)!important;color:white!important;box-shadow:0 8px 20px #1c9be544}
-.menu{display:none;border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px;color:var(--ink)}
-.mobilelinks{display:none;padding:0 0 12px;flex-wrap:wrap}
-.mobilelinks.show{display:flex}
-
-.login-btn{
-border:0!important;
-background:linear-gradient(110deg,#6548e8,#087cf0)!important;
-color:white!important;
-box-shadow:0 8px 20px #6548e844;
+body:before{
+ content:"";
+ position:fixed;
+ inset:0;
+ z-index:-2;
+ background:
+ radial-gradient(ellipse at 15% 15%,#25205c 0%,transparent 38%),
+ radial-gradient(ellipse at 85% 55%,#102c55 0%,transparent 35%),
+ #080b19;
+}
+body:after{
+ content:"";
+ position:fixed;
+ inset:0;
+ z-index:-1;
+ opacity:.12;
+ pointer-events:none;
+ background-image:
+ linear-gradient(#ffffff10 1px,transparent 1px),
+ linear-gradient(90deg,#ffffff10 1px,transparent 1px);
+ background-size:40px 40px;
 }
 
-main{padding:34px 0 70px}
-.hero{position:relative;overflow:hidden;border:1px solid #d5e9fa;border-radius:32px;background:linear-gradient(120deg,rgba(255,255,255,.94),rgba(232,247,255,.91) 55%,rgba(239,235,255,.94));box-shadow:var(--shadow);padding:clamp(28px,6vw,70px);min-height:440px;display:flex;align-items:center}
-.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;pointer-events:none}
-.hero:before{width:370px;height:370px;right:-75px;top:-145px;background:radial-gradient(circle,#7edfff77,transparent 68%)}
-.hero:after{width:300px;height:300px;right:13%;bottom:-210px;background:radial-gradient(circle,#9d8bff55,transparent 70%)}
-.hero-content{position:relative;z-index:1;max-width:700px}
-.eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid #b8e7ff;background:#e9f8ff;color:#0875d8;padding:9px 14px;border-radius:999px;font-size:11px;font-weight:900;letter-spacing:1.7px}
-.dot{width:8px;height:8px;background:#18c98b;border-radius:50%;box-shadow:0 0 0 5px #18c98b22}
-.hero-logo{width:min(260px,65vw);height:auto;object-fit:contain;display:block;margin:25px 0 8px;filter:drop-shadow(0 12px 15px #0a5a9c20)}
-h1{font-size:clamp(42px,7vw,76px);line-height:.98;letter-spacing:-4px;margin:12px 0 18px;font-weight:900}
-.gradient{background:linear-gradient(100deg,#087cf0,#16bce5 55%,#795cf4);-webkit-background-clip:text;background-clip:text;color:transparent}
-.lead{font-size:clamp(15px,2vw,18px);line-height:1.8;color:var(--muted);max-width:610px;margin:0 0 26px}
-.actions{display:flex;gap:12px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 20px;border-radius:14px;border:1px solid transparent;font-weight:800;font-size:13px;transition:.2s}
-.btn:hover{transform:translateY(-2px)}
-.primary{background:linear-gradient(110deg,#087cf0,#20c8ee);color:#fff;box-shadow:0 10px 24px #138fe43b}
-.secondary{background:#fff;border-color:#cfe4f5;color:#23517c}
-.hero-note{margin-top:22px;display:flex;gap:18px;flex-wrap:wrap;color:#637590;font-size:12px;font-weight:700}
-.hero-note span:before{content:"✦";color:#0ca7ed;margin-right:7px}
+/* NAVBAR */
+header{
+ position:sticky;
+ top:0;
+ z-index:100;
+ background:#080b19eF;
+ border-bottom:1px solid #ffffff18;
+ backdrop-filter:blur(15px);
+}
+.nav{
+ max-width:1250px;
+ margin:auto;
+ padding:14px 22px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:20px;
+}
+.brand{
+ display:flex;
+ align-items:center;
+ gap:12px;
+ font-family:'Press Start 2P';
+ font-size:15px;
+ color:#fff;
+}
+.brand span{color:var(--blue)}
+.brand-mark{
+ width:40px;height:40px;
+ border:2px solid var(--blue);
+ background:linear-gradient(135deg,#243b78,#10172b);
+ display:grid;place-items:center;
+ color:var(--gold);
+ box-shadow:0 0 15px #38bdf855;
+ font-size:19px;
+}
+.nav-links{
+ display:flex;
+ align-items:center;
+ gap:22px;
+}
+.nav-links a{
+ font-weight:800;
+ font-size:15px;
+ letter-spacing:1px;
+ color:#cbd5e1;
+ transition:.2s;
+}
+.nav-links a:hover{color:var(--blue)}
+.nav-btn{
+ padding:11px 16px;
+ background:linear-gradient(135deg,#2563eb,#9333ea);
+ border:1px solid #93c5fd;
+ color:white!important;
+ box-shadow:0 0 15px #3b82f655;
+}
+.menu-btn{
+ display:none;
+ background:none;
+ color:white;
+ border:1px solid #ffffff33;
+ padding:9px 12px;
+ font-size:22px;
+}
 
-.section{padding:72px 0 0;scroll-margin-top:95px}
-.section-head{margin-bottom:24px}
-.kicker{font-size:11px;letter-spacing:2px;color:#087cf0;font-weight:900;text-transform:uppercase}
-.section h2{font-size:clamp(30px,4vw,44px);letter-spacing:-1.8px;margin:8px 0 10px}
-.sub{color:var(--muted);line-height:1.7;max-width:680px;margin:0}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.card{background:rgba(255,255,255,.85);border:1px solid var(--line);border-radius:22px;padding:23px;box-shadow:0 10px 28px rgba(40,91,140,.07)}
-.card-icon{width:45px;height:45px;border-radius:14px;background:linear-gradient(135deg,#e3f7ff,#eeeaff);display:grid;place-items:center;font-size:22px;margin-bottom:16px}
-.card h3{margin:0 0 8px;font-size:18px}
-.card p{margin:0;color:var(--muted);line-height:1.7;font-size:13px}
+/* HERO */
+.hero{
+ min-height:660px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ text-align:center;
+ padding:75px 20px 85px;
+ position:relative;
+ overflow:hidden;
+}
+.hero:before{
+ content:"";
+ position:absolute;
+ width:600px;height:600px;
+ background:#3b82f6;
+ filter:blur(180px);
+ opacity:.13;
+ border-radius:50%;
+}
+.hero-content{position:relative;max-width:900px}
+.logo{
+ width:250px;
+ max-width:70%;
+ height:190px;
+ object-fit:contain;
+ filter:drop-shadow(0 0 25px #38bdf855);
+ margin-bottom:20px;
+}
+.status{
+ display:inline-block;
+ padding:11px 17px;
+ border:1px solid #ffd16677;
+ background:#ffd16612;
+ color:var(--gold);
+ font-size:12px;
+ letter-spacing:2px;
+ margin-bottom:28px;
+}
+.hero h1{
+ font-family:'Press Start 2P';
+ font-size:clamp(25px,5vw,48px);
+ line-height:1.6;
+ text-shadow:4px 4px #1e3a8a;
+}
+.hero h1 span{
+ color:var(--blue);
+ text-shadow:0 0 25px #38bdf899;
+}
+.hero p{
+ max-width:650px;
+ margin:22px auto 30px;
+ color:#cbd5e1;
+ font-size:21px;
+ line-height:1.6;
+}
+.buttons{
+ display:flex;
+ justify-content:center;
+ flex-wrap:wrap;
+ gap:14px;
+}
+.btn{
+ display:inline-block;
+ padding:16px 24px;
+ font-weight:900;
+ font-size:15px;
+ letter-spacing:1px;
+ border:1px solid #ffffff44;
+ transition:.25s;
+}
+.btn:hover{transform:translateY(-4px);filter:brightness(1.2)}
+.btn-primary{
+ background:linear-gradient(135deg,#2563eb,#7c3aed);
+ box-shadow:0 5px 0 #172554,0 0 20px #3b82f655;
+}
+.btn-secondary{
+ background:#111a31;
+ border-color:#38bdf866;
+ color:var(--blue);
+}
+.hero-bottom{
+ margin-top:35px;
+ color:#94a3b8;
+ font-size:13px;
+ letter-spacing:2px;
+}
 
-.staff{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.staff-card{display:flex;align-items:center;gap:17px;background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 10px 28px rgba(40,91,140,.07)}
-.avatar{width:60px;height:60px;flex:0 0 60px;border-radius:18px;background:linear-gradient(135deg,#dff6ff,#eae4ff);display:grid;place-items:center;font-size:25px}
-.role{font-size:10px;font-weight:900;letter-spacing:1.5px;color:#087cf0}
-.staff-card h3{margin:5px 0;font-size:19px}
-.staff-card p{margin:0;color:var(--muted);font-size:12px}
+/* SECTIONS */
+section{padding:85px 22px}
+.container{max-width:1150px;margin:auto}
+.section-head{text-align:center;margin-bottom:45px}
+.eyebrow{
+ color:var(--blue);
+ font-weight:800;
+ letter-spacing:4px;
+ font-size:13px;
+ margin-bottom:17px;
+}
+.section-title{
+ font-family:'Press Start 2P';
+ font-size:clamp(17px,3vw,27px);
+ line-height:1.8;
+}
+.section-desc{
+ color:#94a3b8;
+ font-size:18px;
+ margin-top:12px;
+}
 
-.rules{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.rule{background:#fff;border:1px solid var(--line);border-radius:17px;padding:17px;display:flex;gap:13px}
-.rule-num{width:31px;height:31px;flex:0 0 31px;border-radius:10px;background:#e8f6ff;color:#087cf0;display:grid;place-items:center;font-size:11px;font-weight:900}
-.rule h3{font-size:14px;margin:1px 0 6px}
-.rule p{font-size:12px;line-height:1.65;color:var(--muted);margin:0}
+/* GAME MODES */
+.modes{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:22px;
+}
+.mode-card{
+ background:linear-gradient(145deg,#151f39,#0d1325);
+ border:1px solid #ffffff1c;
+ padding:30px 22px;
+ text-align:center;
+ position:relative;
+ overflow:hidden;
+ transition:.3s;
+}
+.mode-card:hover{
+ transform:translateY(-8px);
+ border-color:var(--blue);
+ box-shadow:0 10px 35px #38bdf822;
+}
+.mode-icon{
+ font-size:50px;
+ margin-bottom:22px;
+}
+.mode-card h3{
+ font-family:'Press Start 2P';
+ font-size:13px;
+ line-height:2;
+ margin-bottom:12px;
+}
+.mode-card p{color:#aab8cf;font-size:17px;line-height:1.5}
+.survival{border-top:3px solid #4ade80}
+.lifesteal{border-top:3px solid #ef4444}
+.pvp{border-top:3px solid #facc15}
 
-.store-banner{border-radius:24px;padding:28px;background:linear-gradient(110deg,#102c58,#176bb0 60%,#6250b8);color:white;margin-bottom:18px;position:relative;overflow:hidden}
-.store-banner:after{content:"⚡";position:absolute;right:28px;top:-30px;font-size:150px;color:#ffffff18;transform:rotate(12deg)}
-.store-banner h3{font-size:26px;margin:0 0 8px}
-.store-banner p{margin:0;color:#d9edff;font-size:13px;max-width:570px;line-height:1.6}
-.rank-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.rank{background:#fff;border:1px solid var(--line);border-radius:21px;padding:20px;text-align:left;box-shadow:0 10px 25px rgba(40,91,140,.07);transition:.2s}
-.rank:hover{transform:translateY(-5px);border-color:#8bcfff;box-shadow:0 15px 30px #218fe51c}
-.rank-gem{width:43px;height:43px;border-radius:14px;background:linear-gradient(135deg,#e6f7ff,#eeeaff);display:grid;place-items:center;font-size:22px}
-.rank h3{margin:14px 0 5px;font-size:17px}
-.price{font-size:25px;font-weight:900;color:#087cf0}
-.rank small{display:block;color:var(--muted);font-size:11px;margin-top:8px}
-.rank-detail{display:none;margin-top:16px;background:#fff;border:1px solid #b9e0fa;border-radius:22px;padding:24px;box-shadow:var(--shadow)}
-.rank-detail.show{display:block}
-.detail-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.detail-top h3{font-size:25px;margin:0}
-.close{border:1px solid var(--line);background:#f4faff;border-radius:10px;padding:8px 12px;color:#42617d;font-weight:800}
-.notice{margin-top:14px;background:#eef8ff;border-radius:13px;padding:13px;color:#416584;font-size:12px;line-height:1.6}
+/* ABOUT */
+.about{
+ background:linear-gradient(90deg,#111a31aa,#111a31aa);
+ border-top:1px solid #ffffff12;
+ border-bottom:1px solid #ffffff12;
+}
+.about-box{
+ max-width:850px;
+ margin:auto;
+ text-align:center;
+}
+.about-box p{
+ color:#bdc9dc;
+ font-size:19px;
+ line-height:1.8;
+ margin-top:20px;
+}
+.features{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:15px;
+ margin-top:35px;
+}
+.feature{
+ background:#101a30;
+ border:1px solid #ffffff18;
+ padding:20px 12px;
+ color:#dbeafe;
+ font-weight:800;
+ font-size:16px;
+}
 
-.join-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-.join-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px}
-.join-card .big{font-size:27px;font-weight:900;color:#087cf0;margin:10px 0}
-.join-card p{font-size:12px;color:var(--muted);line-height:1.6;margin:0}
+/* STORE */
+.store-grid{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:22px;
+}
+.store-card{
+ padding:35px 25px;
+ background:linear-gradient(145deg,#17213b,#0c1223);
+ border:1px solid #ffffff22;
+ text-align:center;
+ transition:.3s;
+}
+.store-card:hover{transform:translateY(-7px);border-color:var(--gold)}
+.store-card .store-icon{font-size:48px;margin-bottom:20px}
+.store-card h3{
+ font-family:'Press Start 2P';
+ font-size:15px;
+ line-height:2;
+}
+.store-card p{color:#aab8cf;font-size:17px;margin:15px 0 23px}
+.store-card .btn{font-size:13px}
+.rank{border-bottom:3px solid #a855f7}
+.coin{border-bottom:3px solid #facc15}
 
-footer{margin-top:75px;background:#102344;color:#fff;padding:35px 0}
-.foot{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
-.foot-brand{font-size:20px;font-weight:900}
-.foot p{color:#b8cbe1;font-size:11px;margin:7px 0 0}
-.foot-nav{display:flex;gap:8px;flex-wrap:wrap}
-.foot-nav button{border:1px solid #ffffff24;background:#ffffff0d;color:#e6f4ff;border-radius:10px;padding:9px 12px;font-size:11px;font-weight:700}
+/* RULES */
+.rules{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:15px;
+}
+.rule{
+ display:flex;
+ align-items:center;
+ gap:15px;
+ padding:18px;
+ background:#10172b;
+ border:1px solid #ffffff15;
+ color:#cbd5e1;
+ font-size:17px;
+ font-weight:700;
+}
+.rule b{
+ color:var(--gold);
+ font-family:'Press Start 2P';
+ font-size:12px;
+}
+
+/* STAFF */
+.staff-grid{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:22px;
+ max-width:750px;
+ margin:auto;
+}
+.staff-card{
+ text-align:center;
+ background:#111a30;
+ border:1px solid #ffffff20;
+ padding:30px 20px;
+}
+.staff-avatar{
+ width:75px;height:75px;
+ margin:0 auto 18px;
+ display:grid;place-items:center;
+ font-size:35px;
+ background:linear-gradient(135deg,#1d4ed8,#7c3aed);
+ border:2px solid #93c5fd;
+}
+.staff-card h3{font-size:22px;font-weight:900}
+.staff-card p{
+ color:var(--gold);
+ font-weight:800;
+ letter-spacing:2px;
+ margin-top:8px;
+}
+
+/* JOIN */
+.join{
+ text-align:center;
+ background:linear-gradient(135deg,#142b50,#24184a);
+ border-top:1px solid #38bdf855;
+ border-bottom:1px solid #a855f755;
+}
+.join p{
+ color:#cbd5e1;
+ font-size:19px;
+ margin:20px 0 28px;
+}
+.server-box{
+ display:inline-flex;
+ align-items:center;
+ gap:12px;
+ padding:16px 22px;
+ background:#080b19;
+ border:1px solid #38bdf866;
+ color:var(--blue);
+ font-weight:900;
+ font-size:18px;
+ margin-bottom:25px;
+}
+
+/* FOOTER */
+footer{
+ padding:30px 20px;
+ text-align:center;
+ color:#64748b;
+ border-top:1px solid #ffffff16;
+ font-size:15px;
+}
+footer span{color:var(--blue)}
 
 /* LOGIN POPUP */
-.login-overlay{
-position:fixed;
-inset:0;
-z-index:1000;
-background:rgba(7,16,38,.75);
-backdrop-filter:blur(9px);
-display:none;
-align-items:center;
-justify-content:center;
-padding:18px;
+.popup{
+ display:none;
+ position:fixed;
+ inset:0;
+ z-index:200;
+ background:#000c;
+ align-items:center;
+ justify-content:center;
+ padding:20px;
 }
-.login-overlay.show{display:flex}
+.popup.show{display:flex}
+.popup-box{
+ width:100%;
+ max-width:420px;
+ background:#10172b;
+ border:1px solid #38bdf8;
+ box-shadow:0 0 35px #2563eb55;
+ padding:30px;
+ text-align:center;
+ position:relative;
+}
+.close{
+ position:absolute;
+ right:15px;top:12px;
+ background:none;
+ border:0;
+ color:white;
+ font-size:26px;
+}
+.popup-box h2{
+ font-family:'Press Start 2P';
+ font-size:15px;
+ line-height:2;
+ margin:20px 0;
+}
+.popup-box p{color:#94a3b8;margin-bottom:20px}
+.edition{
+ display:block;
+ width:100%;
+ padding:17px;
+ margin:12px 0;
+ border:1px solid #ffffff33;
+ background:#17213b;
+ color:white;
+ font-weight:900;
+ font-size:17px;
+}
+.edition:hover{border-color:var(--blue);color:var(--blue)}
+.popup-box input{
+ width:100%;
+ padding:15px;
+ margin:10px 0;
+ background:#080b19;
+ border:1px solid #38bdf8;
+ color:white;
+ outline:none;
+ font-size:17px;
+}
+.back{
+ background:none;
+ border:0;
+ color:var(--blue);
+ margin-top:15px;
+ font-weight:800;
+}
+#usernameForm{display:none}
 
-.login-modal{
-width:min(440px,100%);
-background:#fff;
-border:1px solid #d6e8f7;
-border-radius:25px;
-padding:28px;
-box-shadow:0 25px 80px #0005;
-position:relative;
-animation:loginPop .25s ease;
-}
-@keyframes loginPop{
-from{opacity:0;transform:translateY(15px) scale(.97)}
-to{opacity:1;transform:translateY(0) scale(1)}
-}
-.login-close{
-position:absolute;
-right:17px;
-top:17px;
-border:1px solid var(--line);
-background:#f4faff;
-border-radius:10px;
-padding:8px 11px;
-color:#42617d;
-font-weight:800;
-}
-.login-brand{
-text-align:center;
-font-size:25px;
-font-weight:900;
-margin:5px 0;
-}
-.login-brand span{color:var(--blue)}
-.login-sub{
-text-align:center;
-color:var(--muted);
-font-size:12px;
-margin:8px 0 25px;
-}
-.edition-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:13px;
-}
-
-/* MINECRAFT STYLE JAVA AND BEDROCK BUTTONS */
-.edition-card{
-border:3px solid #263b59;
-background:linear-gradient(145deg,#eaf7ff,#cce8ff);
-border-radius:8px;
-padding:28px 10px;
-cursor:pointer;
-text-align:center;
-transition:.2s;
-color:#172b49;
-font-family:'Press Start 2P',cursive;
-box-shadow:5px 5px 0 #263b59;
-}
-.edition-card:hover{
-transform:translateY(-4px);
-border-color:#087cf0;
-box-shadow:5px 9px 0 #263b59,0 12px 24px #087cf033;
-}
-.edition-icon{display:none}
-.edition-card strong{
-display:block;
-font-family:'Press Start 2P',cursive;
-font-size:clamp(10px,2vw,14px);
-line-height:1.8;
-margin-bottom:10px;
-}
-.edition-card small{
-display:block;
-color:#49617d;
-font-family:'Press Start 2P',cursive;
-font-size:7px;
-line-height:1.8;
-font-weight:400;
-}
-
-.login-form{display:none}
-.login-form.show{display:block}
-.login-form h3{margin:15px 0;font-size:20px}
-.login-form label{
-display:block;
-font-size:12px;
-font-weight:800;
-margin:20px 0 8px;
-}
-.login-input{
-width:100%;
-padding:14px;
-border:1px solid var(--line);
-border-radius:12px;
-outline:none;
-font:inherit;
-font-size:14px;
-}
-.login-input:focus{border-color:#087cf0;box-shadow:0 0 0 3px #087cf018}
-.login-action{
-width:100%;
-margin-top:17px;
-padding:14px;
-border:0;
-border-radius:12px;
-background:linear-gradient(110deg,#087cf0,#20c8ee);
-color:white;
-font-weight:900;
-cursor:pointer;
-}
-.login-back{
-border:0;
-background:transparent;
-color:#087cf0;
-font-weight:800;
-cursor:pointer;
-padding:8px 0;
-}
-.login-message{
-font-size:12px;
-line-height:1.6;
-color:#53627f;
-margin-top:13px;
-text-align:center;
-min-height:20px;
-}
-
+/* MOBILE */
 @media(max-width:850px){
-.navlinks{display:none}
-.menu{display:block}
-.cards{grid-template-columns:repeat(2,1fr)}
-.rank-grid{grid-template-columns:repeat(2,1fr)}
+ .nav-links{
+  display:none;
+  position:absolute;
+  top:68px;left:0;right:0;
+  background:#080b19;
+  padding:20px;
+  flex-direction:column;
+  border-bottom:1px solid #ffffff22;
+ }
+ .nav-links.open{display:flex}
+ .menu-btn{display:block}
+ .modes{grid-template-columns:1fr}
+ .features{grid-template-columns:1fr}
+ .store-grid{grid-template-columns:1fr}
+ .rules{grid-template-columns:1fr}
+ .hero{min-height:600px}
+ .logo{height:150px}
+ .section-title{font-size:17px}
+ .brand{font-size:12px}
 }
-@media(max-width:580px){
-.nav{height:66px}
-.brand{font-size:18px}
-.brand img{width:45px;height:42px}
-.hero{padding:28px 22px;min-height:0;border-radius:24px}
-.hero-logo{width:190px;margin:20px auto 12px}
-h1{letter-spacing:-2px}
-.hero-content{text-align:center}
-.lead{margin-left:auto;margin-right:auto}
-.actions{justify-content:center}
-.hero-note{justify-content:center}
-.cards,.staff,.rules,.join-grid{grid-template-columns:1fr}
-.section{padding-top:54px}
-.rank-grid{gap:10px}
-.rank{padding:16px}
-.foot{align-items:flex-start;flex-direction:column}
-.login-modal{padding:24px 20px}
+@media(max-width:480px){
+ section{padding:65px 17px}
+ .hero{padding:65px 17px}
+ .hero p{font-size:18px}
+ .btn{width:100%;text-align:center}
+ .staff-grid{grid-template-columns:1fr}
+ .server-box{font-size:14px}
 }
 </style>
 </head>
@@ -286,318 +513,274 @@ h1{letter-spacing:-2px}
 <body>
 
 <header>
-<div class="wrap nav">
-<a class="brand" href="#home">
-<img src="assets/vajra-logo.png" alt="VAJRA SMP logo">
-<div>VAJRA<span>SMP</span></div>
-</a>
+ <nav class="nav">
+  <a href="#home" class="brand">
+   <div class="brand-mark">V</div>
+   VAJRA <span>SMP</span>
+  </a>
 
-<nav class="navlinks" aria-label="Main navigation">
-<button class="active" data-go="home">Home</button>
-<button data-go="about">About</button>
-<button data-go="rules">Rules</button>
-<button data-go="staff">Staff</button>
-<button type="button" onclick="window.location.href='/Vajra-smp-website/store/'">Store</button>
-<button data-go="join">How to join</button>
-<button class="play" data-go="join">COMING SOON ↗</button>
-<button type="button" onclick="window.location.href='/Vajra-smp-website/coinstore/'">🪙 Coin Store</button>
-<button class="login-btn" type="button" onclick="openLogin()">LOGIN ↗</button>
-</nav>
+  <div class="nav-links" id="navLinks">
+   <a href="#home">HOME</a>
+   <a href="#about">ABOUT</a>
+   <a href="#modes">MODES</a>
+   <a href="#rules">RULES</a>
+   <a href="#staff">STAFF</a>
+   <a href="/Vajra-smp-website/store/">RANK STORE</a>
+   <a href="/Vajra-smp-website/coinstore/">COIN STORE</a>
+   <a href="#" class="nav-btn" onclick="openLogin();return false">LOGIN</a>
+  </div>
 
-<button class="menu" id="menuBtn" aria-label="Open menu">☰</button>
-</div>
-
-<div class="wrap mobilelinks" id="mobileLinks">
-<button data-go="home">Home</button>
-<button data-go="about">About</button>
-<button data-go="rules">Rules</button>
-<button data-go="staff">Staff</button>
-<button type="button" onclick="window.location.href='/Vajra-smp-website/store/'">Store</button>
-<button data-go="join">How to join</button>
-<button type="button" onclick="window.location.href='/Vajra-smp-website/coinstore/'">🪙 Coin Store</button>
-<button class="login-btn" type="button" onclick="openLogin()">LOGIN ↗</button>
-</div>
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+ </nav>
 </header>
 
-<main class="wrap">
+<main>
 
 <section class="hero" id="home">
-<div class="hero-content">
-<div class="eyebrow"><span class="dot"></span> THE ELEMENTAL NETWORK · LAUNCHING SOON</div>
-<img class="hero-logo" src="assets/vajra-logo.png" alt="VAJRA SMP original server logo">
-<h1>YOUR WORLD.<br><span class="gradient">YOUR LEGACY.</span></h1>
-<p class="lead">A new Minecraft adventure is taking shape. Prepare for survival, lifesteal and PvP in a world built for players who dare to stand out.</p>
-<div class="actions">
-<button class="btn primary" data-go="join">GET READY TO PLAY <span>↗</span></button>
-<button class="btn secondary" data-go="about">EXPLORE VAJRA</button>
-</div>
-<div class="hero-note"><span>Survival</span><span>Lifesteal</span><span>PvP</span><span>Community first</span></div>
-</div>
+ <div class="hero-content">
+
+  <img src="assets/vajra-logo.png" class="logo"
+       alt="VAJRA SMP Logo"
+       onerror="this.style.display='none'">
+
+  <div class="status pixel">⚡ SERVER COMING SOON ⚡</div>
+
+  <h1>WELCOME TO<br><span>VAJRA SMP</span></h1>
+
+  <p>
+   Enter a world of adventure, build your empire,
+   fight for survival and create your own legacy.
+  </p>
+
+  <div class="buttons">
+   <a href="#modes" class="btn btn-primary">EXPLORE SERVER</a>
+   <a href="#join" class="btn btn-secondary">JOIN COMMUNITY</a>
+  </div>
+
+  <div class="hero-bottom">
+   JAVA EDITION • BEDROCK EDITION • MINECRAFT NETWORK
+  </div>
+ </div>
 </section>
 
-<section class="section" id="about">
-<div class="section-head">
-<div class="kicker">THE VAJRA EXPERIENCE</div>
-<h2>Enter a world of <span class="gradient">possibilities.</span></h2>
-<p class="sub">VAJRA SMP is being prepared as a place to build, battle, explore and make your mark. Choose your path and create your own story.</p>
-</div>
-<div class="cards">
-<article class="card"><div class="card-icon">⚔️</div><h3>Lifesteal</h3><p>Take on challenges, compete with other players and fight your way to the top.</p></article>
-<article class="card"><div class="card-icon">🌍</div><h3>Survival</h3><p>Gather resources, build your base and create something worth protecting.</p></article>
-<article class="card"><div class="card-icon">⚡</div><h3>PvP Arena</h3><p>Sharpen your skills and prove yourself in player-versus-player battles.</p></article>
-</div>
+<section id="modes">
+ <div class="container">
+  <div class="section-head">
+   <div class="eyebrow">CHOOSE YOUR ADVENTURE</div>
+   <h2 class="section-title">OUR GAME MODES</h2>
+   <p class="section-desc">Three ways to experience VAJRA SMP.</p>
+  </div>
+
+  <div class="modes">
+   <div class="mode-card survival">
+    <div class="mode-icon">🌲</div>
+    <h3>SURVIVAL</h3>
+    <p>Gather resources, build your kingdom and survive with your friends.</p>
+   </div>
+
+   <div class="mode-card lifesteal">
+    <div class="mode-icon">❤️</div>
+    <h3>LIFESTEAL</h3>
+    <p>Fight your enemies, take their hearts and become the strongest.</p>
+   </div>
+
+   <div class="mode-card pvp">
+    <div class="mode-icon">⚔️</div>
+    <h3>PVP ARENA</h3>
+    <p>Test your skills, challenge other players and prove your power.</p>
+   </div>
+  </div>
+ </div>
 </section>
 
-<section class="section" id="rules">
-<div class="section-head">
-<div class="kicker">PLAY FAIR · STAY RESPECTFUL</div>
-<h2>Server <span class="gradient">rules.</span></h2>
-<p class="sub">Every player helps shape the community. Follow these rules to keep the server fair, safe and fun.</p>
-</div>
-<div class="rules" id="rulesList"></div>
-<p class="sub" style="font-size:12px;margin-top:15px">Staff may issue warnings, temporary suspensions or permanent bans depending on the severity and frequency of a violation. Rules may be updated before launch.</p>
+<section class="about" id="about">
+ <div class="about-box">
+  <div class="eyebrow">DISCOVER VAJRA</div>
+  <h2 class="section-title">MORE THAN JUST A SERVER</h2>
+  <p>
+   VAJRA SMP is a Minecraft network built for players
+   who love adventure, competition and friendship.
+   Whether you are a builder, fighter or explorer,
+   there is a place for you here.
+  </p>
+
+  <div class="features">
+   <div class="feature">⛏ SURVIVAL ADVENTURE</div>
+   <div class="feature">⚔ COMPETITIVE PVP</div>
+   <div class="feature">👑 BUILD YOUR LEGACY</div>
+  </div>
+ </div>
 </section>
 
-<section class="section" id="staff">
-<div class="section-head">
-<div class="kicker">THE PEOPLE BEHIND THE SERVER</div>
-<h2>Meet the <span class="gradient">team.</span></h2>
-<p class="sub">The team working to bring VAJRA SMP to life.</p>
-</div>
-<div class="staff">
-<article class="staff-card"><div class="avatar">👑</div><div><div class="role">OWNER</div><h3>S07KS</h3><p>Founder · Server owner</p></div></article>
-<article class="staff-card"><div class="avatar">🛡️</div><div><div class="role">ADMIN</div><h3>_NotAaradhay</h3><p>Administration · Community team</p></div></article>
-</div>
+<section id="store">
+ <div class="container">
+  <div class="section-head">
+   <div class="eyebrow">UPGRADE YOUR JOURNEY</div>
+   <h2 class="section-title">VAJRA STORE</h2>
+   <p class="section-desc">Explore exclusive rewards and premium items.</p>
+  </div>
+
+  <div class="store-grid">
+   <div class="store-card rank">
+    <div class="store-icon">👑</div>
+    <h3>RANK STORE</h3>
+    <p>Unlock premium ranks and stand out on the server.</p>
+    <a class="btn btn-primary" href="/Vajra-smp-website/store/">EXPLORE RANKS</a>
+   </div>
+
+   <div class="store-card coin">
+    <div class="store-icon">🪙</div>
+    <h3>COIN STORE</h3>
+    <p>Get coins and discover exciting in-game rewards.</p>
+    <a class="btn btn-secondary" href="/Vajra-smp-website/coinstore/">BUY COINS</a>
+   </div>
+  </div>
+ </div>
 </section>
 
-<section class="section" id="store">
-<div class="section-head">
-<div class="kicker">SUPPORT THE NETWORK</div>
-<h2>VAJRA <span class="gradient">store.</span></h2>
-<p class="sub">Choose a rank to view its details. All prices are in Indian Rupees.</p>
-</div>
-<div class="store-banner">
-<h3>Find your rank. Own your journey.</h3>
-<p>Four rank tiers are planned for the VAJRA community. Select a card below to open its rank details.</p>
-</div>
-<div class="rank-grid" id="rankGrid"></div>
-<div class="rank-detail" id="rankDetail" aria-live="polite">
-<div class="detail-top">
-<h3 id="detailName">Rank</h3>
-<button class="close" id="closeRank">✕ Close</button>
-</div>
-<div class="price" id="detailPrice"></div>
-<p id="detailDesc" style="color:#5d6d8c;font-size:13px;line-height:1.7"></p>
-<div class="notice">Rank perks and secure purchasing will be announced when the server launches. No payment is being accepted through this preview.</div>
-</div>
+<section id="rules">
+ <div class="container">
+  <div class="section-head">
+   <div class="eyebrow">PLAY FAIR</div>
+   <h2 class="section-title">SERVER RULES</h2>
+   <p class="section-desc">Respect everyone and keep the community fun.</p>
+  </div>
+
+  <div class="rules">
+   <div class="rule"><b>01</b> No hacking or unfair modifications.</div>
+   <div class="rule"><b>02</b> No abusive language or harassment.</div>
+   <div class="rule"><b>03</b> No exploiting server bugs.</div>
+   <div class="rule"><b>04</b> Respect all players and staff.</div>
+   <div class="rule"><b>05</b> No spam or unnecessary advertising.</div>
+   <div class="rule"><b>06</b> Follow staff instructions.</div>
+  </div>
+ </div>
 </section>
 
-<section class="section" id="join">
-<div class="section-head">
-<div class="kicker">YOUR ADVENTURE STARTS HERE</div>
-<h2>How to <span class="gradient">join.</span></h2>
-<p class="sub">The server is currently in preparation. Official connection details will be posted here before launch.</p>
-</div>
-<div class="join-grid">
-<article class="join-card"><div class="card-icon">🖥️</div><div class="role">MINECRAFT SERVER IP</div><div class="big">Coming Soon</div><p>Our official Java server address will be announced before launch.</p></article>
-<article class="join-card"><div class="card-icon">💬</div><div class="role">DISCORD COMMUNITY</div><div class="big">Coming Soon</div><p>Our official Discord invitation will be shared here when it is ready.</p></article>
-</div>
+<section id="staff">
+ <div class="container">
+  <div class="section-head">
+   <div class="eyebrow">THE TEAM BEHIND VAJRA</div>
+   <h2 class="section-title">OUR STAFF</h2>
+   <p class="section-desc">Meet the people managing the network.</p>
+  </div>
+
+  <div class="staff-grid">
+   <div class="staff-card">
+    <div class="staff-avatar">👑</div>
+    <h3>S07KS</h3>
+    <p>OWNER</p>
+   </div>
+
+   <div class="staff-card">
+    <div class="staff-avatar">🛡️</div>
+    <h3>_NotAaradhay</h3>
+    <p>ADMIN</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="join" id="join">
+ <div class="container">
+  <div class="eyebrow">YOUR ADVENTURE STARTS SOON</div>
+  <h2 class="section-title">READY TO JOIN VAJRA?</h2>
+  <p>Our server is currently under development. Stay tuned!</p>
+
+  <div class="server-box">
+   <span>⚡</span> SERVER IP: COMING SOON
+  </div>
+
+  <br>
+  <button class="btn btn-primary" onclick="openLogin()">LOGIN / REGISTER</button>
+ </div>
 </section>
 
 </main>
 
-<!-- LOGIN POPUP -->
-<div class="login-overlay" id="loginOverlay">
-<div class="login-modal">
-
-<button class="login-close" onclick="closeLogin()" aria-label="Close login">✕</button>
-
-<div class="login-brand">⚡ VAJRA<span>SMP</span></div>
-<p class="login-sub">PLAYER ACCOUNT LOGIN</p>
-
-<div id="editionSelect">
-<h3 style="text-align:center;margin-bottom:18px">SELECT YOUR EDITION</h3>
-
-<div class="edition-grid">
-<button class="edition-card" onclick="selectEdition('Java')">
-<strong>JAVA</strong>
-<small>JAVA EDITION</small>
-</button>
-
-<button class="edition-card" onclick="selectEdition('Bedrock')">
-<strong>BEDROCK</strong>
-<small>BEDROCK EDITION</small>
-</button>
-</div>
-</div>
-
-<div class="login-form" id="usernameForm">
-<button class="login-back" onclick="backToEdition()">← Back</button>
-
-<h3 id="editionTitle">JAVA LOGIN</h3>
-
-<form id="playerLoginForm">
-<label id="usernameLabel">Minecraft Username</label>
-
-<input
-class="login-input"
-id="minecraftUsername"
-type="text"
-placeholder="Enter your Java username"
-maxlength="32"
-required
-autocomplete="off"
->
-
-<button class="login-action" type="submit">CONTINUE ↗</button>
-</form>
-
-<p class="login-message" id="loginMessage">
-Account verification will be available when VAJRA SMP launches.
-</p>
-</div>
-
-</div>
-</div>
-
 <footer>
-<div class="wrap foot">
-<div>
-<div class="foot-brand">⚡ VAJRA SMP</div>
-<p>THE ELEMENTAL NETWORK · © 2026 VAJRA SMP</p>
-<p>Not an official Minecraft or Mojang product. Not approved by or associated with Mojang or Microsoft.</p>
-</div>
-<div class="foot-nav">
-<button data-go="home">Home</button>
-<button data-go="rules">Rules</button>
-<button data-go="staff">Staff</button>
-<button data-go="store">Store</button>
-</div>
-</div>
+ <p class="pixel" style="font-size:12px;margin-bottom:15px">VAJRA SMP</p>
+ © 2026 VAJRA SMP. All Rights Reserved.
+ <br><br>
+ <span>BUILT FOR MINECRAFT PLAYERS</span>
 </footer>
 
+<!-- LOGIN POPUP -->
+<div class="popup" id="loginPopup">
+ <div class="popup-box">
+  <button class="close" onclick="closeLogin()">×</button>
+
+  <div id="editionSelect">
+   <h2>PLAYER LOGIN</h2>
+   <p>Select your Minecraft edition.</p>
+
+   <button class="edition" onclick="selectEdition('Java')">
+    JAVA EDITION
+   </button>
+
+   <button class="edition" onclick="selectEdition('Bedrock')">
+    BEDROCK EDITION
+   </button>
+  </div>
+
+  <div id="usernameForm">
+   <h2 id="editionTitle">JAVA LOGIN</h2>
+   <p>Enter your Minecraft username.</p>
+   <input type="text" id="username" placeholder="Minecraft Username" maxlength="16">
+   <button class="btn btn-primary" style="width:100%;margin-top:10px" onclick="submitLogin()">
+    CONTINUE
+   </button>
+   <button class="back" onclick="backToEdition()">← BACK</button>
+  </div>
+
+ </div>
+</div>
+
 <script>
-const rules=[
-["Respect every player","Treat everyone respectfully. Harassment, bullying, hate speech, discrimination and targeted abuse are not allowed."],
-["No hacked clients or cheats","Do not use hacked clients, X-ray, kill aura, reach, autoclickers or other tools that provide an unfair advantage."],
-["No exploiting bugs","Do not abuse glitches, duplication bugs or unintended mechanics. Report bugs to the staff team."],
-["No griefing or stealing","Do not destroy, alter or take another player's builds or belongings without their permission."],
-["Fair PvP only","Do not use combat exploits, prohibited teaming or other unfair methods to gain an advantage."],
-["No combat logging","Do not disconnect to escape a fight or avoid a legitimate PvP consequence."],
-["No scamming","Be honest in trades. Scamming players for items, currency or agreed services is prohibited."],
-["No spam or chat flooding","Avoid repeated messages, excessive caps, disruptive chat and unnecessary command spam."],
-["No unauthorised advertising","Do not advertise other servers, websites or services without staff permission."],
-["Keep names and skins appropriate","Offensive, impersonating or inappropriate usernames, skins and builds are not allowed."],
-["Follow staff instructions","Cooperate with staff. If you believe a decision is unfair, raise it calmly through the official appeal process."],
-["Protect the server and community","Threats, malicious attacks, doxxing, sharing private information or attempts to disrupt the server are prohibited."]
-];
+function toggleMenu(){
+ document.getElementById('navLinks').classList.toggle('open');
+}
 
-document.getElementById("rulesList").innerHTML=rules.map((r,i)=>
-`<article class="rule"><div class="rule-num">${String(i+1).padStart(2,"0")}</div><div><h3>${r[0]}</h3><p>${r[1]}</p></div></article>`
-).join("");
-
-const ranks=[
-["TITAN",50,"Your first step into the VAJRA community."],
-["KNIGHT",100,"A special rank tier for dedicated players."],
-["LEGEND",150,"Stand out among the legends of VAJRA."],
-["HERO",200,"The highest planned rank tier in this store lineup."]
-];
-
-document.getElementById("rankGrid").innerHTML=ranks.map((r,i)=>
-`<button class="rank" data-rank="${i}"><div class="rank-gem">${["✦","◆","♛","⚡"][i]}</div><h3>${r[0]}</h3><div class="price">₹${r[1]}</div><small>VIEW RANK DETAILS ↗</small></button>`
-).join("");
-
-document.querySelectorAll("[data-go]").forEach(b=>
-b.addEventListener("click",()=>{
-const id=b.dataset.go;
-document.getElementById(id).scrollIntoView({behavior:"smooth"});
-document.querySelectorAll(".navlinks [data-go]").forEach(x=>
-x.classList.toggle("active",x.dataset.go===id)
-);
-document.getElementById("mobileLinks").classList.remove("show");
-})
-);
-
-document.getElementById("menuBtn").addEventListener("click",()=>
-document.getElementById("mobileLinks").classList.toggle("show")
-);
-
-document.querySelectorAll("[data-rank]").forEach(b=>
-b.addEventListener("click",()=>{
-const r=ranks[Number(b.dataset.rank)];
-document.getElementById("detailName").textContent=r[0]+" RANK";
-document.getElementById("detailPrice").textContent="₹"+r[1];
-document.getElementById("detailDesc").textContent=r[2]+" Official perks and purchase details will be announced before launch.";
-const d=document.getElementById("rankDetail");
-d.classList.add("show");
-d.scrollIntoView({behavior:"smooth",block:"center"});
-})
-);
-
-document.getElementById("closeRank").addEventListener("click",()=>
-document.getElementById("rankDetail").classList.remove("show")
-);
-
-/* LOGIN SYSTEM */
-
-let selectedEdition="";
+document.querySelectorAll('#navLinks a').forEach(link=>{
+ link.addEventListener('click',()=>{
+  document.getElementById('navLinks').classList.remove('open');
+ });
+});
 
 function openLogin(){
-document.getElementById("loginOverlay").classList.add("show");
-document.getElementById("editionSelect").style.display="block";
-document.getElementById("usernameForm").classList.remove("show");
-document.getElementById("minecraftUsername").value="";
-document.getElementById("loginMessage").textContent=
-"Account verification will be available when VAJRA SMP launches.";
+ document.getElementById('loginPopup').classList.add('show');
+ document.getElementById('editionSelect').style.display='block';
+ document.getElementById('usernameForm').style.display='none';
 }
 
 function closeLogin(){
-document.getElementById("loginOverlay").classList.remove("show");
+ document.getElementById('loginPopup').classList.remove('show');
 }
 
 function selectEdition(edition){
-selectedEdition=edition;
-
-document.getElementById("editionSelect").style.display="none";
-document.getElementById("usernameForm").classList.add("show");
-
-document.getElementById("editionTitle").textContent=
-edition.toUpperCase()+" LOGIN";
-
-document.getElementById("usernameLabel").textContent=
-edition==="Java"?"Java Minecraft Username":"Bedrock Gamertag";
-
-document.getElementById("minecraftUsername").placeholder=
-edition==="Java"?"Enter your Java username":"Enter your Bedrock gamertag";
-
-document.getElementById("minecraftUsername").value="";
-document.getElementById("loginMessage").textContent=
-"Account verification will be available when VAJRA SMP launches.";
+ document.getElementById('editionSelect').style.display='none';
+ document.getElementById('usernameForm').style.display='block';
+ document.getElementById('editionTitle').textContent=edition.toUpperCase()+' LOGIN';
+ document.getElementById('username').value='';
 }
 
 function backToEdition(){
-document.getElementById("editionSelect").style.display="block";
-document.getElementById("usernameForm").classList.remove("show");
+ document.getElementById('editionSelect').style.display='block';
+ document.getElementById('usernameForm').style.display='none';
 }
 
-document.getElementById("playerLoginForm").addEventListener("submit",function(event){
-event.preventDefault();
+function submitLogin(){
+ const username=document.getElementById('username').value.trim();
+ if(!username){
+  alert('Please enter your Minecraft username.');
+  return;
+ }
+ alert('Welcome '+username+'! Registration will be available when the server launches.');
+ closeLogin();
+}
 
-const username=document.getElementById("minecraftUsername").value.trim();
-
-if(!username)return;
-
-document.getElementById("loginMessage").textContent=
-"Thanks, "+username+"! "+selectedEdition+
-" account verification will be available after VAJRA SMP launches.";
-});
-
-document.getElementById("loginOverlay").addEventListener("click",function(e){
-if(e.target===this)closeLogin();
-});
-
-document.addEventListener("keydown",function(e){
-if(e.key==="Escape")closeLogin();
+document.getElementById('loginPopup').addEventListener('click',function(e){
+ if(e.target===this)closeLogin();
 });
 </script>
 

@@ -1,0 +1,491 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VAJRA SMP | Server Rules</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+ --purple:#9b5cff;
+ --blue:#42baff;
+ --gold:#ffc65c;
+ --bg:#080914;
+ --card:#111326;
+}
+
+html{scroll-behavior:smooth}
+
+body{
+ background:var(--bg);
+ color:white;
+ font-family:'Rajdhani',sans-serif;
+ overflow-x:hidden;
+}
+
+body:before{
+ content:"";
+ position:fixed;
+ inset:0;
+ background:
+ radial-gradient(circle at 15% 20%,#5222a326,transparent 35%),
+ radial-gradient(circle at 85% 60%,#1764a326,transparent 35%);
+ pointer-events:none;
+ z-index:-1;
+}
+
+header{
+ width:100%;
+ padding:22px 7%;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ border-bottom:1px solid #ffffff12;
+ background:#080914d9;
+ backdrop-filter:blur(15px);
+ position:relative;
+ z-index:10;
+}
+
+.brand{
+ font-family:'Press Start 2P';
+ font-size:13px;
+ color:white;
+ text-decoration:none;
+}
+
+.brand span{color:var(--purple)}
+
+.home{
+ color:white;
+ text-decoration:none;
+ padding:10px 22px;
+ border:1px solid #9b5cff80;
+ border-radius:8px;
+ font-weight:700;
+ transition:.3s;
+}
+
+.home:hover{
+ background:var(--purple);
+ box-shadow:0 0 20px #9b5cff80;
+}
+
+.hero{
+ min-height:490px;
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ justify-content:center;
+ text-align:center;
+ padding:65px 20px 45px;
+ position:relative;
+}
+
+.logo{
+ width:145px;
+ height:145px;
+ object-fit:contain;
+ filter:drop-shadow(0 0 20px #9b5cff);
+ animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+ 0%,100%{transform:translateY(0)}
+ 50%{transform:translateY(-13px)}
+}
+
+.tag{
+ margin-top:22px;
+ color:var(--gold);
+ letter-spacing:5px;
+ font-size:13px;
+ font-weight:800;
+}
+
+h1{
+ font-family:'Press Start 2P';
+ font-size:clamp(25px,5vw,43px);
+ margin:22px 0;
+ line-height:1.7;
+ text-shadow:0 0 25px #9b5cff90;
+}
+
+h1 span{color:var(--purple)}
+
+.hero p{
+ max-width:600px;
+ color:#aaaec4;
+ font-size:19px;
+ line-height:1.6;
+}
+
+.scroll{
+ margin-top:35px;
+ padding:12px 27px;
+ border-radius:8px;
+ background:linear-gradient(110deg,#783bea,#286de0);
+ color:white;
+ text-decoration:none;
+ font-weight:800;
+ letter-spacing:1px;
+ box-shadow:0 0 25px #773bea50;
+ transition:.3s;
+}
+
+.scroll:hover{transform:translateY(-4px)}
+
+.container{
+ max-width:1100px;
+ margin:auto;
+ padding:35px 22px 90px;
+}
+
+.section-title{
+ text-align:center;
+ margin:35px 0 30px;
+}
+
+.section-title h2{
+ font-family:'Press Start 2P';
+ font-size:18px;
+ line-height:1.8;
+}
+
+.section-title p{
+ color:#9297ae;
+ margin-top:12px;
+ font-size:17px;
+}
+
+.categories{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:20px;
+}
+
+.category{
+ background:linear-gradient(145deg,#171a35,#0e1020);
+ border:1px solid #ffffff15;
+ border-radius:15px;
+ padding:25px;
+ text-decoration:none;
+ color:white;
+ transition:.3s;
+ position:relative;
+ overflow:hidden;
+}
+
+.category:before{
+ content:"";
+ position:absolute;
+ width:130px;
+ height:130px;
+ right:-45px;
+ top:-55px;
+ background:#985cff20;
+ filter:blur(35px);
+}
+
+.category:hover{
+ transform:translateY(-7px);
+ border-color:#9b5cff;
+ box-shadow:0 12px 35px #6e3de42b;
+}
+
+.category .number{
+ color:var(--purple);
+ font-size:13px;
+ font-weight:800;
+ letter-spacing:3px;
+}
+
+.category h3{
+ font-size:25px;
+ margin:12px 0 5px;
+ font-weight:800;
+}
+
+.category p{
+ color:#9ba1b9;
+ font-size:16px;
+}
+
+.category .arrow{
+ float:right;
+ font-size:25px;
+ color:var(--purple);
+}
+
+.rules-section{margin-top:75px}
+
+.rules-box{
+ background:#101225;
+ border:1px solid #ffffff13;
+ border-radius:14px;
+ margin:16px 0;
+ padding:24px 27px;
+ transition:.3s;
+}
+
+.rules-box:hover{
+ border-color:#8954e9;
+ transform:translateX(4px);
+}
+
+.rules-box h3{
+ font-size:23px;
+ color:#c9a5ff;
+ margin-bottom:13px;
+ font-weight:800;
+}
+
+.rules-box ol{
+ padding-left:23px;
+ color:#c3c6d6;
+ font-size:17px;
+ line-height:1.9;
+}
+
+.rules-box li{padding-left:5px}
+
+.punishment{
+ margin-top:75px;
+ padding:35px;
+ border-radius:17px;
+ background:linear-gradient(135deg,#21152f,#11172d);
+ border:1px solid #9b5cff55;
+}
+
+.punishment h2{
+ font-family:'Press Start 2P';
+ font-size:17px;
+ line-height:1.8;
+ margin-bottom:12px;
+ color:#d7baff;
+}
+
+.punishment p{
+ color:#aeb2c7;
+ font-size:17px;
+ margin-bottom:22px;
+}
+
+.steps{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:12px;
+}
+
+.step{
+ padding:18px 10px;
+ text-align:center;
+ border-radius:10px;
+ background:#ffffff09;
+ border:1px solid #ffffff15;
+}
+
+.step strong{
+ display:block;
+ font-size:18px;
+ color:white;
+ margin-bottom:6px;
+}
+
+.step span{
+ font-size:14px;
+ color:#a9acc0;
+}
+
+.note{
+ margin-top:20px;
+ color:#9298b1;
+ font-size:15px;
+ line-height:1.7;
+}
+
+footer{
+ text-align:center;
+ padding:28px 15px;
+ border-top:1px solid #ffffff12;
+ color:#777d96;
+ font-size:15px;
+}
+
+footer span{color:var(--purple)}
+
+@media(max-width:650px){
+ header{padding:18px 5%}
+ .brand{font-size:10px}
+ .hero{min-height:420px}
+ .logo{width:115px;height:115px}
+ .categories{grid-template-columns:1fr}
+ .steps{grid-template-columns:repeat(2,1fr)}
+ .section-title h2{font-size:14px}
+ .punishment{padding:23px}
+ .rules-box{padding:20px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ <a class="brand" href="/Vajra-smp-website/">VAJRA <span>SMP</span></a>
+ <a class="home" href="/Vajra-smp-website/">⌂ HOME</a>
+</header>
+
+<section class="hero">
+
+ <img class="logo" src="../assets/vajra-logo.png" alt="VAJRA SMP Logo">
+
+ <div class="tag">OFFICIAL SERVER GUIDELINES</div>
+
+ <h1>SERVER <span>RULES</span></h1>
+
+ <p>
+ Welcome to VAJRA SMP. Read all rules carefully before playing.
+ Respect other players, play fairly and help us build a better community.
+ </p>
+
+ <a href="#rules" class="scroll">EXPLORE RULES ↓</a>
+
+</section>
+
+<main class="container" id="rules">
+
+ <div class="section-title">
+  <h2>RULE CATEGORIES</h2>
+  <p>Choose a category to explore its rules.</p>
+ </div>
+
+ <div class="categories">
+
+  <a href="#general" class="category">
+   <span class="number">01 / GENERAL</span>
+   <span class="arrow">↗</span>
+   <h3>General Rules</h3>
+   <p>Rules every player must follow.</p>
+  </a>
+
+  <a href="#survival" class="category">
+   <span class="number">02 / SURVIVAL</span>
+   <span class="arrow">↗</span>
+   <h3>Survival Rules</h3>
+   <p>Fair gameplay and world protection.</p>
+  </a>
+
+  <a href="#lifesteal" class="category">
+   <span class="number">03 / LIFESTEAL</span>
+   <span class="arrow">↗</span>
+   <h3>Lifesteal Rules</h3>
+   <p>Heart-based gameplay guidelines.</p>
+  </a>
+
+  <a href="#pvp" class="category">
+   <span class="number">04 / PVP</span>
+   <span class="arrow">↗</span>
+   <h3>PvP Rules</h3>
+   <p>Fair fights and competitive play.</p>
+  </a>
+
+ </div>
+
+ <div class="section-title rules-section">
+  <h2>THE RULEBOOK</h2>
+  <p>Follow these guidelines to keep VAJRA SMP fair and enjoyable.</p>
+ </div>
+
+ <section class="rules-box" id="general">
+  <h3>01. GENERAL RULES</h3>
+  <ol>
+   <li>Respect all players and staff members.</li>
+   <li>Harassment, bullying and hate speech are not allowed.</li>
+   <li>Do not use hacks, cheats, exploits or unfair modifications.</li>
+   <li>Do not spam messages or advertisements in chat.</li>
+   <li>Impersonating staff members is prohibited.</li>
+   <li>Do not exploit server bugs. Report them to staff.</li>
+   <li>Follow staff instructions and maintain a friendly environment.</li>
+  </ol>
+ </section>
+
+ <section class="rules-box" id="survival">
+  <h3>02. SURVIVAL RULES</h3>
+  <ol>
+   <li>Do not grief or destroy another player's builds.</li>
+   <li>Do not steal items from another player's storage.</li>
+   <li>Do not claim land that belongs to another player.</li>
+   <li>Do not use farms or machines to intentionally lag the server.</li>
+   <li>Keep your builds and farms within server performance limits.</li>
+   <li>Do not exploit duplication glitches.</li>
+   <li>Respect other players' trading agreements.</li>
+  </ol>
+ </section>
+
+ <section class="rules-box" id="lifesteal">
+  <h3>03. LIFESTEAL RULES</h3>
+  <ol>
+   <li>Do not use hacked clients or unfair advantages.</li>
+   <li>Do not exploit glitches to gain hearts or items.</li>
+   <li>Do not use alternate accounts to abuse gameplay systems.</li>
+   <li>Do not intentionally crash or lag the server during fights.</li>
+   <li>Do not scam players in staff-mediated trades.</li>
+   <li>Respect server-specific heart and combat mechanics.</li>
+  </ol>
+ </section>
+
+ <section class="rules-box" id="pvp">
+  <h3>04. PVP RULES</h3>
+  <ol>
+   <li>No hacked clients, kill aura or unfair combat modifications.</li>
+   <li>No combat exploits or abuse of unintended mechanics.</li>
+   <li>Do not use bugs to gain an unfair advantage in fights.</li>
+   <li>Do not intentionally lag or crash the PvP area.</li>
+   <li>Respect other players and keep PvP competitive.</li>
+   <li>Follow any additional arena-specific restrictions.</li>
+  </ol>
+ </section>
+
+ <section class="punishment">
+  <h2>PUNISHMENT SYSTEM</h2>
+  <p>Rule violations may result in the following actions depending on severity.</p>
+
+  <div class="steps">
+   <div class="step">
+    <strong>01</strong>
+    <span>Warning</span>
+   </div>
+   <div class="step">
+    <strong>02</strong>
+    <span>Kick</span>
+   </div>
+   <div class="step">
+    <strong>03</strong>
+    <span>Temporary Ban</span>
+   </div>
+   <div class="step">
+    <strong>04</strong>
+    <span>Permanent Ban</span>
+   </div>
+  </div>
+
+  <div class="note">
+   Note: Staff may choose a suitable punishment based on the seriousness and frequency of the violation. Severe violations may result in an immediate ban.
+  </div>
+ </section>
+
+</main>
+
+<footer>
+ © 2026 <span>VAJRA SMP</span> — All Rights Reserved.
+ <br><br>
+ Play Fair. Stay Respectful. Be Legendary.
+</footer>
+
+</body>
+</html>

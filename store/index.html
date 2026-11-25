@@ -1,413 +1,355 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VAJRA SMP | Premium Rank Store</title>
+<title>VAJRA SMP | Survival Rank Store</title>
+<meta name="description" content="Explore premium Survival ranks at VAJRA SMP. Choose Titan, Knight, Legend or Hero.">
 
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
 
 <style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 :root{
-    --bg:#090b16;
-    --panel:#121629;
-    --text:#ffffff;
-    --muted:#a8aec5;
-    --purple:#9275ff;
+ --bg:#090d16;
+ --panel:#121b25;
+ --text:#ffffff;
+ --muted:#a8b9ad;
+ --purple:#9275ff;
+ --green:#4ade80;
 }
 
 body{
-    font-family:'Roboto',sans-serif;
-    background:
-        radial-gradient(ellipse at 50% 0%,#29204d 0%,transparent 48%),
-        linear-gradient(180deg,#0b0d1b,#080a13 75%);
-    color:var(--text);
-    min-height:100vh;
-    overflow-x:hidden;
+ font-family:'Roboto',sans-serif;
+ background:
+ radial-gradient(ellipse at 50% 0%,#193b35 0%,transparent 48%),
+ linear-gradient(180deg,#0b1518,#080a13 75%);
+ color:var(--text);
+ min-height:100vh;
+ overflow-x:hidden;
 }
 
 /* HEADER */
-
 header{
-    text-align:center;
-    padding:25px 15px 18px;
-    background:rgba(10,12,25,.8);
-    border-bottom:1px solid #ffffff15;
+ text-align:center;
+ padding:25px 15px 18px;
+ background:rgba(10,18,20,.85);
+ border-bottom:1px solid #ffffff15;
 }
 
 .logo{
-    width:310px;
-    max-width:85%;
-    height:190px;
-    object-fit:contain;
-    filter:drop-shadow(0 0 22px #8c6bff65);
+ width:310px;
+ max-width:85%;
+ height:190px;
+ object-fit:contain;
+ filter:drop-shadow(0 0 22px #4ade8065);
 }
 
 nav{
-    margin-top:12px;
-    display:flex;
-    justify-content:center;
-    gap:28px;
-    flex-wrap:wrap;
+ margin-top:12px;
+ display:flex;
+ justify-content:center;
+ gap:28px;
+ flex-wrap:wrap;
 }
 
 nav a{
-    color:#d6d0ff;
-    text-decoration:none;
-    font-family:'Press Start 2P',cursive;
-    font-size:10px;
-    transition:.25s;
+ color:#c9f7d7;
+ text-decoration:none;
+ font-family:'Press Start 2P',cursive;
+ font-size:10px;
+ transition:.25s;
 }
 
 nav a:hover{
-    color:#ffffff;
-    text-shadow:0 0 12px #a18aff;
+ color:#ffffff;
+ text-shadow:0 0 12px #4ade80;
 }
 
 /* HERO */
-
 .hero-section{
-    text-align:center;
-    padding:55px 18px 25px;
+ text-align:center;
+ padding:55px 18px 25px;
 }
 
 .eyebrow{
-    display:inline-block;
-    color:#b9a9ff;
-    background:#9275ff18;
-    border:1px solid #9275ff55;
-    padding:10px 16px;
-    border-radius:5px;
-    font-family:'Press Start 2P',cursive;
-    font-size:9px;
-    letter-spacing:1px;
-    margin-bottom:24px;
+ display:inline-block;
+ color:#a7f3c0;
+ background:#4ade8018;
+ border:1px solid #4ade8055;
+ padding:10px 16px;
+ border-radius:5px;
+ font-family:'Press Start 2P',cursive;
+ font-size:9px;
+ letter-spacing:1px;
+ margin-bottom:24px;
 }
 
 .hero-section h1{
-    font-family:'Press Start 2P',cursive;
-    font-size:clamp(19px,4vw,34px);
-    line-height:1.8;
-    color:#ffffff;
-    text-shadow:4px 4px 0 #49368d;
+ font-family:'Press Start 2P',cursive;
+ font-size:clamp(19px,4vw,34px);
+ line-height:1.8;
+ color:#ffffff;
+ text-shadow:4px 4px 0 #17613b;
 }
 
 .hero-section p{
-    color:var(--muted);
-    font-size:15px;
-    margin-top:15px;
-    line-height:1.7;
+ color:var(--muted);
+ font-size:15px;
+ margin-top:15px;
+ line-height:1.7;
 }
 
 /* STORE */
-
 main{
-    max-width:1150px;
-    margin:auto;
-    padding:20px 22px 75px;
+ max-width:1150px;
+ margin:auto;
+ padding:20px 22px 75px;
 }
 
 .store-heading{
-    text-align:center;
-    margin:35px 0 32px;
+ text-align:center;
+ margin:35px 0 32px;
 }
 
 .store-heading h2{
-    font-family:'Press Start 2P',cursive;
-    font-size:clamp(13px,2.5vw,19px);
-    line-height:2;
-    color:#e9e2ff;
+ font-family:'Press Start 2P',cursive;
+ font-size:clamp(13px,2.5vw,19px);
+ line-height:2;
+ color:#d9ffe5;
 }
 
 .store-heading p{
-    color:var(--muted);
-    margin-top:10px;
-    font-size:14px;
+ color:var(--muted);
+ margin-top:10px;
+ font-size:14px;
 }
 
 .cards{
-    display:grid;
-    grid-template-columns:repeat(4,minmax(0,1fr));
-    gap:20px;
+ display:grid;
+ grid-template-columns:repeat(4,minmax(0,1fr));
+ gap:20px;
 }
 
 /* RANK CARD */
-
 .card{
-    position:relative;
-    background:linear-gradient(155deg,#191e35,#101426);
-    border:1px solid #ffffff18;
-    border-radius:13px;
-    padding:25px 17px 23px;
-    text-align:center;
-    overflow:hidden;
-    transition:transform .3s,border-color .3s,box-shadow .3s;
+ position:relative;
+ background:linear-gradient(155deg,#192c29,#101a20);
+ border:1px solid #ffffff18;
+ border-radius:13px;
+ padding:25px 17px 23px;
+ text-align:center;
+ overflow:hidden;
+ transition:transform .3s,border-color .3s,box-shadow .3s;
 }
 
 .card:hover{
-    transform:translateY(-9px);
-    border-color:var(--rank);
-    box-shadow:0 12px 35px var(--glow);
+ transform:translateY(-9px);
+ border-color:var(--rank);
+ box-shadow:0 12px 35px var(--glow);
 }
 
 .card::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:0;
-    right:0;
-    height:4px;
-    background:var(--rank);
-    box-shadow:0 0 18px var(--glow);
+ content:"";
+ position:absolute;
+ top:0;left:0;right:0;
+ height:4px;
+ background:var(--rank);
+ box-shadow:0 0 18px var(--glow);
 }
 
 .card::after{
-    content:"";
-    position:absolute;
-    width:170px;
-    height:170px;
-    background:var(--glow);
-    filter:blur(75px);
-    opacity:.20;
-    top:-90px;
-    left:50%;
-    transform:translateX(-50%);
-    pointer-events:none;
+ content:"";
+ position:absolute;
+ width:170px;height:170px;
+ background:var(--glow);
+ filter:blur(75px);
+ opacity:.20;
+ top:-90px;
+ left:50%;
+ transform:translateX(-50%);
+ pointer-events:none;
 }
 
-/* PIXEL RANK NAMEPLATES */
-
+/* RANK BADGES */
 .rank-badge{
-    position:relative;
-    z-index:1;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:75px;
-    margin:8px auto 20px;
-    padding:12px 8px;
-    background:var(--badge);
-    border:4px solid var(--border);
-    box-shadow:
-        inset 0 0 0 3px #ffffff22,
-        5px 5px 0 #050711,
-        0 0 20px var(--glow);
-    clip-path:polygon(
-        0 10%,10% 10%,10% 0,
-        90% 0,90% 10%,100% 10%,
-        100% 90%,90% 90%,90% 100%,
-        10% 100%,10% 90%,0 90%
-    );
+ position:relative;
+ z-index:1;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ min-height:75px;
+ margin:8px auto 20px;
+ padding:12px 8px;
+ background:var(--badge);
+ border:4px solid var(--border);
+ box-shadow:
+ inset 0 0 0 3px #ffffff22,
+ 5px 5px 0 #050711,
+ 0 0 20px var(--glow);
+ clip-path:polygon(
+  0 10%,10% 10%,10% 0,
+  90% 0,90% 10%,100% 10%,
+  100% 90%,90% 90%,90% 100%,
+  10% 100%,10% 90%,0 90%
+ );
 }
 
 .rank-badge span{
-    font-family:'Press Start 2P',cursive;
-    color:#fff;
-    font-size:clamp(11px,1.4vw,16px);
-    line-height:1.7;
-    text-shadow:
-        3px 3px 0 #000,
-        0 0 10px #ffffff65;
-    white-space:nowrap;
+ font-family:'Press Start 2P',cursive;
+ color:#fff;
+ font-size:clamp(11px,1.4vw,16px);
+ line-height:1.7;
+ text-shadow:3px 3px 0 #000,0 0 10px #ffffff65;
+ white-space:nowrap;
 }
 
 /* RANK COLOURS */
-
 .titan{
-    --rank:#ff55b5;
-    --glow:#ff55b5;
-    --badge:linear-gradient(135deg,#c72c83,#ff67bf);
-    --border:#ffb0dc;
+ --rank:#ff55b5;
+ --glow:#ff55b5;
+ --badge:linear-gradient(135deg,#c72c83,#ff67bf);
+ --border:#ffb0dc;
 }
 
 .knight{
-    --rank:#35e5dc;
-    --glow:#35e5dc;
-    --badge:linear-gradient(135deg,#087f8d,#38e9d9);
-    --border:#a2fff6;
+ --rank:#35e5dc;
+ --glow:#35e5dc;
+ --badge:linear-gradient(135deg,#087f8d,#38e9d9);
+ --border:#a2fff6;
 }
 
 .legend{
-    --rank:#ffad36;
-    --glow:#ffad36;
-    --badge:linear-gradient(135deg,#a95413,#ffb83e);
-    --border:#ffe0a0;
+ --rank:#ffad36;
+ --glow:#ffad36;
+ --badge:linear-gradient(135deg,#a95413,#ffb83e);
+ --border:#ffe0a0;
 }
 
 .hero-rank{
-    --rank:#ff654f;
-    --glow:#ff654f;
-    --badge:linear-gradient(135deg,#b52c32,#ff7544);
-    --border:#ffc0a5;
+ --rank:#ff654f;
+ --glow:#ff654f;
+ --badge:linear-gradient(135deg,#b52c32,#ff7544);
+ --border:#ffc0a5;
 }
 
-/* CARD CONTENT */
-
+/* CONTENT */
 .rank-label{
-    position:relative;
-    z-index:1;
-    color:#aab1cb;
-    font-size:12px;
-    font-weight:700;
-    letter-spacing:2px;
-    text-transform:uppercase;
+ position:relative;
+ z-index:1;
+ color:#aab1cb;
+ font-size:12px;
+ font-weight:700;
+ letter-spacing:2px;
+ text-transform:uppercase;
 }
 
 .price{
-    position:relative;
-    z-index:1;
-    font-size:31px;
-    font-weight:900;
-    color:#ffffff;
-    margin:17px 0 20px;
+ position:relative;
+ z-index:1;
+ font-size:31px;
+ font-weight:900;
+ color:#ffffff;
+ margin:17px 0 20px;
 }
 
 .price small{
-    font-size:13px;
-    color:#aab1cb;
-    font-weight:500;
+ font-size:13px;
+ color:#aab1cb;
+ font-weight:500;
 }
 
 button{
-    position:relative;
-    z-index:1;
-    width:100%;
-    border:1px solid var(--rank);
-    background:linear-gradient(135deg,var(--rank),#ffffff22);
-    color:#090b16;
-    padding:13px 10px;
-    border-radius:5px;
-    font-family:'Press Start 2P',cursive;
-    font-size:9px;
-    line-height:1.7;
-    cursor:pointer;
-    transition:.25s;
-    box-shadow:0 4px 0 #050711;
+ position:relative;
+ z-index:1;
+ width:100%;
+ border:1px solid var(--rank);
+ background:linear-gradient(135deg,var(--rank),#ffffff22);
+ color:#090b16;
+ padding:13px 10px;
+ border-radius:5px;
+ font-family:'Press Start 2P',cursive;
+ font-size:9px;
+ line-height:1.7;
+ cursor:pointer;
+ transition:.25s;
+ box-shadow:0 4px 0 #050711;
 }
 
 button:hover{
-    filter:brightness(1.2);
-    transform:translateY(-2px);
-    box-shadow:0 6px 0 #050711,0 0 18px var(--glow);
+ filter:brightness(1.2);
+ transform:translateY(-2px);
+ box-shadow:0 6px 0 #050711,0 0 18px var(--glow);
 }
 
 .details{
-    position:relative;
-    z-index:1;
-    display:none;
-    margin-top:20px;
-    padding:13px;
-    background:#080b17;
-    border:1px solid #ffffff18;
-    border-radius:7px;
-    color:#c4c9dd;
-    font-size:13px;
-    line-height:1.8;
+ position:relative;
+ z-index:1;
+ display:none;
+ margin-top:20px;
+ padding:13px;
+ background:#080b17;
+ border:1px solid #ffffff18;
+ border-radius:7px;
+ color:#c4c9dd;
+ font-size:13px;
+ line-height:1.8;
 }
 
 /* INFO */
-
 .info{
-    text-align:center;
-    margin-top:55px;
-    padding:25px 18px;
-    background:#151a30;
-    border:1px solid #ffffff17;
-    border-radius:10px;
+ text-align:center;
+ margin-top:55px;
+ padding:25px 18px;
+ background:#152820;
+ border:1px solid #ffffff17;
+ border-radius:10px;
 }
 
 .info h3{
-    font-family:'Press Start 2P',cursive;
-    font-size:11px;
-    line-height:2;
-    color:#c8baff;
+ font-family:'Press Start 2P',cursive;
+ font-size:11px;
+ line-height:2;
+ color:#a7f3c0;
 }
 
 .info p{
-    color:#aab1c8;
-    font-size:13px;
-    line-height:1.8;
-    margin-top:12px;
+ color:#b6c8bc;
+ font-size:13px;
+ line-height:1.8;
+ margin-top:12px;
 }
 
 /* FOOTER */
-
 footer{
-    text-align:center;
-    padding:28px 15px;
-    color:#777f9c;
-    font-size:12px;
-    border-top:1px solid #ffffff12;
-    background:#080a13;
+ text-align:center;
+ padding:28px 15px;
+ color:#777f9c;
+ font-size:12px;
+ border-top:1px solid #ffffff12;
+ background:#080a13;
 }
 
 /* MOBILE */
-
 @media(max-width:850px){
-    .cards{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-    }
+ .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 
 @media(max-width:480px){
-    header{
-        padding:18px 10px;
-    }
-
-    .logo{
-        height:145px;
-        width:260px;
-    }
-
-    nav{
-        gap:17px;
-    }
-
-    nav a{
-        font-size:8px;
-    }
-
-    .hero-section{
-        padding-top:40px;
-    }
-
-    main{
-        padding:10px 12px 55px;
-    }
-
-    .cards{
-        gap:13px;
-    }
-
-    .card{
-        padding:20px 10px;
-    }
-
-    .rank-badge{
-        min-height:62px;
-        padding:9px 4px;
-        border-width:3px;
-    }
-
-    .rank-badge span{
-        font-size:10px;
-    }
-
-    .price{
-        font-size:25px;
-    }
-
-    button{
-        font-size:8px;
-        padding:11px 5px;
-    }
+ header{padding:18px 10px}
+ .logo{height:145px;width:260px}
+ nav{gap:17px}
+ nav a{font-size:8px}
+ .hero-section{padding-top:40px}
+ main{padding:10px 12px 55px}
+ .cards{gap:13px}
+ .card{padding:20px 10px}
+ .rank-badge{min-height:62px;padding:9px 4px;border-width:3px}
+ .rank-badge span{font-size:10px}
+ .price{font-size:25px}
+ button{font-size:8px;padding:11px 5px}
 }
 </style>
 </head>
@@ -415,149 +357,96 @@ footer{
 <body>
 
 <header>
-
-<img
-    src="../assets/vajra-logo.png"
-    alt="VAJRA SMP Logo"
-    class="logo"
->
+<img src="../assets/vajra-logo.png" alt="VAJRA SMP Logo" class="logo">
 
 <nav>
-    <a href="/Vajra-smp-website/">HOME</a>
-    <a href="/Vajra-smp-website/coinstore/">COIN STORE</a>
+ <a href="/Vajra-smp-website/">HOME</a>
+ <a href="/Vajra-smp-website/coinstore/">COIN STORE</a>
 </nav>
-
 </header>
 
 <section class="hero-section">
-
-    <div class="eyebrow">OFFICIAL VAJRA SMP STORE</div>
-
-    <h1>PREMIUM RANKS</h1>
-
-    <p>Choose your power. Build your legacy. Rule VAJRA SMP.</p>
-
+ <div class="eyebrow">⚔ SURVIVAL NETWORK STORE ⚔</div>
+ <h1>SURVIVAL RANKS</h1>
+ <p>Build your kingdom. Unlock your power. Rule the Survival world.</p>
 </section>
 
 <main>
 
-    <div class="store-heading">
-        <h2>CHOOSE YOUR RANK</h2>
-        <p>Unlock your premium identity on the server.</p>
-    </div>
+ <div class="store-heading">
+  <h2>CHOOSE YOUR RANK</h2>
+  <p>Unlock your premium identity in VAJRA Survival.</p>
+ </div>
 
-    <div class="cards">
+ <div class="cards">
 
-        <!-- TITAN -->
+  <div class="card titan">
+   <div class="rank-badge"><span>TITAN</span></div>
+   <div class="rank-label">Premium Rank</div>
+   <div class="price">₹50</div>
+   <button onclick="toggle('titan')">VIEW DETAILS</button>
+   <div class="details" id="titan">
+    Exclusive Titan rank on VAJRA Survival.<br>
+    Purchase availability: Coming Soon.
+   </div>
+  </div>
 
-        <div class="card titan">
+  <div class="card knight">
+   <div class="rank-badge"><span>KNIGHT</span></div>
+   <div class="rank-label">Premium Rank</div>
+   <div class="price">₹100</div>
+   <button onclick="toggle('knight')">VIEW DETAILS</button>
+   <div class="details" id="knight">
+    Exclusive Knight rank on VAJRA Survival.<br>
+    Purchase availability: Coming Soon.
+   </div>
+  </div>
 
-            <div class="rank-badge">
-                <span>TITAN</span>
-            </div>
+  <div class="card legend">
+   <div class="rank-badge"><span>LEGEND</span></div>
+   <div class="rank-label">Premium Rank</div>
+   <div class="price">₹150</div>
+   <button onclick="toggle('legend')">VIEW DETAILS</button>
+   <div class="details" id="legend">
+    Exclusive Legend rank on VAJRA Survival.<br>
+    Purchase availability: Coming Soon.
+   </div>
+  </div>
 
-            <div class="rank-label">Premium Rank</div>
+  <div class="card hero-rank">
+   <div class="rank-badge"><span>HERO</span></div>
+   <div class="rank-label">Premium Rank</div>
+   <div class="price">₹200</div>
+   <button onclick="toggle('hero')">VIEW DETAILS</button>
+   <div class="details" id="hero">
+    Exclusive Hero rank on VAJRA Survival.<br>
+    Purchase availability: Coming Soon.
+   </div>
+  </div>
 
-            <div class="price">₹50</div>
+ </div>
 
-            <button onclick="toggle('titan')">VIEW DETAILS</button>
-
-            <div class="details" id="titan">
-                Exclusive Titan rank on VAJRA SMP.<br>
-                Purchase availability: Coming Soon.
-            </div>
-
-        </div>
-
-        <!-- KNIGHT -->
-
-        <div class="card knight">
-
-            <div class="rank-badge">
-                <span>KNIGHT</span>
-            </div>
-
-            <div class="rank-label">Premium Rank</div>
-
-            <div class="price">₹100</div>
-
-            <button onclick="toggle('knight')">VIEW DETAILS</button>
-
-            <div class="details" id="knight">
-                Exclusive Knight rank on VAJRA SMP.<br>
-                Purchase availability: Coming Soon.
-            </div>
-
-        </div>
-
-        <!-- LEGEND -->
-
-        <div class="card legend">
-
-            <div class="rank-badge">
-                <span>LEGEND</span>
-            </div>
-
-            <div class="rank-label">Premium Rank</div>
-
-            <div class="price">₹150</div>
-
-            <button onclick="toggle('legend')">VIEW DETAILS</button>
-
-            <div class="details" id="legend">
-                Exclusive Legend rank on VAJRA SMP.<br>
-                Purchase availability: Coming Soon.
-            </div>
-
-        </div>
-
-        <!-- HERO -->
-
-        <div class="card hero-rank">
-
-            <div class="rank-badge">
-                <span>HERO</span>
-            </div>
-
-            <div class="rank-label">Premium Rank</div>
-
-            <div class="price">₹200</div>
-
-            <button onclick="toggle('hero')">VIEW DETAILS</button>
-
-            <div class="details" id="hero">
-                Exclusive Hero rank on VAJRA SMP.<br>
-                Purchase availability: Coming Soon.
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="info">
-        <h3>⚡ VAJRA SMP NETWORK</h3>
-        <p>
-            Your journey. Your rank. Your legacy.<br>
-            Premium rank purchases will be available soon.
-        </p>
-    </div>
+ <div class="info">
+  <h3>⚡ VAJRA SURVIVAL</h3>
+  <p>
+   Your kingdom. Your rank. Your legacy.<br>
+   Premium Survival rank purchases will be available soon.
+  </p>
+ </div>
 
 </main>
 
 <footer>
-    © 2026 VAJRA SMP. All rights reserved.
+ © 2026 VAJRA SMP. All rights reserved.
 </footer>
 
 <script>
 function toggle(id){
-
-    const el = document.getElementById(id);
-
-    el.style.display =
-        el.style.display === "block" ? "none" : "block";
-
+ const el=document.getElementById(id);
+ el.style.display=el.style.display==="block"?"none":"block";
 }
 </script>
 
 </body>
 </html>
+```

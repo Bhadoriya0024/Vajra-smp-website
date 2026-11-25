@@ -1,0 +1,357 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VAJRA SMP | Our Staff</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+ --purple:#a855f7;
+ --blue:#38bdf8;
+ --gold:#ffd166;
+}
+
+body{
+ background:#080b19;
+ color:white;
+ font-family:'Rajdhani',sans-serif;
+ min-height:100vh;
+ overflow-x:hidden;
+}
+
+.pixel{font-family:'Press Start 2P',cursive}
+
+body:before{
+ content:"";
+ position:fixed;
+ inset:0;
+ z-index:-2;
+ background:
+ radial-gradient(ellipse at 20% 20%,#35205e 0%,transparent 40%),
+ radial-gradient(ellipse at 80% 70%,#102d58 0%,transparent 40%),
+ #080b19;
+}
+
+body:after{
+ content:"";
+ position:fixed;
+ inset:0;
+ z-index:-1;
+ pointer-events:none;
+ opacity:.12;
+ background-image:
+ linear-gradient(#ffffff12 1px,transparent 1px),
+ linear-gradient(90deg,#ffffff12 1px,transparent 1px);
+ background-size:40px 40px;
+}
+
+/* NAVIGATION */
+
+header{
+ position:sticky;
+ top:0;
+ z-index:10;
+ background:#080b19eF;
+ border-bottom:1px solid #ffffff18;
+ backdrop-filter:blur(15px);
+}
+
+nav{
+ max-width:1150px;
+ margin:auto;
+ padding:17px 22px;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+}
+
+nav a{
+ color:#dbeafe;
+ text-decoration:none;
+ font-weight:800;
+ font-size:16px;
+ letter-spacing:1px;
+ transition:.3s;
+}
+
+nav a:hover{color:var(--blue)}
+
+.home-btn{
+ padding:10px 17px;
+ border:1px solid #38bdf866;
+ background:#17213b;
+}
+
+/* HERO */
+
+.hero{
+ min-height:490px;
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ justify-content:center;
+ text-align:center;
+ padding:55px 20px 35px;
+ position:relative;
+}
+
+.logo{
+ width:310px;
+ max-width:75%;
+ height:230px;
+ object-fit:contain;
+ filter:drop-shadow(0 0 25px #8b5cf6aa);
+ animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+ 0%,100%{transform:translateY(0)}
+ 50%{transform:translateY(-14px)}
+}
+
+.eyebrow{
+ color:#c4b5fd;
+ background:#a855f718;
+ border:1px solid #a855f755;
+ padding:11px 17px;
+ font-size:12px;
+ letter-spacing:3px;
+ margin:15px 0 22px;
+}
+
+.hero h1{
+ font-family:'Press Start 2P';
+ font-size:clamp(22px,4vw,38px);
+ line-height:1.8;
+ text-shadow:4px 4px #35205e;
+}
+
+.hero h1 span{color:var(--blue)}
+
+.hero p{
+ color:#aab8cf;
+ font-size:19px;
+ margin-top:15px;
+}
+
+/* STAFF SECTION */
+
+.staff-section{
+ max-width:1050px;
+ margin:auto;
+ padding:40px 22px 90px;
+}
+
+.section-heading{
+ text-align:center;
+ margin-bottom:40px;
+}
+
+.section-heading h2{
+ font-family:'Press Start 2P';
+ font-size:clamp(15px,3vw,23px);
+ line-height:1.9;
+ color:#e9ddff;
+}
+
+.section-heading p{
+ color:#94a3b8;
+ font-size:17px;
+ margin-top:12px;
+}
+
+.staff-grid{
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:28px;
+}
+
+.staff-card{
+ position:relative;
+ overflow:hidden;
+ text-align:center;
+ padding:38px 22px;
+ background:linear-gradient(145deg,#1a2140,#101529);
+ border:1px solid #ffffff20;
+ border-radius:12px;
+ transition:.35s ease;
+ animation:appear .8s ease both;
+}
+
+.staff-card:nth-child(2){animation-delay:.2s}
+
+@keyframes appear{
+ from{opacity:0;transform:translateY(30px)}
+ to{opacity:1;transform:translateY(0)}
+}
+
+.staff-card:hover{
+ transform:translateY(-10px);
+ border-color:var(--purple);
+ box-shadow:0 12px 40px #9333ea35;
+}
+
+.staff-card:before{
+ content:"";
+ position:absolute;
+ top:0;
+ left:0;
+ right:0;
+ height:4px;
+ background:linear-gradient(90deg,var(--blue),var(--purple));
+}
+
+.avatar{
+ width:105px;
+ height:105px;
+ margin:0 auto 23px;
+ display:grid;
+ place-items:center;
+ font-size:48px;
+ border-radius:50%;
+ background:linear-gradient(135deg,#2563eb,#9333ea);
+ border:3px solid #a5b4fc;
+ box-shadow:0 0 25px #8b5cf655;
+}
+
+.staff-card h3{
+ font-size:27px;
+ font-weight:900;
+ letter-spacing:1px;
+}
+
+.role{
+ display:inline-block;
+ margin-top:14px;
+ padding:9px 16px;
+ font-family:'Press Start 2P';
+ font-size:10px;
+ color:var(--gold);
+ background:#ffd16615;
+ border:1px solid #ffd16666;
+}
+
+.staff-card p{
+ color:#aab8cf;
+ font-size:16px;
+ margin-top:18px;
+}
+
+/* BOTTOM */
+
+.bottom{
+ text-align:center;
+ padding:35px 20px;
+ background:linear-gradient(90deg,#15102b,#101b35);
+ border-top:1px solid #ffffff15;
+}
+
+.bottom h2{
+ font-family:'Press Start 2P';
+ font-size:14px;
+ line-height:2;
+}
+
+.bottom p{
+ color:#aab8cf;
+ margin-top:12px;
+ font-size:17px;
+}
+
+footer{
+ text-align:center;
+ padding:25px 15px;
+ color:#64748b;
+ border-top:1px solid #ffffff15;
+ font-size:14px;
+}
+
+footer span{color:var(--blue)}
+
+/* MOBILE */
+
+@media(max-width:650px){
+ .logo{height:175px;width:250px}
+ .hero{min-height:400px}
+ .staff-grid{grid-template-columns:1fr}
+ .staff-section{padding:25px 16px 65px}
+ .staff-card{padding:32px 18px}
+ nav{padding:15px}
+ .hero p{font-size:17px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ <nav>
+  <a href="/Vajra-smp-website/" class="pixel">VAJRA SMP</a>
+  <a href="/Vajra-smp-website/" class="home-btn">← HOME</a>
+ </nav>
+</header>
+
+<main>
+
+<section class="hero">
+
+ <img src="../assets/vajra-logo.png"
+      class="logo"
+      alt="VAJRA SMP Logo">
+
+ <div class="eyebrow pixel">THE TEAM BEHIND VAJRA</div>
+
+ <h1>OUR <span>STAFF</span></h1>
+
+ <p>Meet the people who manage and build VAJRA SMP.</p>
+
+</section>
+
+<section class="staff-section">
+
+ <div class="section-heading">
+  <h2>MEET OUR TEAM</h2>
+  <p>Dedicated to making your experience better.</p>
+ </div>
+
+ <div class="staff-grid">
+
+  <div class="staff-card">
+   <div class="avatar">👑</div>
+   <h3>S07KS</h3>
+   <div class="role">OWNER</div>
+   <p>Founder and owner of VAJRA SMP.</p>
+  </div>
+
+  <div class="staff-card">
+   <div class="avatar">🛡️</div>
+   <h3>_NotAaradhay</h3>
+   <div class="role">ADMIN</div>
+   <p>Managing and supporting the VAJRA community.</p>
+  </div>
+
+ </div>
+
+</section>
+
+<section class="bottom">
+ <h2>ONE TEAM. ONE NETWORK.</h2>
+ <p>Building the future of VAJRA SMP together.</p>
+</section>
+
+</main>
+
+<footer>
+ © 2026 VAJRA SMP. All Rights Reserved.
+ <br><br>
+ <span>BUILT FOR MINECRAFT PLAYERS</span>
+</footer>
+
+</body>
+</html>

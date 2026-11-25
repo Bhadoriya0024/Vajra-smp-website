@@ -1,0 +1,385 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VAJRA SMP | PvP Arena</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+--bg:#080816;
+--panel:#111126;
+--purple:#8b5cf6;
+--blue:#38bdf8;
+--gold:#ffc857;
+}
+
+body{
+background:var(--bg);
+color:white;
+font-family:Roboto,sans-serif;
+overflow-x:hidden;
+}
+
+body:before{
+content:"";
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at 20% 20%,#44208035,transparent 35%),
+radial-gradient(circle at 80% 60%,#07598530,transparent 35%);
+z-index:-1;
+}
+
+nav{
+height:75px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 8%;
+background:#09091ae8;
+border-bottom:1px solid #ffffff15;
+position:sticky;
+top:0;
+z-index:10;
+backdrop-filter:blur(12px);
+}
+
+.brand{
+font-family:'Press Start 2P';
+font-size:15px;
+color:var(--gold);
+text-shadow:0 0 15px #ffc85770;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-weight:700;
+font-size:13px;
+letter-spacing:1px;
+}
+
+nav a:hover{color:var(--blue)}
+
+.hero{
+min-height:570px;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:70px 20px;
+position:relative;
+}
+
+.logo{
+width:190px;
+height:190px;
+object-fit:contain;
+filter:drop-shadow(0 0 25px #8b5cf6aa);
+animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
+}
+
+.tag{
+color:var(--blue);
+font-weight:900;
+letter-spacing:5px;
+font-size:12px;
+margin-top:25px;
+}
+
+h1{
+font-family:'Press Start 2P';
+font-size:clamp(25px,5vw,48px);
+margin:22px 0;
+line-height:1.6;
+background:linear-gradient(90deg,#fff,#a78bfa,#38bdf8);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+.hero p{
+max-width:650px;
+color:#b8b8d0;
+line-height:1.8;
+font-size:16px;
+}
+
+.status{
+margin-top:30px;
+padding:12px 25px;
+border:1px solid #ffc85770;
+border-radius:30px;
+color:var(--gold);
+background:#ffc85712;
+font-weight:900;
+letter-spacing:2px;
+font-size:12px;
+}
+
+section{
+padding:65px 8%;
+}
+
+.section-title{
+font-family:'Press Start 2P';
+font-size:19px;
+text-align:center;
+margin-bottom:15px;
+line-height:1.7;
+}
+
+.section-sub{
+text-align:center;
+color:#9999b5;
+margin-bottom:40px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:22px;
+}
+
+.card{
+background:linear-gradient(145deg,#17172f,#0e0e20);
+border:1px solid #ffffff13;
+border-radius:16px;
+padding:30px 22px;
+text-align:center;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+border-color:var(--purple);
+box-shadow:0 10px 35px #8b5cf630;
+}
+
+.card .emoji{
+font-size:38px;
+margin-bottom:18px;
+}
+
+.card h3{
+font-size:17px;
+margin-bottom:12px;
+color:var(--gold);
+}
+
+.card p{
+color:#aaaac2;
+line-height:1.7;
+font-size:14px;
+}
+
+.arena{
+background:linear-gradient(120deg,#16102d,#10182e);
+border-top:1px solid #ffffff10;
+border-bottom:1px solid #ffffff10;
+}
+
+.arena-box{
+max-width:850px;
+margin:auto;
+padding:40px;
+border-radius:18px;
+text-align:center;
+background:#09091b;
+border:1px solid #8b5cf650;
+box-shadow:0 0 40px #8b5cf620;
+}
+
+.arena-box h2{
+font-family:'Press Start 2P';
+font-size:17px;
+line-height:1.8;
+color:var(--gold);
+margin-bottom:20px;
+}
+
+.arena-box p{
+color:#b5b5cc;
+line-height:1.9;
+}
+
+.rules-list{
+max-width:750px;
+margin:auto;
+}
+
+.rule{
+display:flex;
+gap:18px;
+align-items:center;
+padding:20px;
+margin-bottom:13px;
+background:#121226;
+border:1px solid #ffffff12;
+border-radius:12px;
+}
+
+.number{
+min-width:35px;
+height:35px;
+display:grid;
+place-items:center;
+border-radius:9px;
+background:#8b5cf625;
+color:#b99aff;
+font-weight:900;
+}
+
+.rule p{
+color:#c6c6d8;
+line-height:1.6;
+font-size:14px;
+}
+
+footer{
+padding:35px 15px;
+text-align:center;
+background:#070711;
+border-top:1px solid #ffffff12;
+color:#77778f;
+font-size:12px;
+line-height:2;
+}
+
+footer strong{color:var(--gold)}
+
+@media(max-width:600px){
+nav{padding:0 5%}
+.brand{font-size:11px}
+nav a{font-size:11px}
+.logo{width:155px;height:155px}
+section{padding:50px 6%}
+.section-title{font-size:15px}
+.arena-box{padding:25px 18px}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="brand">VAJRA SMP</div>
+<a href="/Vajra-smp-website/">← HOME</a>
+</nav>
+
+<div class="hero">
+
+<img src="../assets/vajra-logo.png" class="logo" alt="Vajra SMP Logo">
+
+<div class="tag">ENTER THE BATTLE</div>
+
+<h1>PVP ARENA</h1>
+
+<p>
+Prepare yourself for intense battles, sharpen your combat skills
+and prove your strength in the world of VAJRA SMP.
+</p>
+
+<div class="status">⚔️ SERVER COMING SOON</div>
+
+</div>
+
+<section>
+<h2 class="section-title">BATTLE FEATURES</h2>
+<p class="section-sub">Everything that makes every fight exciting.</p>
+
+<div class="grid">
+
+<div class="card">
+<div class="emoji">⚔️</div>
+<h3>INTENSE COMBAT</h3>
+<p>Test your PvP skills and challenge other players in exciting battles.</p>
+</div>
+
+<div class="card">
+<div class="emoji">🛡️</div>
+<h3>FAIR FIGHTS</h3>
+<p>Enjoy competitive gameplay with fair-play expectations for everyone.</p>
+</div>
+
+<div class="card">
+<div class="emoji">🏆</div>
+<h3>PROVE YOURSELF</h3>
+<p>Show your combat skills and build your reputation in the community.</p>
+</div>
+
+<div class="card">
+<div class="emoji">🔥</div>
+<h3>EPIC EXPERIENCES</h3>
+<p>Get ready for exciting PvP moments with the VAJRA SMP community.</p>
+</div>
+
+</div>
+</section>
+
+<section class="arena">
+<div class="arena-box">
+<h2>THE BATTLE BEGINS SOON</h2>
+<p>
+The VAJRA PvP experience is getting ready.
+Gather your courage, prepare your gear and get ready
+to enter the battlefield.
+<br><br>
+<strong style="color:#ffc857">YOUR SKILLS. YOUR BATTLE. YOUR LEGACY.</strong>
+</p>
+</div>
+</section>
+
+<section>
+<h2 class="section-title">PVP RULES</h2>
+<p class="section-sub">Keep the battlefield fair and enjoyable.</p>
+
+<div class="rules-list">
+
+<div class="rule">
+<div class="number">01</div>
+<p>No hacking, cheating or unfair modifications.</p>
+</div>
+
+<div class="rule">
+<div class="number">02</div>
+<p>No exploiting bugs or glitches to gain an unfair advantage.</p>
+</div>
+
+<div class="rule">
+<div class="number">03</div>
+<p>Respect other players. Abusive behaviour is not allowed.</p>
+</div>
+
+<div class="rule">
+<div class="number">04</div>
+<p>Follow all server rules and staff instructions.</p>
+</div>
+
+<div class="rule">
+<div class="number">05</div>
+<p>Keep PvP competitive, fair and fun for everyone.</p>
+</div>
+
+</div>
+</section>
+
+<footer>
+<strong>VAJRA SMP</strong><br>
+BUILT FOR THE WARRIORS<br>
+© 2026 VAJRA SMP. ALL RIGHTS RESERVED.
+</footer>
+
+</body>
+</html>

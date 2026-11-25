@@ -1,1082 +1,706 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <meta name="google-site-verification" content="IcRzXAsG3QjwDqXDyX_8ERFfeKUdCCNGjy7rylBLchg">
 <meta name="google-site-verification" content="DawQEBBcU5eHMi6YFnlGIYB2sjlM2h6r9orqC34-Ai8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#090719">
-<meta name="description" content="Welcome to VAJRA SMP - A premium Minecraft network featuring Survival, Lifesteal and PvP.">
+<title>VAJRA SMP | Minecraft Network</title>
 
-<title>VAJRASMP | Official Minecraft Network</title>
+<meta name="description" content="Welcome to VAJRA SMP - A premium Minecraft network featuring Survival, Lifesteal and PvP.">
+<meta name="theme-color" content="#090719">
 
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
 }
 
 :root{
-    --purple:#a855f7;
-    --violet:#7c3aed;
-    --blue:#38bdf8;
-    --gold:#ffd166;
-    --dark:#090719;
-    --panel:#15112b;
-    --text:#ffffff;
-    --muted:#c0bdd4;
+ --blue:#38bdf8;
+ --purple:#a855f7;
+ --gold:#ffd166;
+ --dark:#090719;
+ --panel:#15132b;
 }
 
 html{
-    scroll-behavior:smooth;
+ scroll-behavior:smooth;
 }
 
 body{
-    background:var(--dark);
-    color:var(--text);
-    font-family:'Rajdhani',sans-serif;
-    overflow-x:hidden;
+ background:#090719;
+ color:#fff;
+ font-family:'Rajdhani',sans-serif;
+ overflow-x:hidden;
 }
 
 a{
-    text-decoration:none;
-    color:inherit;
+ text-decoration:none;
+ color:inherit;
 }
 
 button{
-    font-family:inherit;
-    cursor:pointer;
+ font-family:inherit;
+ cursor:pointer;
 }
 
 .pixel{
-    font-family:'Press Start 2P',cursive;
+ font-family:'Press Start 2P',cursive;
 }
 
-/* BACKGROUND */
-
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:-3;
-    background:
-        radial-gradient(ellipse at 15% 10%,#422078 0%,transparent 40%),
-        radial-gradient(ellipse at 90% 45%,#17265c 0%,transparent 38%),
-        linear-gradient(180deg,#100b25,#080817 80%);
+body:before{
+ content:"";
+ position:fixed;
+ inset:0;
+ z-index:-2;
+ background:
+ radial-gradient(ellipse at 15% 10%,#39206b 0%,transparent 38%),
+ radial-gradient(ellipse at 85% 55%,#172c66 0%,transparent 40%),
+ #090719;
 }
 
-body::after{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:-2;
-    opacity:.10;
-    pointer-events:none;
-    background-image:
-        linear-gradient(#ffffff12 1px,transparent 1px),
-        linear-gradient(90deg,#ffffff12 1px,transparent 1px);
-    background-size:40px 40px;
+body:after{
+ content:"";
+ position:fixed;
+ inset:0;
+ z-index:-1;
+ opacity:.10;
+ pointer-events:none;
+ background-image:
+ linear-gradient(#ffffff10 1px,transparent 1px),
+ linear-gradient(90deg,#ffffff10 1px,transparent 1px);
+ background-size:40px 40px;
 }
 
 /* NAVBAR */
 
 header{
-    position:sticky;
-    top:0;
-    z-index:100;
-    background:#090719ed;
-    backdrop-filter:blur(16px);
-    border-bottom:1px solid #ffffff18;
+ position:sticky;
+ top:0;
+ z-index:100;
+ background:#090719ee;
+ border-bottom:1px solid #ffffff18;
+ backdrop-filter:blur(15px);
 }
 
 .nav{
-    max-width:1300px;
-    margin:auto;
-    padding:12px 24px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
+ max-width:1250px;
+ margin:auto;
+ padding:12px 22px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:20px;
 }
 
 .brand{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    font-family:'Press Start 2P',cursive;
-    font-size:13px;
-    white-space:nowrap;
+ display:flex;
+ align-items:center;
+ gap:12px;
+ font-family:'Press Start 2P',cursive;
+ font-size:14px;
 }
 
 .brand span{
-    color:#b98aff;
+ color:var(--blue);
 }
 
 .nav-logo{
-    width:48px;
-    height:48px;
-    object-fit:contain;
-    filter:drop-shadow(0 0 10px #a855f7aa);
+ width:48px;
+ height:48px;
+ object-fit:contain;
+ filter:drop-shadow(0 0 10px #38bdf855);
 }
 
 .nav-links{
-    display:flex;
-    align-items:center;
-    gap:23px;
+ display:flex;
+ align-items:center;
+ gap:25px;
 }
 
 .nav-links a{
-    color:#e1d9f5;
-    font-size:15px;
-    font-weight:800;
-    letter-spacing:1px;
-    transition:.25s;
+ color:#d6d3ed;
+ font-size:15px;
+ font-weight:800;
+ letter-spacing:1px;
+ transition:.25s;
 }
 
 .nav-links a:hover{
-    color:#c084fc;
-    text-shadow:0 0 12px #a855f7;
+ color:var(--blue);
 }
 
 .nav-login{
-    background:linear-gradient(135deg,#7c3aed,#a855f7);
-    padding:10px 17px;
-    border:1px solid #c4a2ff;
-    border-radius:5px;
-    color:white!important;
+ padding:10px 16px;
+ background:linear-gradient(135deg,#2563eb,#9333ea);
+ border:1px solid #93c5fd;
+ color:white!important;
+ box-shadow:0 0 15px #3b82f655;
 }
 
 .menu-btn{
-    display:none;
-    background:#21163c;
-    border:1px solid #a855f766;
-    color:white;
-    padding:9px 13px;
-    font-size:22px;
-    border-radius:5px;
+ display:none;
+ background:#17152c;
+ color:white;
+ border:1px solid #ffffff33;
+ padding:8px 12px;
+ font-size:23px;
 }
 
-/* HERO SECTION */
+/* HERO */
 
 .hero{
-    max-width:1450px;
-    min-height:590px;
-    margin:35px auto 0;
-    padding:35px 30px;
-    position:relative;
-    overflow:hidden;
-    display:grid;
-    grid-template-columns:1fr 1.65fr 1fr;
-    align-items:center;
-    gap:20px;
-
-    background:
-        radial-gradient(ellipse at 50% 45%,#6839a6aa,transparent 50%),
-        linear-gradient(135deg,#251447,#10152f 55%,#21103d);
-
-    border:1px solid #b68aff66;
-    border-radius:18px;
-
-    box-shadow:
-        0 0 35px #7c3aed30,
-        inset 0 0 45px #a855f719;
+ max-width:1250px;
+ margin:35px auto 25px;
+ padding:25px 25px;
+ min-height:440px;
+ display:grid;
+ grid-template-columns:1fr 1.5fr 1fr;
+ align-items:center;
+ gap:15px;
+ position:relative;
+ overflow:hidden;
+ border:1px solid #a855f755;
+ border-radius:20px;
+ background:
+ radial-gradient(ellipse at 50% 50%,#542b91 0%,transparent 60%),
+ linear-gradient(120deg,#17113a,#25144b,#111c43);
+ box-shadow:0 15px 60px #0008,0 0 35px #9333ea22;
 }
 
-/* PIXEL SCENERY */
-
-.hero::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    opacity:.20;
-    pointer-events:none;
-    background:
-        linear-gradient(90deg,transparent 48%,#ffffff10 50%,transparent 52%),
-        linear-gradient(0deg,transparent 48%,#ffffff10 50%,transparent 52%);
-    background-size:65px 65px;
-}
-
-.hero::after{
-    content:"";
-    position:absolute;
-    width:500px;
-    height:500px;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-    background:#a855f7;
-    filter:blur(180px);
-    opacity:.15;
-    pointer-events:none;
-}
-
-.hero-side,
-.hero-center{
-    position:relative;
-    z-index:2;
+.hero:before{
+ content:"";
+ position:absolute;
+ inset:0;
+ pointer-events:none;
+ background:linear-gradient(120deg,transparent,#ffffff08,transparent);
 }
 
 .hero-side{
-    min-width:0;
-    padding:24px 18px;
-    text-align:center;
-    background:#09071975;
-    border:1px solid #ffffff26;
-    border-radius:12px;
-    backdrop-filter:blur(12px);
-    box-shadow:0 10px 30px #0005;
+ position:relative;
+ z-index:2;
+ text-align:center;
+ padding:15px;
 }
 
 .side-icon{
-    font-size:42px;
-    margin-bottom:16px;
+ font-size:43px;
+ margin-bottom:15px;
 }
 
-.hero-side h2{
-    font-family:'Press Start 2P',cursive;
-    font-size:clamp(10px,1.2vw,14px);
-    line-height:2;
-    color:white;
-    margin-bottom:10px;
-    overflow-wrap:anywhere;
+.hero-side h3{
+ font-family:'Press Start 2P',cursive;
+ font-size:13px;
+ line-height:2;
 }
 
 .hero-side p{
-    color:#e2d7f8;
-    font-size:17px;
-    font-weight:700;
-    line-height:1.5;
+ color:#d3c9ed;
+ font-size:16px;
+ font-weight:700;
+ margin-top:9px;
 }
 
 .side-status{
-    display:inline-block;
-    margin-top:14px;
-    padding:8px 12px;
-    background:#ffffff12;
-    border:1px solid #ffffff30;
-    border-radius:5px;
-    color:#ffd98b;
-    font-size:13px;
-    font-weight:800;
-    letter-spacing:1px;
+ display:inline-block;
+ margin-top:15px;
+ padding:9px 12px;
+ color:var(--gold);
+ border:1px solid #ffd16666;
+ background:#ffd16612;
+ font-family:'Press Start 2P',cursive;
+ font-size:8px;
+ line-height:1.8;
+}
+
+.play-button{
+ display:inline-block;
+ margin-top:17px;
+ padding:13px 18px;
+ color:#fff;
+ background:linear-gradient(135deg,#2563eb,#9333ea);
+ border:1px solid #93c5fd;
+ font-family:'Press Start 2P',cursive;
+ font-size:9px;
+ box-shadow:0 0 18px #3b82f655;
+ transition:.25s;
+}
+
+.play-button:hover{
+ transform:translateY(-4px);
+ filter:brightness(1.2);
 }
 
 .hero-center{
-    text-align:center;
-    min-width:0;
+ text-align:center;
+ position:relative;
+ z-index:2;
 }
 
 .main-logo{
-    width:100%;
-    max-width:450px;
-    height:320px;
-    object-fit:contain;
-    filter:
-        drop-shadow(0 0 20px #b77affaa)
-        drop-shadow(0 0 45px #7135d966);
-    animation:logoFloat 4s ease-in-out infinite;
-}
-
-@keyframes logoFloat{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-9px)}
+ width:100%;
+ max-width:370px;
+ height:270px;
+ object-fit:contain;
+ filter:drop-shadow(0 0 25px #8b5cf688);
 }
 
 .hero-center h1{
-    font-family:'Press Start 2P',cursive;
-    font-size:clamp(17px,2.4vw,27px);
-    line-height:1.8;
-    text-shadow:3px 4px #31165c;
-    margin-top:4px;
+ font-family:'Press Start 2P',cursive;
+ font-size:clamp(17px,2.6vw,28px);
+ line-height:1.9;
+ text-shadow:3px 3px #31205e;
 }
 
 .hero-center h1 span{
-    color:#d5a8ff;
-    text-shadow:0 0 20px #a855f7;
+ color:#8bdcff;
 }
 
 .hero-center p{
-    margin-top:12px;
-    color:#ded6ef;
-    font-size:18px;
-    line-height:1.5;
+ color:#d3c9ed;
+ font-size:17px;
+ font-weight:700;
+ margin-top:8px;
 }
 
-.hero-tag{
-    display:inline-block;
-    margin-top:18px;
-    padding:9px 15px;
-    background:#ffd16617;
-    border:1px solid #ffd16666;
-    border-radius:5px;
-    color:#ffdc91;
-    font-size:12px;
-    font-weight:900;
-    letter-spacing:2px;
+/* DISCORD */
+
+.discord-box{
+ display:block;
+ color:white;
 }
 
-/* PARTICLES */
-
-.particle{
-    position:absolute;
-    width:5px;
-    height:5px;
-    background:#d8b4fe;
-    box-shadow:0 0 12px #c084fc;
-    opacity:.65;
-    animation:particleFloat 5s ease-in-out infinite;
-    pointer-events:none;
+.discord-box:hover{
+ transform:translateY(-3px);
 }
 
-.p1{top:15%;left:12%}
-.p2{top:25%;right:12%;animation-delay:1s}
-.p3{bottom:20%;left:28%;animation-delay:2s}
-.p4{bottom:15%;right:25%;animation-delay:3s}
-.p5{top:50%;left:50%;animation-delay:1.5s}
-
-@keyframes particleFloat{
-    0%,100%{transform:translateY(0);opacity:.25}
-    50%{transform:translateY(-25px);opacity:.9}
+.discord-icon{
+ width:66px;
+ height:66px;
+ margin:0 auto 14px;
+ display:grid;
+ place-items:center;
+ border-radius:18px;
+ background:#5865f2;
+ box-shadow:0 0 25px #5865f266;
+ font-size:36px;
+ font-weight:900;
 }
 
-/* LOGIN SECTION */
+.discord-box h3{
+ font-family:'Press Start 2P',cursive;
+ font-size:13px;
+ line-height:2;
+}
+
+.discord-box p{
+ font-size:16px;
+ color:#e1dcf3;
+ margin-top:7px;
+ font-weight:700;
+}
+
+/* LOGIN */
 
 .login-section{
-    max-width:1050px;
-    margin:42px auto 15px;
-    padding:0 22px;
+ max-width:850px;
+ margin:35px auto 55px;
+ padding:25px;
+ border:1px solid #ffffff20;
+ border-radius:16px;
+ background:linear-gradient(145deg,#171632,#10172b);
+ box-shadow:0 12px 35px #0005;
 }
 
-.login-panel{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:25px;
-    padding:23px 28px;
-
-    background:linear-gradient(110deg,#151b31,#21153c);
-    border:1px solid #ffffff20;
-    border-radius:12px;
-    box-shadow:0 10px 30px #0004;
+.login-content{
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ gap:22px;
+ flex-wrap:wrap;
 }
 
-.login-left{
-    display:flex;
-    align-items:center;
-    gap:18px;
+.player-avatar{
+ width:82px;
+ height:82px;
+ object-fit:contain;
+ image-rendering:pixelated;
+ background:#202b45;
+ border:2px solid #38bdf8;
+ border-radius:10px;
 }
 
-.avatar{
-    width:65px;
-    height:65px;
-    display:grid;
-    place-items:center;
-    flex-shrink:0;
-    background:linear-gradient(135deg,#5436a0,#8b5cf6);
-    border:2px solid #c4a2ff;
-    border-radius:9px;
-    font-size:34px;
+.login-text{
+ text-align:left;
 }
 
 .login-text h2{
-    font-family:'Press Start 2P',cursive;
-    font-size:14px;
-    line-height:2;
-    color:#ffffff;
+ font-family:'Press Start 2P',cursive;
+ font-size:14px;
+ line-height:2;
+ color:#fff;
 }
 
 .login-text p{
-    color:#c4bfd5;
-    font-size:17px;
-    font-weight:600;
-    margin-top:3px;
+ color:#aebbd4;
+ font-size:16px;
+ font-weight:600;
 }
 
-.login-button{
-    border:1px solid #86efac;
-    border-radius:6px;
-    padding:14px 25px;
-    background:linear-gradient(135deg,#16a34a,#15803d);
-    color:white;
-    font-size:16px;
-    font-weight:900;
-    letter-spacing:1px;
-    box-shadow:0 4px 0 #064e3b;
-    transition:.25s;
-    white-space:nowrap;
+.login-form{
+ display:flex;
+ gap:10px;
+ width:100%;
+ max-width:520px;
+ margin:22px auto 0;
 }
 
-.login-button:hover{
-    transform:translateY(-3px);
-    filter:brightness(1.2);
-    box-shadow:0 7px 0 #064e3b,0 0 20px #22c55e77;
+.login-form input{
+ flex:1;
+ min-width:0;
+ padding:14px;
+ border:1px solid #52658d;
+ background:#090e20;
+ color:white;
+ font-size:16px;
+ outline:none;
+ border-radius:6px;
 }
 
-/* CATEGORY SECTION */
-
-.categories{
-    max-width:1120px;
-    margin:55px auto 80px;
-    padding:0 22px;
+.login-form input:focus{
+ border-color:var(--blue);
+ box-shadow:0 0 12px #38bdf833;
 }
 
-.section-heading{
-    text-align:center;
-    margin-bottom:35px;
+.login-form button{
+ padding:13px 20px;
+ border:1px solid #86efac;
+ border-radius:6px;
+ color:#052e16;
+ background:linear-gradient(135deg,#4ade80,#22c55e);
+ font-family:'Press Start 2P',cursive;
+ font-size:9px;
+ box-shadow:0 4px 0 #14532d;
+}
+
+.login-form button:hover{
+ filter:brightness(1.1);
+ transform:translateY(-2px);
+}
+
+.login-note{
+ text-align:center;
+ color:#8391ad;
+ font-size:12px;
+ margin-top:13px;
+}
+
+.login-message{
+ text-align:center;
+ color:#86efac;
+ font-size:15px;
+ font-weight:800;
+ margin-top:14px;
+}
+
+/* GAME MODES */
+
+.modes-section{
+ max-width:1150px;
+ margin:auto;
+ padding:35px 22px 80px;
+}
+
+.section-head{
+ text-align:center;
+ margin-bottom:38px;
 }
 
 .eyebrow{
-    color:#c084fc;
-    font-size:13px;
-    font-weight:900;
-    letter-spacing:4px;
-    margin-bottom:15px;
+ color:var(--blue);
+ font-weight:800;
+ letter-spacing:4px;
+ font-size:13px;
+ margin-bottom:15px;
 }
 
-.section-heading h2{
-    font-family:'Press Start 2P',cursive;
-    font-size:clamp(16px,2.7vw,24px);
-    line-height:1.9;
+.section-title{
+ font-family:'Press Start 2P',cursive;
+ font-size:clamp(16px,3vw,25px);
+ line-height:1.9;
 }
 
-.section-heading p{
-    color:#b5aecb;
-    font-size:18px;
-    margin-top:10px;
+.section-desc{
+ color:#aab8cf;
+ font-size:18px;
+ margin-top:10px;
 }
 
-/* FOUR CATEGORY CARDS */
-
-.category-grid{
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:23px;
+.mode-grid{
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:24px;
 }
 
-.category-card{
-    min-height:220px;
-    position:relative;
-    overflow:hidden;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:28px 20px;
-
-    border:1px solid #ffffff35;
-    border-radius:14px;
-
-    transition:
-        transform .3s ease,
-        box-shadow .3s ease,
-        border-color .3s ease,
-        filter .3s ease;
-
-    box-shadow:0 10px 25px #0005;
+.mode-card{
+ min-height:235px;
+ position:relative;
+ overflow:hidden;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ flex-direction:column;
+ text-align:center;
+ padding:28px 20px;
+ border-radius:16px;
+ border:1px solid #ffffff25;
+ transition:transform .3s,border-color .3s,box-shadow .3s,filter .3s;
 }
 
-.category-card::before{
-    content:"";
-    position:absolute;
-    width:220px;
-    height:220px;
-    top:-130px;
-    right:-70px;
-    border-radius:50%;
-    background:#ffffff;
-    opacity:.10;
-    filter:blur(35px);
-    transition:.3s;
+.mode-card:hover{
+ transform:translateY(-8px) scale(1.015);
+ border-color:#ffffff88;
+ filter:brightness(1.13);
 }
 
-.category-card:hover{
-    transform:translateY(-10px) scale(1.035);
-    border-color:#ffffffaa;
-    filter:brightness(1.17);
-    box-shadow:
-        0 18px 38px #0008,
-        0 0 28px var(--card-glow);
+.mode-card img{
+ width:100px;
+ height:100px;
+ object-fit:contain;
+ margin-bottom:15px;
+ filter:drop-shadow(0 8px 12px #0008);
+ transition:.3s;
 }
 
-.category-card:hover::before{
-    opacity:.22;
-    transform:scale(1.4);
+.mode-card:hover img{
+ transform:scale(1.1);
 }
 
-.category-icon{
-    position:relative;
-    z-index:1;
-    font-size:52px;
-    margin-bottom:15px;
-    filter:drop-shadow(0 5px 8px #0008);
-    transition:.3s;
+.mode-card h3{
+ font-family:'Press Start 2P',cursive;
+ font-size:15px;
+ line-height:2;
 }
 
-.category-card:hover .category-icon{
-    transform:scale(1.16) rotate(-5deg);
+.mode-card p{
+ font-size:17px;
+ font-weight:700;
+ margin-top:5px;
+ color:#ffffffdc;
 }
 
-.category-card h3{
-    position:relative;
-    z-index:1;
-    font-family:'Press Start 2P',cursive;
-    font-size:clamp(12px,1.7vw,17px);
-    line-height:1.8;
-    margin-bottom:8px;
-    text-shadow:2px 3px #0007;
+.card-link{
+ font-size:13px;
+ font-weight:900;
+ letter-spacing:1px;
+ margin-top:15px;
+ color:#fff;
 }
-
-.category-card p{
-    position:relative;
-    z-index:1;
-    font-size:18px;
-    font-weight:800;
-    color:#fff;
-}
-
-.card-action{
-    position:relative;
-    z-index:1;
-    margin-top:14px;
-    font-size:14px;
-    font-weight:900;
-    letter-spacing:1px;
-    color:#ffffffdf;
-}
-
-/* CARD THEMES */
 
 .survival-card{
-    --card-glow:#a78bfa;
-    background:linear-gradient(135deg,#6041a0,#30245f 55%,#211b47);
-    border-top:4px solid #c4b5fd;
+ background:linear-gradient(135deg,#315e42,#152c32 80%);
+ box-shadow:0 8px 30px #4ade8015;
 }
 
 .lifesteal-card{
-    --card-glow:#fb7185;
-    background:linear-gradient(135deg,#a82f52,#641b48 55%,#351638);
-    border-top:4px solid #fb7185;
+ background:linear-gradient(135deg,#761c3c,#301329 85%);
+ box-shadow:0 8px 30px #ef444422;
 }
 
 .pvp-card{
-    --card-glow:#60a5fa;
-    background:linear-gradient(135deg,#293d83,#25205d 55%,#151735);
-    border-top:4px solid #60a5fa;
+ background:linear-gradient(135deg,#34276e,#142b52 85%);
+ box-shadow:0 8px 30px #6366f122;
 }
 
 .coin-card{
-    --card-glow:#fbbf24;
-    background:linear-gradient(135deg,#a86618,#6e4316 55%,#3a2817);
-    border-top:4px solid #fcd34d;
-}
-
-/* ABOUT */
-
-.about{
-    padding:75px 22px;
-    background:#111026aa;
-    border-top:1px solid #ffffff15;
-    border-bottom:1px solid #ffffff15;
-}
-
-.about-box{
-    max-width:900px;
-    margin:auto;
-    text-align:center;
-}
-
-.about-box h2{
-    font-family:'Press Start 2P',cursive;
-    font-size:clamp(16px,2.5vw,23px);
-    line-height:1.9;
-}
-
-.about-box p{
-    max-width:800px;
-    margin:20px auto 0;
-    color:#c5bfd7;
-    font-size:19px;
-    line-height:1.8;
-}
-
-.features{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
-    margin-top:30px;
-}
-
-.feature{
-    padding:20px 12px;
-    background:#19162f;
-    border:1px solid #ffffff20;
-    border-radius:8px;
-    color:#e9ddff;
-    font-size:16px;
-    font-weight:800;
-}
-
-/* RULES */
-
-.rules-section{
-    padding:75px 22px;
-}
-
-.rules{
-    max-width:950px;
-    margin:35px auto 0;
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:15px;
-}
-
-.rule{
-    display:flex;
-    align-items:center;
-    gap:15px;
-    padding:19px;
-    background:#15132a;
-    border:1px solid #ffffff18;
-    border-radius:8px;
-    color:#ded9eb;
-    font-size:17px;
-    font-weight:700;
-}
-
-.rule b{
-    color:#ffd166;
-    font-family:'Press Start 2P',cursive;
-    font-size:12px;
-}
-
-/* STAFF */
-
-.staff-section{
-    padding:70px 22px;
-    background:#100e22;
-}
-
-.staff-grid{
-    max-width:750px;
-    margin:35px auto 0;
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:22px;
-}
-
-.staff-card{
-    text-align:center;
-    background:linear-gradient(145deg,#201a3b,#121329);
-    border:1px solid #ffffff20;
-    border-radius:10px;
-    padding:30px 20px;
-}
-
-.staff-avatar{
-    width:75px;
-    height:75px;
-    margin:0 auto 17px;
-    display:grid;
-    place-items:center;
-    font-size:35px;
-    background:linear-gradient(135deg,#6d3bb3,#293a85);
-    border:2px solid #c4a2ff;
-    border-radius:8px;
-}
-
-.staff-card h3{
-    font-size:23px;
-    font-weight:900;
-}
-
-.staff-card p{
-    color:#ffd166;
-    font-weight:900;
-    letter-spacing:2px;
-    margin-top:8px;
-}
-
-/* JOIN */
-
-.join{
-    padding:70px 22px;
-    text-align:center;
-    background:linear-gradient(135deg,#281747,#18204c);
-    border-top:1px solid #a855f755;
-}
-
-.join h2{
-    font-family:'Press Start 2P',cursive;
-    font-size:clamp(15px,2.5vw,23px);
-    line-height:1.9;
-}
-
-.join p{
-    color:#ded6ed;
-    font-size:19px;
-    margin:18px 0 25px;
-}
-
-.server-box{
-    display:inline-block;
-    padding:15px 22px;
-    background:#090719;
-    border:1px solid #a855f7;
-    border-radius:7px;
-    color:#d8b4fe;
-    font-size:18px;
-    font-weight:900;
-    margin-bottom:25px;
+ background:linear-gradient(135deg,#8a5512,#372319 85%);
+ box-shadow:0 8px 30px #facc1522;
 }
 
 /* FOOTER */
 
 footer{
-    padding:30px 20px;
-    text-align:center;
-    background:#080713;
-    border-top:1px solid #ffffff18;
-    color:#9992ad;
-    font-size:14px;
-}
-
-footer .footer-brand{
-    font-family:'Press Start 2P',cursive;
-    font-size:12px;
-    color:#c4a2ff;
-    margin-bottom:15px;
+ text-align:center;
+ padding:28px 15px;
+ color:#7e8ba5;
+ font-size:14px;
+ border-top:1px solid #ffffff15;
+ background:#080713;
 }
 
 footer span{
-    color:#c084fc;
+ color:var(--blue);
 }
 
-/* LOGIN POPUP */
+/* MOBILE */
 
-.popup{
-    display:none;
-    position:fixed;
-    inset:0;
-    z-index:300;
-    background:#000d;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-}
+@media(max-width:850px){
 
-.popup.show{
-    display:flex;
-}
+ .nav-links{
+  display:none;
+  position:absolute;
+  top:72px;
+  left:0;
+  right:0;
+  background:#090719;
+  padding:22px;
+  flex-direction:column;
+  border-bottom:1px solid #ffffff22;
+ }
 
-.popup-box{
-    width:100%;
-    max-width:420px;
-    position:relative;
-    padding:32px;
-    text-align:center;
-    background:linear-gradient(145deg,#20183b,#101326);
-    border:1px solid #b98aff;
-    border-radius:12px;
-    box-shadow:0 0 45px #7c3aed66;
-}
+ .nav-links.open{
+  display:flex;
+ }
 
-.close{
-    position:absolute;
-    top:10px;
-    right:15px;
-    background:none;
-    border:none;
-    color:white;
-    font-size:28px;
-}
+ .menu-btn{
+  display:block;
+ }
 
-.popup-avatar{
-    font-size:48px;
-    margin:15px 0;
-}
+ .hero{
+  margin:20px 12px;
+  grid-template-columns:1fr 1fr;
+  padding:25px 12px;
+ }
 
-.popup-box h2{
-    font-family:'Press Start 2P',cursive;
-    font-size:14px;
-    line-height:2;
-    margin:15px 0;
-}
+ .hero-center{
+  grid-column:1/-1;
+  grid-row:1;
+ }
 
-.popup-box p{
-    color:#c2bad4;
-    font-size:16px;
-    margin-bottom:18px;
-}
+ .main-logo{
+  height:190px;
+ }
 
-.popup-box input{
-    width:100%;
-    padding:15px;
-    margin:8px 0 15px;
-    background:#090719;
-    border:1px solid #a855f7;
-    border-radius:5px;
-    color:white;
-    font-size:17px;
-    outline:none;
-}
+ .hero-side{
+  padding:12px 5px;
+ }
 
-.popup-box input:focus{
-    border-color:#d8b4fe;
-    box-shadow:0 0 12px #a855f755;
-}
+ .hero-side h3,.discord-box h3{
+  font-size:10px;
+ }
 
-.edition{
-    display:block;
-    width:100%;
-    margin:12px 0;
-    padding:15px;
-    background:#21183e;
-    border:1px solid #ffffff35;
-    border-radius:5px;
-    color:white;
-    font-size:16px;
-    font-weight:900;
-}
+ .side-icon{
+  font-size:32px;
+ }
 
-.edition:hover{
-    border-color:#c084fc;
-    color:#d8b4fe;
-}
+ .side-status{
+  font-size:7px;
+ }
 
-.popup-login{
-    width:100%;
-    padding:14px;
-    background:linear-gradient(135deg,#16a34a,#15803d);
-    border:1px solid #86efac;
-    border-radius:5px;
-    color:white;
-    font-size:16px;
-    font-weight:900;
-}
+ .login-section{
+  margin:25px 15px 40px;
+ }
 
-.back{
-    margin-top:15px;
-    background:none;
-    border:0;
-    color:#c084fc;
-    font-weight:800;
-}
-
-#usernameForm{
-    display:none;
-}
-
-.login-note{
-    margin-top:16px;
-    color:#a8a0bb;
-    font-size:12px;
-    line-height:1.6;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:950px){
-
-    .nav-links{
-        gap:14px;
-    }
-
-    .nav-links a{
-        font-size:13px;
-    }
-
-    .hero{
-        grid-template-columns:1fr 1.5fr 1fr;
-        margin:20px 15px 0;
-        padding:25px 15px;
-    }
-
-    .main-logo{
-        height:260px;
-    }
-
-    .hero-side{
-        padding:20px 10px;
-    }
-
-    .hero-side h2{
-        font-size:10px;
-    }
-}
-
-@media(max-width:760px){
-
-    .nav-links{
-        display:none;
-        position:absolute;
-        top:72px;
-        left:0;
-        right:0;
-        padding:20px;
-        background:#0c091c;
-        border-bottom:1px solid #ffffff25;
-        flex-direction:column;
-        align-items:stretch;
-        gap:18px;
-    }
-
-    .nav-links.open{
-        display:flex;
-    }
-
-    .nav-links a{
-        font-size:15px;
-        text-align:center;
-    }
-
-    .menu-btn{
-        display:block;
-    }
-
-    .hero{
-        grid-template-columns:1fr;
-        gap:16px;
-        padding:28px 18px;
-        min-height:auto;
-    }
-
-    .hero-center{
-        grid-row:1;
-    }
-
-    .hero-side{
-        width:100%;
-        padding:18px;
-    }
-
-    .main-logo{
-        max-width:340px;
-        height:235px;
-    }
-
-    .hero-side h2{
-        font-size:12px;
-    }
-
-    .hero-side p{
-        font-size:16px;
-    }
-
-    .login-panel{
-        flex-direction:column;
-        text-align:center;
-    }
-
-    .login-left{
-        flex-direction:column;
-    }
-
-    .features{
-        grid-template-columns:1fr;
-    }
-
-    .rules{
-        grid-template-columns:1fr;
-    }
+ .mode-grid{
+  gap:15px;
+ }
 }
 
 @media(max-width:520px){
 
-    .nav{
-        padding:10px 14px;
-    }
+ .brand{
+  font-size:11px;
+ }
 
-    .brand{
-        font-size:10px;
-    }
+ .nav-logo{
+  width:40px;
+  height:40px;
+ }
 
-    .nav-logo{
-        width:40px;
-        height:40px;
-    }
+ .hero{
+  grid-template-columns:1fr 1fr;
+  min-height:420px;
+ }
 
-    .hero{
-        margin:14px 10px 0;
-        border-radius:12px;
-        padding:25px 13px;
-    }
+ .main-logo{
+  height:165px;
+ }
 
-    .main-logo{
-        height:195px;
-    }
+ .hero-center h1{
+  font-size:15px;
+ }
 
-    .hero-center h1{
-        font-size:16px;
-    }
+ .hero-center p{
+  font-size:14px;
+ }
 
-    .hero-center p{
-        font-size:16px;
-    }
+ .hero-side h3,.discord-box h3{
+  font-size:8px;
+ }
 
-    .hero-side{
-        padding:17px 12px;
-    }
+ .hero-side p,.discord-box p{
+  font-size:13px;
+ }
 
-    .login-section{
-        margin-top:28px;
-        padding:0 13px;
-    }
+ .side-status{
+  font-size:6px;
+  padding:7px 5px;
+ }
 
-    .login-panel{
-        padding:22px 15px;
-    }
+ .play-button{
+  font-size:7px;
+  padding:11px 8px;
+ }
 
-    .login-text h2{
-        font-size:12px;
-    }
+ .discord-icon{
+  width:52px;
+  height:52px;
+  font-size:28px;
+ }
 
-    .login-button{
-        width:100%;
-    }
+ .login-section{
+  padding:20px 14px;
+ }
 
-    .categories{
-        margin-top:42px;
-        padding:0 13px;
-    }
+ .login-content{
+  gap:12px;
+ }
 
-    .category-grid{
-        grid-template-columns:1fr;
-        gap:16px;
-    }
+ .player-avatar{
+  width:65px;
+  height:65px;
+ }
 
-    .category-card{
-        min-height:205px;
-    }
+ .login-text h2{
+  font-size:10px;
+ }
 
-    .category-card:hover{
-        transform:translateY(-5px) scale(1.015);
-    }
+ .login-text p{
+  font-size:14px;
+ }
 
-    .staff-grid{
-        grid-template-columns:1fr;
-    }
+ .login-form{
+  flex-direction:column;
+ }
 
-    .popup-box{
-        padding:27px 20px;
-    }
-}
+ .login-form button{
+  width:100%;
+  padding:15px;
+ }
 
-@media(prefers-reduced-motion:reduce){
-    *,
-    *::before,
-    *::after{
-        animation-duration:.01ms!important;
-        animation-iteration-count:1!important;
-        scroll-behavior:auto!important;
-        transition-duration:.01ms!important;
-    }
+ .mode-grid{
+  grid-template-columns:1fr;
+ }
+
+ .mode-card{
+  min-height:215px;
+ }
+
+ .mode-card img{
+  width:95px;
+  height:95px;
+ }
+
+ .section-title{
+  font-size:15px;
+ }
 }
 </style>
 </head>
@@ -1088,562 +712,222 @@ footer span{
 <header>
 <nav class="nav">
 
-    <a href="/Vajra-smp-website/" class="brand">
-        <img src="/Vajra-smp-website/assets/vajra-logo.png"
-             class="nav-logo"
-             alt="VAJRA SMP Logo">
-        VAJRA <span>SMP</span>
-    </a>
+ <a href="/Vajra-smp-website/" class="brand">
+  <img src="assets/vajra-logo.png" class="nav-logo" alt="VAJRA Logo">
+  VAJRA <span>SMP</span>
+ </a>
 
-    <div class="nav-links" id="navLinks">
-        <a href="#home">HOME</a>
-        <a href="#categories">MODES</a>
-        <a href="#about">ABOUT</a>
-        <a href="#rules">RULES</a>
-        <a href="#staff">STAFF</a>
-        <a href="#login" onclick="openLogin();return false" class="nav-login">LOGIN</a>
-    </div>
+ <div class="nav-links" id="navLinks">
+  <a href="/Vajra-smp-website/">HOME</a>
+  <a href="/Vajra-smp-website/staff/">STAFF</a>
+  <a href="/Vajra-smp-website/rules/">RULES</a>
+  <a href="/Vajra-smp-website/coinstore/">COIN STORE</a>
+  <a href="#login" class="nav-login">LOGIN</a>
+ </div>
 
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+ <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
 </nav>
 </header>
-
 
 <main>
 
 <!-- HERO -->
 
-<section class="hero" id="home">
+<section class="hero">
 
-    <div class="particle p1"></div>
-    <div class="particle p2"></div>
-    <div class="particle p3"></div>
-    <div class="particle p4"></div>
-    <div class="particle p5"></div>
+ <div class="hero-side">
+  <div class="side-icon">🎮</div>
+  <h3>PLAY NOW</h3>
+  <p>Your adventure begins here.</p>
+  <div class="side-status">IP: COMING SOON</div>
+  <br>
+  <a href="#login" class="play-button">LOGIN NOW</a>
+ </div>
 
-    <!-- LEFT: PLAY NOW -->
+ <div class="hero-center">
+  <img src="assets/vajra-logo.png" class="main-logo" alt="VAJRA SMP Logo">
+  <h1>WELCOME TO<br><span>VAJRA SMP</span></h1>
+  <p>YOUR WORLD. YOUR LEGACY.</p>
+ </div>
 
-    <div class="hero-side">
-
-        <div class="side-icon">🎮</div>
-
-        <h2>PLAY NOW</h2>
-
-        <p>Join the VAJRA SMP adventure.</p>
-
-        <div class="side-status">
-            IP: COMING SOON
-        </div>
-
-    </div>
-
-
-    <!-- CENTER: VAJRA LOGO -->
-
-    <div class="hero-center">
-
-        <img
-            src="/Vajra-smp-website/assets/vajra-logo.png"
-            class="main-logo"
-            alt="VAJRA SMP Logo"
-            onerror="this.style.display='none'"
-        >
-
-        <h1>WELCOME TO<br><span>VAJRA SMP</span></h1>
-
-        <p>Enter the world. Create your legacy.</p>
-
-        <div class="hero-tag pixel">
-            ⚡ SERVER COMING SOON ⚡
-        </div>
-
-    </div>
-
-
-    <!-- RIGHT: DISCORD -->
-
-    <div class="hero-side">
-
-        <div class="side-icon">💬</div>
-
-        <h2>DISCORD</h2>
-
-        <p>Click to join our community.</p>
-
-        <div class="side-status">
-            COMING SOON
-        </div>
-
-    </div>
+ <div class="hero-side">
+  <div class="discord-box">
+   <div class="discord-icon">☁</div>
+   <h3>DISCORD</h3>
+   <p>Click to join</p>
+   <div class="side-status">COMING SOON</div>
+  </div>
+ </div>
 
 </section>
 
-
-<!-- LOGIN SECTION -->
+<!-- LOGIN -->
 
 <section class="login-section" id="login">
 
-    <div class="login-panel">
+ <div class="login-content">
 
-        <div class="login-left">
+  <img
+   src="https://mc-heads.net/avatar/MHF_Steve/100"
+   class="player-avatar"
+   id="playerAvatar"
+   alt="Minecraft Player"
+  >
 
-            <div class="avatar" id="loginAvatar">🧑‍💻</div>
+  <div class="login-text">
+   <h2 id="welcomeText">WELCOME, PLAYER!</h2>
+   <p>Log in with your Minecraft name.</p>
+  </div>
 
-            <div class="login-text">
-                <h2 id="welcomeText">WELCOME</h2>
-                <p id="loginSubtitle">Log in with your Minecraft name.</p>
-            </div>
+ </div>
 
-        </div>
+ <form class="login-form" onsubmit="demoLogin(event)">
+  <input
+   type="text"
+   id="username"
+   placeholder="Enter Minecraft Username"
+   maxlength="16"
+   autocomplete="off"
+   required
+  >
+  <button type="submit">LOGIN</button>
+ </form>
 
-        <button class="login-button" onclick="openLogin()">
-            <span>➜</span> LOGIN
-        </button>
+ <div class="login-message" id="loginMessage"></div>
 
-    </div>
-
-</section>
-
-
-<!-- FOUR MAIN CATEGORY CARDS -->
-
-<section class="categories" id="categories">
-
-    <div class="section-heading">
-
-        <div class="eyebrow">CHOOSE YOUR ADVENTURE</div>
-
-        <h2>EXPLORE VAJRA SMP</h2>
-
-        <p>Select your game mode and explore its store.</p>
-
-    </div>
-
-
-    <div class="category-grid">
-
-        <!-- SURVIVAL -->
-
-        <a href="/Vajra-smp-website/survival/"
-           class="category-card survival-card">
-
-            <div class="category-icon">🌲</div>
-
-            <h3>SURVIVAL</h3>
-
-            <p>Ranks &amp; Perks</p>
-
-            <div class="card-action">
-                CLICK TO VIEW →
-            </div>
-
-        </a>
-
-
-        <!-- LIFESTEAL -->
-
-        <a href="/Vajra-smp-website/lifesteal/"
-           class="category-card lifesteal-card">
-
-            <div class="category-icon">❤️</div>
-
-            <h3>LIFESTEAL</h3>
-
-            <p>Ranks, Keys &amp; Coins</p>
-
-            <div class="card-action">
-                CLICK TO VIEW →
-            </div>
-
-        </a>
-
-
-        <!-- PVP -->
-
-        <a href="/Vajra-smp-website/pvp/"
-           class="category-card pvp-card">
-
-            <div class="category-icon">⚔️</div>
-
-            <h3>PVP</h3>
-
-            <p>Kits &amp; Upgrades</p>
-
-            <div class="card-action">
-                CLICK TO VIEW →
-            </div>
-
-        </a>
-
-
-        <!-- COINSTORE -->
-
-        <a href="/Vajra-smp-website/coinstore/"
-           class="category-card coin-card">
-
-            <div class="category-icon">🪙</div>
-
-            <h3>COINSTORE</h3>
-
-            <p>Coins &amp; Special Items</p>
-
-            <div class="card-action">
-                CLICK TO VIEW →
-            </div>
-
-        </a>
-
-    </div>
+ <p class="login-note">
+  Demo username display only. Official account authentication is not enabled yet.
+ </p>
 
 </section>
 
+<!-- GAME MODES -->
 
-<!-- ABOUT -->
+<section class="modes-section" id="modes">
 
-<section class="about" id="about">
+ <div class="section-head">
+  <div class="eyebrow">CHOOSE YOUR ADVENTURE</div>
+  <h2 class="section-title">EXPLORE VAJRA SMP</h2>
+  <p class="section-desc">Choose your world and begin your journey.</p>
+ </div>
 
-    <div class="about-box">
+ <div class="mode-grid">
 
-        <div class="eyebrow">DISCOVER VAJRA</div>
+  <!-- SURVIVAL -->
 
-        <h2>MORE THAN JUST A SERVER</h2>
+  <a href="/Vajra-smp-website/survival/" class="mode-card survival-card">
 
-        <p>
-            VAJRA SMP is a Minecraft network built for players
-            who love adventure, competition and friendship.
-            Whether you are a builder, fighter or explorer,
-            there is a place for you here.
-        </p>
+   <img src="assets/survival-pickaxe.png" alt="Survival Pickaxe">
 
-        <div class="features">
+   <h3>SURVIVAL</h3>
 
-            <div class="feature">⛏ SURVIVAL ADVENTURE</div>
+   <p>Ranks &amp; Perks</p>
 
-            <div class="feature">⚔ COMPETITIVE PVP</div>
+   <div class="card-link">CLICK TO VIEW →</div>
 
-            <div class="feature">👑 BUILD YOUR LEGACY</div>
+  </a>
 
-        </div>
+  <!-- LIFESTEAL -->
 
-    </div>
+  <a href="/Vajra-smp-website/lifesteal/" class="mode-card lifesteal-card">
 
-</section>
+   <img src="assets/lifesteal-heart.png" alt="Lifesteal Heart">
 
+   <h3>LIFESTEAL</h3>
 
-<!-- RULES -->
+   <p>Ranks, Keys &amp; Coins</p>
 
-<section class="rules-section" id="rules">
+   <div class="card-link">CLICK TO VIEW →</div>
 
-    <div class="section-heading">
+  </a>
 
-        <div class="eyebrow">PLAY FAIR</div>
+  <!-- PVP -->
 
-        <h2>SERVER RULES</h2>
+  <a href="/Vajra-smp-website/pvp/" class="mode-card pvp-card">
 
-        <p>Respect everyone and keep the community fun.</p>
+   <img src="assets/pvp-sword.png" alt="Minecraft Diamond Sword">
 
-    </div>
+   <h3>PVP</h3>
 
-    <div class="rules">
+   <p>Kits &amp; Upgrades</p>
 
-        <div class="rule"><b>01</b> No hacking or unfair modifications.</div>
+   <div class="card-link">CLICK TO VIEW →</div>
 
-        <div class="rule"><b>02</b> No abusive language or harassment.</div>
+  </a>
 
-        <div class="rule"><b>03</b> No exploiting server bugs.</div>
+  <!-- COIN STORE -->
 
-        <div class="rule"><b>04</b> Respect all players and staff.</div>
+  <a href="/Vajra-smp-website/coinstore/" class="mode-card coin-card">
 
-        <div class="rule"><b>05</b> No spam or unnecessary advertising.</div>
+   <img src="assets/coin-icon.png" alt="Minecraft Coin">
 
-        <div class="rule"><b>06</b> Follow staff instructions.</div>
+   <h3>COINSTORE</h3>
 
-    </div>
+   <p>Coins &amp; Special Items</p>
 
-</section>
+   <div class="card-link">CLICK TO VIEW →</div>
 
+  </a>
 
-<!-- STAFF -->
-
-<section class="staff-section" id="staff">
-
-    <div class="section-heading">
-
-        <div class="eyebrow">THE TEAM BEHIND VAJRA</div>
-
-        <h2>OUR STAFF</h2>
-
-        <p>Meet the people managing the network.</p>
-
-    </div>
-
-    <div class="staff-grid">
-
-        <div class="staff-card">
-
-            <div class="staff-avatar">👑</div>
-
-            <h3>S07KS</h3>
-
-            <p>OWNER</p>
-
-        </div>
-
-        <div class="staff-card">
-
-            <div class="staff-avatar">🛡️</div>
-
-            <h3>_NotAaradhay</h3>
-
-            <p>ADMIN</p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- JOIN -->
-
-<section class="join">
-
-    <div class="eyebrow">YOUR ADVENTURE STARTS SOON</div>
-
-    <h2>READY TO JOIN VAJRA?</h2>
-
-    <p>Our server is currently under development. Stay tuned!</p>
-
-    <div class="server-box">
-        ⚡ SERVER IP: COMING SOON
-    </div>
-
-    <br>
-
-    <button class="login-button" onclick="openLogin()">
-        PLAYER LOGIN
-    </button>
+ </div>
 
 </section>
 
 </main>
 
-
 <!-- FOOTER -->
 
 <footer>
-
-    <div class="footer-brand">VAJRA SMP</div>
-
-    © 2026 VAJRA SMP. All Rights Reserved.
-
-    <br><br>
-
-    <span>BUILT FOR MINECRAFT PLAYERS</span>
-
+ <p class="pixel" style="font-size:11px;margin-bottom:14px">VAJRA SMP</p>
+ © 2026 VAJRA SMP. All Rights Reserved.
+ <br><br>
+ <span>BUILT FOR MINECRAFT PLAYERS</span>
 </footer>
-
-
-<!-- LOGIN POPUP -->
-
-<div class="popup" id="loginPopup">
-
-    <div class="popup-box">
-
-        <button class="close" onclick="closeLogin()">×</button>
-
-        <div id="editionSelect">
-
-            <div class="popup-avatar">⛏️</div>
-
-            <h2>PLAYER LOGIN</h2>
-
-            <p>Select your Minecraft edition.</p>
-
-            <button class="edition" onclick="selectEdition('Java')">
-                JAVA EDITION
-            </button>
-
-            <button class="edition" onclick="selectEdition('Bedrock')">
-                BEDROCK EDITION
-            </button>
-
-        </div>
-
-
-        <div id="usernameForm">
-
-            <div class="popup-avatar">🧑‍💻</div>
-
-            <h2 id="editionTitle">JAVA LOGIN</h2>
-
-            <p>Enter your Minecraft username.</p>
-
-            <input
-                type="text"
-                id="username"
-                placeholder="Minecraft Username"
-                maxlength="16"
-                autocomplete="off"
-            >
-
-            <button class="popup-login" onclick="submitLogin()">
-                CONTINUE
-            </button>
-
-            <button class="back" onclick="backToEdition()">
-                ← BACK
-            </button>
-
-        </div>
-
-        <div class="login-note">
-            This is a username-only demo login.
-            Official Minecraft authentication is not configured.
-        </div>
-
-    </div>
-
-</div>
-
 
 <script>
 
 /* MOBILE MENU */
 
 function toggleMenu(){
-
-    document.getElementById('navLinks').classList.toggle('open');
-
+ document.getElementById('navLinks').classList.toggle('open');
 }
 
 document.querySelectorAll('#navLinks a').forEach(link=>{
-
-    link.addEventListener('click',()=>{
-
-        document.getElementById('navLinks').classList.remove('open');
-
-    });
-
+ link.addEventListener('click',()=>{
+  document.getElementById('navLinks').classList.remove('open');
+ });
 });
 
+/* DEMO LOGIN */
 
-/* LOGIN POPUP */
+function demoLogin(event){
 
-let selectedEdition='';
+ event.preventDefault();
 
-function openLogin(){
+ const username=document.getElementById('username').value.trim();
 
-    document.getElementById('loginPopup').classList.add('show');
+ if(!/^[A-Za-z0-9_]{3,16}$/.test(username)){
+  document.getElementById('loginMessage').style.color='#fca5a5';
+  document.getElementById('loginMessage').textContent=
+   'Enter a valid Minecraft username (3-16 characters).';
+  return;
+ }
 
-    document.getElementById('editionSelect').style.display='block';
+ document.getElementById('welcomeText').textContent=
+  'WELCOME, '+username.toUpperCase()+'!';
 
-    document.getElementById('usernameForm').style.display='none';
+ document.getElementById('playerAvatar').src=
+  'https://mc-heads.net/avatar/'+encodeURIComponent(username)+'/100';
 
-}
-
-function closeLogin(){
-
-    document.getElementById('loginPopup').classList.remove('show');
-
-}
-
-function selectEdition(edition){
-
-    selectedEdition=edition;
-
-    document.getElementById('editionSelect').style.display='none';
-
-    document.getElementById('usernameForm').style.display='block';
-
-    document.getElementById('editionTitle').textContent=
-        edition.toUpperCase()+' LOGIN';
-
-    document.getElementById('username').value='';
-
-    document.getElementById('username').focus();
+ document.getElementById('loginMessage').style.color='#86efac';
+ document.getElementById('loginMessage').textContent=
+  'Username displayed successfully!';
 
 }
-
-function backToEdition(){
-
-    document.getElementById('editionSelect').style.display='block';
-
-    document.getElementById('usernameForm').style.display='none';
-
-}
-
-function submitLogin(){
-
-    const username=document.getElementById('username').value.trim();
-
-    const validUsername=/^[A-Za-z0-9_]{3,16}$/.test(username);
-
-    if(!validUsername){
-
-        alert('Enter a valid Minecraft username (3-16 letters, numbers or underscores).');
-
-        return;
-
-    }
-
-    document.getElementById('welcomeText').textContent='WELCOME, '+username;
-
-    document.getElementById('loginSubtitle').textContent=
-        selectedEdition+' Edition • Demo login';
-
-    document.getElementById('loginAvatar').textContent='🧑‍💻';
-
-    closeLogin();
-
-    alert(
-        'Welcome '+username+'! Username-only demo login successful. '+
-        'Official Minecraft authentication is not configured.'
-    );
-
-}
-
-
-/* CLOSE POPUP ON BACKGROUND CLICK */
-
-document.getElementById('loginPopup').addEventListener('click',function(e){
-
-    if(e.target===this){
-
-        closeLogin();
-
-    }
-
-});
-
-
-/* ENTER KEY LOGIN */
-
-document.getElementById('username').addEventListener('keydown',function(e){
-
-    if(e.key==='Enter'){
-
-        submitLogin();
-
-    }
-
-});
-
-
-/* ESCAPE KEY */
-
-document.addEventListener('keydown',function(e){
-
-    if(e.key==='Escape'){
-
-        closeLogin();
-
-    }
-
-});
 
 </script>
 
 </body>
 </html>
+```

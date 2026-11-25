@@ -1,0 +1,398 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VAJRA SMP | Lifesteal</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+--red:#ff3b55;
+--dark:#08080f;
+--panel:#15101c;
+--gold:#ffc857;
+}
+
+body{
+background:var(--dark);
+color:white;
+font-family:Roboto,sans-serif;
+overflow-x:hidden;
+}
+
+body:before{
+content:"";
+position:fixed;
+inset:0;
+z-index:-1;
+background:
+radial-gradient(circle at 20% 20%,#a30b3528,transparent 35%),
+radial-gradient(circle at 80% 70%,#6b102b25,transparent 35%);
+}
+
+nav{
+height:75px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 8%;
+background:#090910ed;
+border-bottom:1px solid #ffffff15;
+position:sticky;
+top:0;
+z-index:10;
+backdrop-filter:blur(12px);
+}
+
+.brand{
+font-family:'Press Start 2P';
+font-size:15px;
+color:var(--gold);
+text-shadow:0 0 15px #ffc85770;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-weight:700;
+font-size:13px;
+letter-spacing:1px;
+}
+
+nav a:hover{color:var(--red)}
+
+.hero{
+min-height:570px;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:70px 20px;
+}
+
+.logo{
+width:190px;
+height:190px;
+object-fit:contain;
+filter:drop-shadow(0 0 28px #ff294b99);
+animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
+}
+
+.tag{
+color:var(--red);
+font-weight:900;
+letter-spacing:5px;
+font-size:12px;
+margin-top:25px;
+}
+
+h1{
+font-family:'Press Start 2P';
+font-size:clamp(23px,5vw,45px);
+margin:22px 0;
+line-height:1.7;
+background:linear-gradient(90deg,#fff,#ff526b,#ffb0b8);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+.hero p{
+max-width:650px;
+color:#b8b8c9;
+line-height:1.8;
+font-size:16px;
+}
+
+.status{
+margin-top:30px;
+padding:12px 25px;
+border:1px solid #ff3b5570;
+border-radius:30px;
+color:var(--red);
+background:#ff3b5512;
+font-weight:900;
+letter-spacing:2px;
+font-size:12px;
+}
+
+section{padding:65px 8%}
+
+.section-title{
+font-family:'Press Start 2P';
+font-size:19px;
+text-align:center;
+margin-bottom:15px;
+line-height:1.8;
+}
+
+.section-sub{
+text-align:center;
+color:#9999aa;
+margin-bottom:40px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:22px;
+}
+
+.card{
+background:linear-gradient(145deg,#21101b,#110d18);
+border:1px solid #ffffff13;
+border-radius:16px;
+padding:30px 22px;
+text-align:center;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+border-color:var(--red);
+box-shadow:0 10px 35px #ff294b25;
+}
+
+.emoji{
+font-size:38px;
+margin-bottom:18px;
+}
+
+.card h3{
+font-size:17px;
+margin-bottom:12px;
+color:#ff7587;
+}
+
+.card p{
+color:#aaaac0;
+line-height:1.7;
+font-size:14px;
+}
+
+.highlight{
+background:linear-gradient(120deg,#250d1b,#170d1a);
+border-top:1px solid #ffffff10;
+border-bottom:1px solid #ffffff10;
+}
+
+.highlight-box{
+max-width:850px;
+margin:auto;
+padding:40px;
+border-radius:18px;
+text-align:center;
+background:#0d0b14;
+border:1px solid #ff3b5550;
+box-shadow:0 0 40px #ff3b5518;
+}
+
+.highlight-box h2{
+font-family:'Press Start 2P';
+font-size:17px;
+line-height:1.9;
+color:var(--gold);
+margin-bottom:20px;
+}
+
+.highlight-box p{
+color:#b5b5c5;
+line-height:1.9;
+}
+
+.rules-list{
+max-width:750px;
+margin:auto;
+}
+
+.rule{
+display:flex;
+gap:18px;
+align-items:center;
+padding:20px;
+margin-bottom:13px;
+background:#17101b;
+border:1px solid #ffffff12;
+border-radius:12px;
+}
+
+.number{
+min-width:35px;
+height:35px;
+display:grid;
+place-items:center;
+border-radius:9px;
+background:#ff3b5525;
+color:#ff8292;
+font-weight:900;
+}
+
+.rule p{
+color:#c6c6d8;
+line-height:1.6;
+font-size:14px;
+}
+
+footer{
+padding:35px 15px;
+text-align:center;
+background:#07070c;
+border-top:1px solid #ffffff12;
+color:#77778f;
+font-size:12px;
+line-height:2;
+}
+
+footer strong{color:var(--gold)}
+
+@media(max-width:600px){
+nav{padding:0 5%}
+.brand{font-size:11px}
+nav a{font-size:11px}
+.logo{width:155px;height:155px}
+section{padding:50px 6%}
+.section-title{font-size:15px}
+.highlight-box{padding:25px 18px}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="brand">VAJRA SMP</div>
+<a href="/Vajra-smp-website/">← HOME</a>
+</nav>
+
+<div class="hero">
+
+<img src="../assets/vajra-logo.png" class="logo" alt="Vajra SMP Logo">
+
+<div class="tag">SURVIVE THE BLOOD BATTLE</div>
+
+<h1>LIFESTEAL</h1>
+
+<p>
+Every battle matters. Fight your opponents, protect your hearts
+and become a legend in the dangerous world of VAJRA Lifesteal.
+</p>
+
+<div class="status">🩸 SERVER COMING SOON</div>
+
+</div>
+
+<section>
+
+<h2 class="section-title">LIFESTEAL FEATURES</h2>
+<p class="section-sub">Survival is only the beginning.</p>
+
+<div class="grid">
+
+<div class="card">
+<div class="emoji">❤️</div>
+<h3>HEART SYSTEM</h3>
+<p>Experience the Lifesteal-style heart system where PvP victories and defeats matter.</p>
+</div>
+
+<div class="card">
+<div class="emoji">⚔️</div>
+<h3>PLAYER COMBAT</h3>
+<p>Challenge other players, improve your combat skills and fight for survival.</p>
+</div>
+
+<div class="card">
+<div class="emoji">💀</div>
+<h3>HIGH RISK</h3>
+<p>Every battle brings a challenge. Think carefully before entering a fight.</p>
+</div>
+
+<div class="card">
+<div class="emoji">👑</div>
+<h3>DOMINATE</h3>
+<p>Build your reputation and become one of the strongest players on the server.</p>
+</div>
+
+<div class="card">
+<div class="emoji">💎</div>
+<h3>ECONOMY</h3>
+<p>Collect resources, trade and build your wealth in the Lifesteal world.</p>
+</div>
+
+<div class="card">
+<div class="emoji">🏰</div>
+<h3>BASE BUILDING</h3>
+<p>Create your own base, protect your valuable items and defend your territory.</p>
+</div>
+
+</div>
+</section>
+
+<section class="highlight">
+
+<div class="highlight-box">
+<h2>ONLY THE STRONG SURVIVE</h2>
+<p>
+Trust your allies, prepare your gear and stay alert.
+The Lifesteal battlefield is full of challenges.
+<br><br>
+<strong style="color:#ff7587">
+FIGHT FOR HEARTS. SURVIVE THE BATTLE.
+</strong>
+</p>
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">LIFESTEAL RULES</h2>
+<p class="section-sub">Play fair. Fight hard. Respect everyone.</p>
+
+<div class="rules-list">
+
+<div class="rule">
+<div class="number">01</div>
+<p>No hacking, cheating or unfair modifications.</p>
+</div>
+
+<div class="rule">
+<div class="number">02</div>
+<p>No exploiting bugs or glitches to gain an unfair advantage.</p>
+</div>
+
+<div class="rule">
+<div class="number">03</div>
+<p>No abusive behaviour, harassment or threats against players.</p>
+</div>
+
+<div class="rule">
+<div class="number">04</div>
+<p>Respect staff decisions and follow server instructions.</p>
+</div>
+
+<div class="rule">
+<div class="number">05</div>
+<p>Keep the gameplay fair and enjoyable for the entire community.</p>
+</div>
+
+</div>
+</section>
+
+<footer>
+<strong>VAJRA SMP</strong><br>
+FIGHT FOR HEARTS. SURVIVE TOGETHER.<br>
+© 2026 VAJRA SMP. ALL RIGHTS RESERVED.
+</footer>
+
+</body>
+</html>

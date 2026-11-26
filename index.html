@@ -9,7 +9,6 @@
 <meta name="google-site-verification" content="DawQEBBcU5eHMi6YFnlGIYB2sjlM2h6r9orqC34-Ai8">
 
 <title>VAJRA SMP | Minecraft Network</title>
-
 <meta name="description" content="Welcome to VAJRA SMP - A premium Minecraft network featuring Survival, Lifesteal and PvP.">
 <meta name="theme-color" content="#090719">
 
@@ -23,13 +22,13 @@
  --purple:#a855f7;
  --gold:#ffd166;
  --dark:#090719;
- --panel:#15132b;
 }
 
 html{scroll-behavior:smooth}
 
 body{
- background:#090719;color:#fff;
+ background:#090719;
+ color:#fff;
  font-family:'Rajdhani',sans-serif;
  overflow-x:hidden;
 }
@@ -38,28 +37,138 @@ a{text-decoration:none;color:inherit}
 button{font-family:inherit;cursor:pointer}
 .pixel{font-family:'Press Start 2P',cursive}
 
-body:before{
- content:"";position:fixed;inset:0;z-index:-2;
+/* 3D WORLD BACKGROUND */
+
+.minecraft-world{
+ position:fixed;
+ inset:0;
+ z-index:-3;
+ overflow:hidden;
+ pointer-events:none;
+ perspective:1000px;
+ background:linear-gradient(180deg,#101a39 0%,#19264b 43%,#111329 100%);
+}
+
+.world-glow{
+ position:absolute;
+ width:650px;height:650px;
+ border-radius:50%;
+ background:#7042bd;
+ filter:blur(130px);
+ opacity:.2;
+ top:5%;left:25%;
+}
+
+.world-glow.blue{
+ width:500px;height:500px;
+ background:#1767a5;
+ top:35%;left:70%;
+ opacity:.17;
+}
+
+.world-stars{
+ position:absolute;inset:0;
+ background-image:
+ radial-gradient(2px 2px at 20% 20%,#ffffffaa 50%,transparent 100%),
+ radial-gradient(2px 2px at 70% 15%,#ffffff88 50%,transparent 100%),
+ radial-gradient(2px 2px at 45% 38%,#ffffff77 50%,transparent 100%),
+ radial-gradient(2px 2px at 88% 35%,#ffffff88 50%,transparent 100%);
+ background-size:350px 250px;
+ opacity:.55;
+}
+
+.world-mountains{
+ position:absolute;
+ bottom:0;
+ width:100%;
+ height:45%;
  background:
- radial-gradient(ellipse at 15% 10%,#39206b 0%,transparent 38%),
- radial-gradient(ellipse at 85% 55%,#172c66 0%,transparent 40%),
- #090719;
+ linear-gradient(135deg,transparent 35%,#1b3540 35% 55%,transparent 55%) 0 0/260px 220px,
+ linear-gradient(45deg,transparent 35%,#203b43 35% 55%,transparent 55%) 0 0/300px 230px;
+ opacity:.8;
+}
+
+.world-ground{
+ position:absolute;
+ bottom:-130px;
+ left:-10%;
+ width:120%;
+ height:250px;
+ background:
+ repeating-linear-gradient(90deg,#263b36 0 60px,#1d302f 60px 120px),
+ linear-gradient(#315b3d,#172b2d);
+ transform:rotateX(48deg);
+ transform-origin:bottom;
+ box-shadow:0 -20px 70px #0008;
+}
+
+.world-ground:before{
+ content:"";
+ position:absolute;
+ top:0;
+ width:100%;
+ height:25px;
+ background:repeating-linear-gradient(90deg,#54874b 0 60px,#3c703f 60px 120px);
+}
+
+.voxel{
+ position:absolute;
+ width:65px;height:65px;
+ transform-style:preserve-3d;
+ animation:voxelFloat 8s ease-in-out infinite;
+ opacity:.85;
+}
+
+.voxel span{
+ position:absolute;
+ display:block;
+ width:65px;height:65px;
+ border:1px solid #ffffff20;
+}
+
+.voxel .front{background:linear-gradient(135deg,#477b45,#254b36);transform:translateZ(32.5px)}
+.voxel .back{background:#1c352a;transform:rotateY(180deg) translateZ(32.5px)}
+.voxel .right{background:#263e30;transform:rotateY(90deg) translateZ(32.5px)}
+.voxel .left{background:#36583b;transform:rotateY(-90deg) translateZ(32.5px)}
+.voxel .top{background:linear-gradient(135deg,#65a94d,#397b3c);transform:rotateX(90deg) translateZ(32.5px)}
+.voxel .bottom{background:#192b26;transform:rotateX(-90deg) translateZ(32.5px)}
+
+.voxel.stone .front{background:#657080}
+.voxel.stone .top{background:#8b96a4}
+.voxel.stone .right{background:#424b5b}
+.voxel.dirt .front{background:#765039}
+.voxel.dirt .top{background:#527b43}
+.voxel.dirt .right{background:#493225}
+.voxel.gold .front{background:#a87820}
+.voxel.gold .top{background:#f5c94e}
+.voxel.gold .right{background:#765018}
+
+.v1{left:8%;top:25%;animation-delay:0s}
+.v2{left:24%;top:65%;animation-delay:1s}
+.v3{right:12%;top:22%;animation-delay:2s}
+.v4{right:28%;top:65%;animation-delay:3s}
+.v5{left:47%;top:12%;animation-delay:1.5s}
+.v6{right:5%;top:65%;animation-delay:2.5s}
+.v7{left:65%;top:42%;animation-delay:3.5s}
+.v8{left:35%;top:35%;animation-delay:2s}
+
+@keyframes voxelFloat{
+ 0%,100%{transform:translateY(0) rotateX(-15deg) rotateY(20deg)}
+ 50%{transform:translateY(-35px) rotateX(15deg) rotateY(75deg)}
 }
 
 body:after{
- content:"";position:fixed;inset:0;z-index:-1;
- opacity:.10;pointer-events:none;
- background-image:
- linear-gradient(#ffffff10 1px,transparent 1px),
- linear-gradient(90deg,#ffffff10 1px,transparent 1px);
- background-size:40px 40px;
+ content:"";
+ position:fixed;inset:0;z-index:-2;
+ pointer-events:none;
+ background:linear-gradient(180deg,#09071930,#09071980);
 }
 
 /* NAVBAR */
 
 header{
  position:sticky;top:0;z-index:100;
- background:#090719ee;
+ background:#090719e8;
  border-bottom:1px solid #ffffff18;
  backdrop-filter:blur(15px);
 }
@@ -111,15 +220,14 @@ header{
  display:grid;grid-template-columns:1fr 1.5fr 1fr;
  align-items:center;gap:15px;position:relative;overflow:hidden;
  border:1px solid #a855f755;border-radius:20px;
- background:
- radial-gradient(ellipse at 50% 50%,#542b91 0%,transparent 60%),
- linear-gradient(120deg,#17113a,#25144b,#111c43);
+ background:linear-gradient(120deg,#17113acc,#25144bcc,#111c43cc);
+ backdrop-filter:blur(8px);
  box-shadow:0 15px 60px #0008,0 0 35px #9333ea22;
 }
 
 .hero:before{
  content:"";position:absolute;inset:0;pointer-events:none;
- background:linear-gradient(120deg,transparent,#ffffff08,transparent);
+ background:linear-gradient(120deg,transparent,#ffffff0b,transparent);
 }
 
 .hero-side{
@@ -158,6 +266,12 @@ header{
 .main-logo{
  width:100%;max-width:370px;height:270px;
  object-fit:contain;filter:drop-shadow(0 0 25px #8b5cf688);
+ animation:logoFloat 4s ease-in-out infinite;
+}
+
+@keyframes logoFloat{
+ 0%,100%{transform:translateY(0)}
+ 50%{transform:translateY(-9px)}
 }
 
 .hero-center h1{
@@ -174,7 +288,7 @@ header{
 
 /* DISCORD */
 
-.discord-box{display:block;color:white}
+.discord-box{display:block;color:white;transition:.3s}
 .discord-box:hover{transform:translateY(-3px)}
 
 .discord-icon{
@@ -197,9 +311,10 @@ header{
 .login-section{
  max-width:850px;margin:35px auto 55px;padding:28px 25px;
  border:1px solid #ffffff20;border-radius:18px;
- background:linear-gradient(145deg,#171632,#10172b);
+ background:linear-gradient(145deg,#171632ed,#10172bed);
  box-shadow:0 12px 35px #0005,0 0 25px #9333ea18;
  text-align:center;
+ backdrop-filter:blur(8px);
 }
 
 .login-content{
@@ -265,7 +380,7 @@ header{
 .login-form-wrap{
  display:none;max-width:520px;margin:22px auto 0;padding:20px;
  border:1px solid #ffffff18;border-radius:12px;
- background:#090e20a8;animation:loginReveal .35s ease both;
+ background:#090e20e8;animation:loginReveal .35s ease both;
 }
 
 .login-form-wrap.show{display:block}
@@ -338,6 +453,7 @@ header{
  flex-direction:column;text-align:center;padding:28px 20px;
  border-radius:16px;border:1px solid #ffffff25;
  transition:transform .3s,border-color .3s,box-shadow .3s,filter .3s;
+ backdrop-filter:blur(5px);
 }
 
 .mode-card:hover{
@@ -351,7 +467,7 @@ header{
  transition:.3s;
 }
 
-.mode-card:hover img{transform:scale(1.1)}
+.mode-card:hover img{transform:scale(1.1) rotate(-5deg)}
 
 .mode-card h3{
  font-family:'Press Start 2P',cursive;font-size:15px;line-height:2;
@@ -364,22 +480,22 @@ header{
 .card-link{font-size:13px;font-weight:900;letter-spacing:1px;margin-top:15px;color:#fff}
 
 .survival-card{
- background:linear-gradient(135deg,#315e42,#152c32 80%);
+ background:linear-gradient(135deg,#315e42ee,#152c32ee 80%);
  box-shadow:0 8px 30px #4ade8015;
 }
 
 .lifesteal-card{
- background:linear-gradient(135deg,#761c3c,#301329 85%);
+ background:linear-gradient(135deg,#761c3cee,#301329ee 85%);
  box-shadow:0 8px 30px #ef444422;
 }
 
 .pvp-card{
- background:linear-gradient(135deg,#34276e,#142b52 85%);
+ background:linear-gradient(135deg,#34276eee,#142b52ee 85%);
  box-shadow:0 8px 30px #6366f122;
 }
 
 .coin-card{
- background:linear-gradient(135deg,#8a5512,#372319 85%);
+ background:linear-gradient(135deg,#8a5512ee,#372319ee 85%);
  box-shadow:0 8px 30px #facc1522;
 }
 
@@ -387,7 +503,7 @@ header{
 
 footer{
  text-align:center;padding:28px 15px;color:#7e8ba5;
- font-size:14px;border-top:1px solid #ffffff15;background:#080713;
+ font-size:14px;border-top:1px solid #ffffff15;background:#080713ee;
 }
 
 footer span{color:var(--blue)}
@@ -428,7 +544,6 @@ footer span{color:var(--blue)}
  .play-button{font-size:7px;padding:11px 8px}
  .discord-icon{width:52px;height:52px;font-size:28px}
  .login-section{padding:20px 14px}
- .login-content{gap:12px}
  .player-avatar{width:65px;height:65px}
  .login-text h2{font-size:10px}
  .login-text p{font-size:14px}
@@ -438,14 +553,86 @@ footer span{color:var(--blue)}
  .mode-card{min-height:215px}
  .mode-card img{width:95px;height:95px}
  .section-title{font-size:15px}
+ .voxel{scale:.65}
+ .world-ground{height:130px}
+ .world-mountains{height:25%}
+ .v2,.v4,.v5,.v7{display:none}
+}
+
+@media(prefers-reduced-motion:reduce){
+ *,*:before,*:after{
+  animation-duration:.01ms!important;
+  animation-iteration-count:1!important;
+  scroll-behavior:auto!important;
+ }
 }
 </style>
 </head>
 
 <body>
 
+<!-- MINECRAFT 3D WORLD -->
+
+<div class="minecraft-world" id="minecraftWorld">
+ <div class="world-glow"></div>
+ <div class="world-glow blue"></div>
+ <div class="world-stars"></div>
+ <div class="world-mountains"></div>
+
+ <div class="voxel v1">
+  <span class="front"></span><span class="back"></span>
+  <span class="right"></span><span class="left"></span>
+  <span class="top"></span><span class="bottom"></span>
+ </div>
+
+ <div class="voxel stone v2">
+  <span class="front"></span><span class="back"></span>
+  <span class="right"></span><span class="left"></span>
+  <span class="top"></span><span class="bottom"></span>
+ </div>
+
+ <div class="voxel dirt v3">
+  <span class="front"></span><span class="back"></span>
+  <span class="right"></span><span class="left"></span>
+  <span class="top"></span><span class="bottom"></span>
+ </div>
+
+ <div class="voxel v4">
+  <span class="front"></span><span class="back"></span>
+  <span class="right"></span><span class="left"></span>
+  <span class="top"></span><span class="bottom"></span>
+ </div>
+
+ <div class="voxel stone v5">
+  <span class="front"></span><span class="back"></span>
+  <span class="right"></span><span class="left"></span>
+  <span class="top"></span><span class="bottom"></span>
+ </div>
+
+ <div class="voxel gold v6">
+  <span class="front"></span><span class="back"></span>
+  <span class="right"></span><span class="left"></span>
+  <span class="top"></span><span class="bottom"></span>
+ </div>
+
+ <div class="voxel dirt v7">
+  <span class="front"></span><span class="back"></span>
+  <span class="right"></span><span class="left"></span>
+  <span class="top"></span><span class="bottom"></span>
+ </div>
+
+ <div class="voxel stone v8">
+  <span class="front"></span><span class="back"></span>
+  <span class="right"></span><span class="left"></span>
+  <span class="top"></span><span class="bottom"></span>
+ </div>
+
+ <div class="world-ground"></div>
+</div>
+
 <header>
 <nav class="nav">
+
  <a href="/Vajra-smp-website/" class="brand">
   <img src="assets/vajra-logo.png" class="nav-logo" alt="VAJRA Logo">
   VAJRA <span>SMP</span>
@@ -460,6 +647,7 @@ footer span{color:var(--blue)}
  </div>
 
  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
 </nav>
 </header>
 
@@ -498,6 +686,7 @@ footer span{color:var(--blue)}
 <section class="login-section" id="login">
 
  <div class="login-content">
+
   <img
    src="https://mc-heads.net/avatar/MHF_Steve/100"
    class="player-avatar"
@@ -509,11 +698,13 @@ footer span{color:var(--blue)}
    <h2 id="welcomeText">WELCOME, PLAYER!</h2>
    <p>Select your Minecraft edition to continue.</p>
   </div>
+
  </div>
 
  <div class="edition-label">CHOOSE YOUR EDITION</div>
 
  <div class="edition-options">
+
   <button type="button" class="edition-btn" id="javaBtn" onclick="selectEdition('java')">
    JAVA
    <small>Java Edition</small>
@@ -523,9 +714,11 @@ footer span{color:var(--blue)}
    BEDROCK
    <small>Bedrock Edition</small>
   </button>
+
  </div>
 
  <div class="login-form-wrap" id="loginFormWrap">
+
   <div class="form-heading" id="formHeading">JAVA LOGIN</div>
 
   <form class="login-form" id="editionLoginForm" onsubmit="demoLogin(event)">
@@ -539,6 +732,7 @@ footer span{color:var(--blue)}
    >
    <button type="submit">LOGIN</button>
   </form>
+
  </div>
 
  <div class="login-message" id="loginMessage"></div>
@@ -548,6 +742,8 @@ footer span{color:var(--blue)}
  </p>
 
 </section>
+
+<!-- GAME MODES -->
 
 <section class="modes-section" id="modes">
 
@@ -589,6 +785,7 @@ footer span{color:var(--blue)}
 
  </div>
 </section>
+
 </main>
 
 <footer>
@@ -614,79 +811,98 @@ document.querySelectorAll('#navLinks a').forEach(link=>{
 
 /* EDITION SELECT + DEMO LOGIN */
 
-let selectedEdition = '';
+let selectedEdition='';
 
 function selectEdition(edition){
- selectedEdition = edition;
 
- const javaBtn = document.getElementById('javaBtn');
- const bedrockBtn = document.getElementById('bedrockBtn');
- const formWrap = document.getElementById('loginFormWrap');
- const input = document.getElementById('playerName');
- const heading = document.getElementById('formHeading');
- const message = document.getElementById('loginMessage');
+ selectedEdition=edition;
 
- javaBtn.classList.toggle('active', edition === 'java');
- bedrockBtn.classList.toggle('active', edition === 'bedrock');
+ const javaBtn=document.getElementById('javaBtn');
+ const bedrockBtn=document.getElementById('bedrockBtn');
+ const formWrap=document.getElementById('loginFormWrap');
+ const input=document.getElementById('playerName');
+ const heading=document.getElementById('formHeading');
+ const message=document.getElementById('loginMessage');
+
+ javaBtn.classList.toggle('active',edition==='java');
+ bedrockBtn.classList.toggle('active',edition==='bedrock');
 
  formWrap.classList.remove('show');
  void formWrap.offsetWidth;
  formWrap.classList.add('show');
 
- if(edition === 'java'){
-  heading.textContent = 'JAVA LOGIN';
-  input.placeholder = 'Enter Java Username';
-  input.maxLength = 16;
+ if(edition==='java'){
+  heading.textContent='JAVA LOGIN';
+  input.placeholder='Enter Java Username';
+  input.maxLength=16;
  }else{
-  heading.textContent = 'BEDROCK LOGIN';
-  input.placeholder = 'Enter Bedrock Gamertag';
-  input.maxLength = 16;
+  heading.textContent='BEDROCK LOGIN';
+  input.placeholder='Enter Bedrock Gamertag';
+  input.maxLength=16;
  }
 
- input.value = '';
- message.textContent = '';
+ input.value='';
+ message.textContent='';
  input.focus();
 }
 
 function demoLogin(event){
+
  event.preventDefault();
 
- const playerName = document.getElementById('playerName').value.trim();
- const message = document.getElementById('loginMessage');
+ const playerName=document.getElementById('playerName').value.trim();
+ const message=document.getElementById('loginMessage');
 
  if(!selectedEdition){
-  message.style.color = '#fca5a5';
-  message.textContent = 'Please select Java or Bedrock first.';
+  message.style.color='#fca5a5';
+  message.textContent='Please select Java or Bedrock first.';
   return;
  }
 
- if(!playerName || playerName.length > 16){
-  message.style.color = '#fca5a5';
-  message.textContent = 'Please enter a valid player name.';
+ if(!playerName||playerName.length>16){
+  message.style.color='#fca5a5';
+  message.textContent='Please enter a valid player name.';
   return;
  }
 
- if(selectedEdition === 'java' && !/^[A-Za-z0-9_]{3,16}$/.test(playerName)){
-  message.style.color = '#fca5a5';
-  message.textContent = 'Java username must be 3-16 letters, numbers or underscores.';
+ if(selectedEdition==='java'&&!/^[A-Za-z0-9_]{3,16}$/.test(playerName)){
+  message.style.color='#fca5a5';
+  message.textContent='Java username must be 3-16 letters, numbers or underscores.';
   return;
  }
 
- document.getElementById('welcomeText').textContent =
-  'WELCOME, ' + playerName.toUpperCase() + '!';
+ document.getElementById('welcomeText').textContent=
+  'WELCOME, '+playerName.toUpperCase()+'!';
 
- if(selectedEdition === 'java'){
-  document.getElementById('playerAvatar').src =
-   'https://mc-heads.net/avatar/' + encodeURIComponent(playerName) + '/100';
+ if(selectedEdition==='java'){
+  document.getElementById('playerAvatar').src=
+   'https://mc-heads.net/avatar/'+encodeURIComponent(playerName)+'/100';
  }else{
-  document.getElementById('playerAvatar').src =
+  document.getElementById('playerAvatar').src=
    'https://mc-heads.net/avatar/MHF_Steve/100';
  }
 
- message.style.color = '#86efac';
- message.textContent =
-  (selectedEdition === 'java' ? 'Java username' : 'Bedrock gamertag') +
+ message.style.color='#86efac';
+ message.textContent=
+  (selectedEdition==='java'?'Java username':'Bedrock gamertag')+
   ' displayed successfully!';
+}
+
+/* 3D MOUSE MOVEMENT */
+
+const world=document.getElementById('minecraftWorld');
+
+if(world&&window.matchMedia('(pointer:fine)').matches){
+
+ document.addEventListener('mousemove',function(e){
+
+  const x=(e.clientX/window.innerWidth-.5)*12;
+  const y=(e.clientY/window.innerHeight-.5)*12;
+
+  world.style.transform=`translate3d(${x}px,${y}px,0)`;
+
+ });
+
 }
 
 </script>

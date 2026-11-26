@@ -37,7 +37,7 @@ a{text-decoration:none;color:inherit}
 button{font-family:inherit;cursor:pointer}
 .pixel{font-family:'Press Start 2P',cursive}
 
-/* 3D WORLD BACKGROUND */
+/* OPTIMISED MINECRAFT WORLD */
 
 .minecraft-world{
  position:fixed;
@@ -45,25 +45,24 @@ button{font-family:inherit;cursor:pointer}
  z-index:-3;
  overflow:hidden;
  pointer-events:none;
- perspective:1000px;
  background:linear-gradient(180deg,#101a39 0%,#19264b 43%,#111329 100%);
+ contain:strict;
 }
 
 .world-glow{
  position:absolute;
- width:650px;height:650px;
+ width:450px;height:450px;
  border-radius:50%;
  background:#7042bd;
- filter:blur(130px);
- opacity:.2;
+ opacity:.13;
  top:5%;left:25%;
 }
 
 .world-glow.blue{
- width:500px;height:500px;
+ width:350px;height:350px;
  background:#1767a5;
  top:35%;left:70%;
- opacity:.17;
+ opacity:.12;
 }
 
 .world-stars{
@@ -74,7 +73,7 @@ button{font-family:inherit;cursor:pointer}
  radial-gradient(2px 2px at 45% 38%,#ffffff77 50%,transparent 100%),
  radial-gradient(2px 2px at 88% 35%,#ffffff88 50%,transparent 100%);
  background-size:350px 250px;
- opacity:.55;
+ opacity:.4;
 }
 
 .world-mountains{
@@ -85,7 +84,7 @@ button{font-family:inherit;cursor:pointer}
  background:
  linear-gradient(135deg,transparent 35%,#1b3540 35% 55%,transparent 55%) 0 0/260px 220px,
  linear-gradient(45deg,transparent 35%,#203b43 35% 55%,transparent 55%) 0 0/300px 230px;
- opacity:.8;
+ opacity:.65;
 }
 
 .world-ground{
@@ -99,7 +98,6 @@ button{font-family:inherit;cursor:pointer}
  linear-gradient(#315b3d,#172b2d);
  transform:rotateX(48deg);
  transform-origin:bottom;
- box-shadow:0 -20px 70px #0008;
 }
 
 .world-ground:before{
@@ -115,15 +113,16 @@ button{font-family:inherit;cursor:pointer}
  position:absolute;
  width:65px;height:65px;
  transform-style:preserve-3d;
- animation:voxelFloat 8s ease-in-out infinite;
- opacity:.85;
+ animation:voxelFloat 12s ease-in-out infinite;
+ opacity:.8;
+ will-change:transform;
 }
 
 .voxel span{
  position:absolute;
  display:block;
  width:65px;height:65px;
- border:1px solid #ffffff20;
+ border:1px solid #ffffff15;
 }
 
 .voxel .front{background:linear-gradient(135deg,#477b45,#254b36);transform:translateZ(32.5px)}
@@ -144,17 +143,17 @@ button{font-family:inherit;cursor:pointer}
 .voxel.gold .right{background:#765018}
 
 .v1{left:8%;top:25%;animation-delay:0s}
-.v2{left:24%;top:65%;animation-delay:1s}
-.v3{right:12%;top:22%;animation-delay:2s}
-.v4{right:28%;top:65%;animation-delay:3s}
-.v5{left:47%;top:12%;animation-delay:1.5s}
-.v6{right:5%;top:65%;animation-delay:2.5s}
-.v7{left:65%;top:42%;animation-delay:3.5s}
-.v8{left:35%;top:35%;animation-delay:2s}
+.v2{left:24%;top:65%;animation-delay:2s}
+.v3{right:12%;top:22%;animation-delay:4s}
+.v4{right:28%;top:65%;animation-delay:6s}
+.v5{left:47%;top:12%;animation-delay:3s}
+.v6{right:5%;top:65%;animation-delay:5s}
+.v7{left:65%;top:42%;animation-delay:7s}
+.v8{left:35%;top:35%;animation-delay:4s}
 
 @keyframes voxelFloat{
- 0%,100%{transform:translateY(0) rotateX(-15deg) rotateY(20deg)}
- 50%{transform:translateY(-35px) rotateX(15deg) rotateY(75deg)}
+ 0%,100%{transform:translate3d(0,0,0) rotateX(-10deg) rotateY(15deg)}
+ 50%{transform:translate3d(0,-16px,0) rotateX(-5deg) rotateY(25deg)}
 }
 
 body:after{
@@ -168,9 +167,8 @@ body:after{
 
 header{
  position:sticky;top:0;z-index:100;
- background:#090719e8;
+ background:#090719;
  border-bottom:1px solid #ffffff18;
- backdrop-filter:blur(15px);
 }
 
 .nav{
@@ -187,14 +185,13 @@ header{
 
 .nav-logo{
  width:48px;height:48px;object-fit:contain;
- filter:drop-shadow(0 0 10px #38bdf855);
 }
 
 .nav-links{display:flex;align-items:center;gap:25px}
 
 .nav-links a{
  color:#d6d3ed;font-size:15px;font-weight:800;
- letter-spacing:1px;transition:.25s;
+ letter-spacing:1px;transition:color .2s;
 }
 
 .nav-links a:hover{color:var(--blue)}
@@ -204,7 +201,6 @@ header{
  background:linear-gradient(135deg,#2563eb,#9333ea);
  border:1px solid #93c5fd;
  color:white!important;
- box-shadow:0 0 15px #3b82f655;
 }
 
 .menu-btn{
@@ -220,9 +216,8 @@ header{
  display:grid;grid-template-columns:1fr 1.5fr 1fr;
  align-items:center;gap:15px;position:relative;overflow:hidden;
  border:1px solid #a855f755;border-radius:20px;
- background:linear-gradient(120deg,#17113acc,#25144bcc,#111c43cc);
- backdrop-filter:blur(8px);
- box-shadow:0 15px 60px #0008,0 0 35px #9333ea22;
+ background:linear-gradient(120deg,#17113aee,#25144bee,#111c43ee);
+ box-shadow:0 12px 35px #0007;
 }
 
 .hero:before{
@@ -256,22 +251,23 @@ header{
  color:#fff;background:linear-gradient(135deg,#2563eb,#9333ea);
  border:1px solid #93c5fd;
  font-family:'Press Start 2P',cursive;font-size:9px;
- box-shadow:0 0 18px #3b82f655;transition:.25s;
+ box-shadow:0 0 14px #3b82f644;transition:filter .2s;
 }
 
-.play-button:hover{transform:translateY(-4px);filter:brightness(1.2)}
+.play-button:hover{filter:brightness(1.2)}
 
 .hero-center{text-align:center;position:relative;z-index:2}
 
 .main-logo{
  width:100%;max-width:370px;height:270px;
- object-fit:contain;filter:drop-shadow(0 0 25px #8b5cf688);
- animation:logoFloat 4s ease-in-out infinite;
+ object-fit:contain;
+ filter:drop-shadow(0 0 15px #8b5cf666);
+ animation:logoFloat 6s ease-in-out infinite;
 }
 
 @keyframes logoFloat{
  0%,100%{transform:translateY(0)}
- 50%{transform:translateY(-9px)}
+ 50%{transform:translateY(-5px)}
 }
 
 .hero-center h1{
@@ -288,13 +284,13 @@ header{
 
 /* DISCORD */
 
-.discord-box{display:block;color:white;transition:.3s}
-.discord-box:hover{transform:translateY(-3px)}
+.discord-box{display:block;color:white;transition:transform .2s}
+.discord-box:hover{transform:translateY(-2px)}
 
 .discord-icon{
  width:66px;height:66px;margin:0 auto 14px;
  display:grid;place-items:center;border-radius:18px;
- background:#5865f2;box-shadow:0 0 25px #5865f266;
+ background:#5865f2;
  font-size:36px;font-weight:900;
 }
 
@@ -311,10 +307,9 @@ header{
 .login-section{
  max-width:850px;margin:35px auto 55px;padding:28px 25px;
  border:1px solid #ffffff20;border-radius:18px;
- background:linear-gradient(145deg,#171632ed,#10172bed);
- box-shadow:0 12px 35px #0005,0 0 25px #9333ea18;
+ background:linear-gradient(145deg,#171632,#10172b);
+ box-shadow:0 10px 30px #0005;
  text-align:center;
- backdrop-filter:blur(8px);
 }
 
 .login-content{
@@ -326,13 +321,13 @@ header{
  width:86px;height:86px;object-fit:contain;
  image-rendering:pixelated;background:#202b45;
  border:2px solid #38bdf8;border-radius:12px;
- box-shadow:0 0 22px #38bdf855;
- animation:avatarFloat 3s ease-in-out infinite;
+ box-shadow:0 0 15px #38bdf844;
+ animation:avatarFloat 5s ease-in-out infinite;
 }
 
 @keyframes avatarFloat{
  0%,100%{transform:translateY(0)}
- 50%{transform:translateY(-7px)}
+ 50%{transform:translateY(-4px)}
 }
 
 .login-text{text-align:center}
@@ -358,18 +353,18 @@ header{
  min-width:175px;padding:14px 20px;
  border:1px solid #64748b;border-radius:9px;color:white;
  background:linear-gradient(145deg,#202b45,#11182d);
- font-family:'Press Start 2P',cursive;font-size:10px;transition:.25s;
+ font-family:'Press Start 2P',cursive;font-size:10px;transition:.2s;
 }
 
 .edition-btn:hover{
- transform:translateY(-4px);border-color:#38bdf8;
- box-shadow:0 0 20px #38bdf855;
+ border-color:#38bdf8;
+ box-shadow:0 0 14px #38bdf844;
 }
 
 .edition-btn.active{
  border-color:#86efac;
  background:linear-gradient(135deg,#14532d,#166534);
- box-shadow:0 0 20px #22c55e55;
+ box-shadow:0 0 15px #22c55e44;
 }
 
 .edition-btn small{
@@ -380,13 +375,14 @@ header{
 .login-form-wrap{
  display:none;max-width:520px;margin:22px auto 0;padding:20px;
  border:1px solid #ffffff18;border-radius:12px;
- background:#090e20e8;animation:loginReveal .35s ease both;
+ background:#090e20;
+ animation:loginReveal .25s ease both;
 }
 
 .login-form-wrap.show{display:block}
 
 @keyframes loginReveal{
- from{opacity:0;transform:translateY(12px)}
+ from{opacity:0;transform:translateY(8px)}
  to{opacity:1;transform:translateY(0)}
 }
 
@@ -404,17 +400,17 @@ header{
 }
 
 .login-form input:focus{
- border-color:var(--blue);box-shadow:0 0 12px #38bdf833;
+ border-color:var(--blue);
 }
 
 .login-form button{
  padding:13px 20px;border:1px solid #86efac;border-radius:6px;
  color:#052e16;background:linear-gradient(135deg,#4ade80,#22c55e);
  font-family:'Press Start 2P',cursive;font-size:9px;
- box-shadow:0 4px 0 #14532d;transition:.2s;
+ box-shadow:0 4px 0 #14532d;transition:filter .2s;
 }
 
-.login-form button:hover{filter:brightness(1.1);transform:translateY(-2px)}
+.login-form button:hover{filter:brightness(1.1)}
 
 .login-note{text-align:center;color:#8391ad;font-size:12px;margin-top:13px}
 
@@ -444,7 +440,9 @@ header{
 .section-desc{color:#aab8cf;font-size:18px;margin-top:10px}
 
 .mode-grid{
- display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:24px;
 }
 
 .mode-card{
@@ -452,22 +450,22 @@ header{
  display:flex;align-items:center;justify-content:center;
  flex-direction:column;text-align:center;padding:28px 20px;
  border-radius:16px;border:1px solid #ffffff25;
- transition:transform .3s,border-color .3s,box-shadow .3s,filter .3s;
- backdrop-filter:blur(5px);
+ transition:transform .2s,border-color .2s;
 }
 
 .mode-card:hover{
- transform:translateY(-8px) scale(1.015);
- border-color:#ffffff88;filter:brightness(1.13);
+ transform:translateY(-5px);
+ border-color:#ffffff88;
 }
 
 .mode-card img{
  width:100px;height:100px;object-fit:contain;
- margin-bottom:15px;filter:drop-shadow(0 8px 12px #0008);
- transition:.3s;
+ margin-bottom:15px;
+ filter:drop-shadow(0 5px 8px #0007);
+ transition:transform .2s;
 }
 
-.mode-card:hover img{transform:scale(1.1) rotate(-5deg)}
+.mode-card:hover img{transform:scale(1.06)}
 
 .mode-card h3{
  font-family:'Press Start 2P',cursive;font-size:15px;line-height:2;
@@ -481,29 +479,25 @@ header{
 
 .survival-card{
  background:linear-gradient(135deg,#315e42ee,#152c32ee 80%);
- box-shadow:0 8px 30px #4ade8015;
 }
 
 .lifesteal-card{
  background:linear-gradient(135deg,#761c3cee,#301329ee 85%);
- box-shadow:0 8px 30px #ef444422;
 }
 
 .pvp-card{
  background:linear-gradient(135deg,#34276eee,#142b52ee 85%);
- box-shadow:0 8px 30px #6366f122;
 }
 
 .coin-card{
  background:linear-gradient(135deg,#8a5512ee,#372319ee 85%);
- box-shadow:0 8px 30px #facc1522;
 }
 
 /* FOOTER */
 
 footer{
  text-align:center;padding:28px 15px;color:#7e8ba5;
- font-size:14px;border-top:1px solid #ffffff15;background:#080713ee;
+ font-size:14px;border-top:1px solid #ffffff15;background:#080713;
 }
 
 footer span{color:var(--blue)}
@@ -553,10 +547,14 @@ footer span{color:var(--blue)}
  .mode-card{min-height:215px}
  .mode-card img{width:95px;height:95px}
  .section-title{font-size:15px}
- .voxel{scale:.65}
+ .voxel{display:none}
  .world-ground{height:130px}
  .world-mountains{height:25%}
- .v2,.v4,.v5,.v7{display:none}
+}
+
+@media(max-width:850px), (prefers-reduced-motion:reduce){
+ .voxel{animation:none!important}
+ .main-logo,.player-avatar{animation:none!important}
 }
 
 @media(prefers-reduced-motion:reduce){
@@ -564,6 +562,7 @@ footer span{color:var(--blue)}
   animation-duration:.01ms!important;
   animation-iteration-count:1!important;
   scroll-behavior:auto!important;
+  transition-duration:.01ms!important;
  }
 }
 </style>
@@ -571,7 +570,7 @@ footer span{color:var(--blue)}
 
 <body>
 
-<!-- MINECRAFT 3D WORLD -->
+<!-- MINECRAFT WORLD -->
 
 <div class="minecraft-world" id="minecraftWorld">
  <div class="world-glow"></div>
@@ -681,8 +680,6 @@ footer span{color:var(--blue)}
 
 </section>
 
-<!-- LOGIN -->
-
 <section class="login-section" id="login">
 
  <div class="login-content">
@@ -742,8 +739,6 @@ footer span{color:var(--blue)}
  </p>
 
 </section>
-
-<!-- GAME MODES -->
 
 <section class="modes-section" id="modes">
 
@@ -828,17 +823,14 @@ function selectEdition(edition){
  bedrockBtn.classList.toggle('active',edition==='bedrock');
 
  formWrap.classList.remove('show');
- void formWrap.offsetWidth;
  formWrap.classList.add('show');
 
  if(edition==='java'){
   heading.textContent='JAVA LOGIN';
   input.placeholder='Enter Java Username';
-  input.maxLength=16;
  }else{
   heading.textContent='BEDROCK LOGIN';
   input.placeholder='Enter Bedrock Gamertag';
-  input.maxLength=16;
  }
 
  input.value='';
@@ -888,20 +880,31 @@ function demoLogin(event){
   ' displayed successfully!';
 }
 
-/* 3D MOUSE MOVEMENT */
+/* LIGHTWEIGHT MOUSE PARALLAX */
 
 const world=document.getElementById('minecraftWorld');
+const canUseParallax=window.matchMedia('(pointer:fine) and (prefers-reduced-motion: no-preference)').matches;
 
-if(world&&window.matchMedia('(pointer:fine)').matches){
+let mouseX=0;
+let mouseY=0;
+let ticking=false;
+
+if(world&&canUseParallax){
 
  document.addEventListener('mousemove',function(e){
 
-  const x=(e.clientX/window.innerWidth-.5)*12;
-  const y=(e.clientY/window.innerHeight-.5)*12;
+  mouseX=(e.clientX/window.innerWidth-.5)*5;
+  mouseY=(e.clientY/window.innerHeight-.5)*5;
 
-  world.style.transform=`translate3d(${x}px,${y}px,0)`;
+  if(!ticking){
+   requestAnimationFrame(()=>{
+    world.style.transform=`translate3d(${mouseX}px,${mouseY}px,0)`;
+    ticking=false;
+   });
+   ticking=true;
+  }
 
- });
+ },{passive:true});
 
 }
 

@@ -9,904 +9,1077 @@
 <meta name="google-site-verification" content="DawQEBBcU5eHMi6YFnlGIYB2sjlM2h6r9orqC34-Ai8">
 
 <title>VAJRA SMP | Minecraft Network</title>
-<meta name="description" content="Welcome to VAJRA SMP - A premium Minecraft network featuring Survival, Lifesteal and PvP.">
-<meta name="theme-color" content="#090719">
 
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-
-:root{
- --blue:#38bdf8;
- --purple:#a855f7;
- --gold:#ffd166;
- --dark:#090719;
-}
-
-html{scroll-behavior:smooth}
-
-body{
- background:#090719;
- color:#fff;
- font-family:'Rajdhani',sans-serif;
- overflow-x:hidden;
-}
-
-a{text-decoration:none;color:inherit}
-button{font-family:inherit;cursor:pointer}
-.pixel{font-family:'Press Start 2P',cursive}
-
-/* OPTIMISED MINECRAFT WORLD */
-
-.minecraft-world{
- position:fixed;
- inset:0;
- z-index:-3;
- overflow:hidden;
- pointer-events:none;
- background:linear-gradient(180deg,#101a39 0%,#19264b 43%,#111329 100%);
- contain:strict;
-}
-
-.world-glow{
- position:absolute;
- width:450px;height:450px;
- border-radius:50%;
- background:#7042bd;
- opacity:.13;
- top:5%;left:25%;
-}
-
-.world-glow.blue{
- width:350px;height:350px;
- background:#1767a5;
- top:35%;left:70%;
- opacity:.12;
-}
-
-.world-stars{
- position:absolute;inset:0;
- background-image:
- radial-gradient(2px 2px at 20% 20%,#ffffffaa 50%,transparent 100%),
- radial-gradient(2px 2px at 70% 15%,#ffffff88 50%,transparent 100%),
- radial-gradient(2px 2px at 45% 38%,#ffffff77 50%,transparent 100%),
- radial-gradient(2px 2px at 88% 35%,#ffffff88 50%,transparent 100%);
- background-size:350px 250px;
- opacity:.4;
-}
-
-.world-mountains{
- position:absolute;
- bottom:0;
- width:100%;
- height:45%;
- background:
- linear-gradient(135deg,transparent 35%,#1b3540 35% 55%,transparent 55%) 0 0/260px 220px,
- linear-gradient(45deg,transparent 35%,#203b43 35% 55%,transparent 55%) 0 0/300px 230px;
- opacity:.65;
-}
-
-.world-ground{
- position:absolute;
- bottom:-130px;
- left:-10%;
- width:120%;
- height:250px;
- background:
- repeating-linear-gradient(90deg,#263b36 0 60px,#1d302f 60px 120px),
- linear-gradient(#315b3d,#172b2d);
- transform:rotateX(48deg);
- transform-origin:bottom;
+:root {
+  --blue: #40caff;
+  --purple: #9b5cff;
+  --gold: #ffc857;
+  --bg: #070817;
 }
 
-.world-ground:before{
- content:"";
- position:absolute;
- top:0;
- width:100%;
- height:25px;
- background:repeating-linear-gradient(90deg,#54874b 0 60px,#3c703f 60px 120px);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.voxel{
- position:absolute;
- width:65px;height:65px;
- transform-style:preserve-3d;
- animation:voxelFloat 12s ease-in-out infinite;
- opacity:.8;
- will-change:transform;
+html {
+  scroll-behavior: smooth;
 }
 
-.voxel span{
- position:absolute;
- display:block;
- width:65px;height:65px;
- border:1px solid #ffffff15;
+body {
+  background: var(--bg);
+  color: white;
+  font-family: 'Rajdhani', sans-serif;
+  overflow-x: hidden;
 }
 
-.voxel .front{background:linear-gradient(135deg,#477b45,#254b36);transform:translateZ(32.5px)}
-.voxel .back{background:#1c352a;transform:rotateY(180deg) translateZ(32.5px)}
-.voxel .right{background:#263e30;transform:rotateY(90deg) translateZ(32.5px)}
-.voxel .left{background:#36583b;transform:rotateY(-90deg) translateZ(32.5px)}
-.voxel .top{background:linear-gradient(135deg,#65a94d,#397b3c);transform:rotateX(90deg) translateZ(32.5px)}
-.voxel .bottom{background:#192b26;transform:rotateX(-90deg) translateZ(32.5px)}
+/* ================= BACKGROUND WORLD ================= */
 
-.voxel.stone .front{background:#657080}
-.voxel.stone .top{background:#8b96a4}
-.voxel.stone .right{background:#424b5b}
-.voxel.dirt .front{background:#765039}
-.voxel.dirt .top{background:#527b43}
-.voxel.dirt .right{background:#493225}
-.voxel.gold .front{background:#a87820}
-.voxel.gold .top{background:#f5c94e}
-.voxel.gold .right{background:#765018}
-
-.v1{left:8%;top:25%;animation-delay:0s}
-.v2{left:24%;top:65%;animation-delay:2s}
-.v3{right:12%;top:22%;animation-delay:4s}
-.v4{right:28%;top:65%;animation-delay:6s}
-.v5{left:47%;top:12%;animation-delay:3s}
-.v6{right:5%;top:65%;animation-delay:5s}
-.v7{left:65%;top:42%;animation-delay:7s}
-.v8{left:35%;top:35%;animation-delay:4s}
-
-@keyframes voxelFloat{
- 0%,100%{transform:translate3d(0,0,0) rotateX(-10deg) rotateY(15deg)}
- 50%{transform:translate3d(0,-16px,0) rotateX(-5deg) rotateY(25deg)}
-}
-
-body:after{
- content:"";
- position:fixed;inset:0;z-index:-2;
- pointer-events:none;
- background:linear-gradient(180deg,#09071930,#09071980);
-}
-
-/* NAVBAR */
-
-header{
- position:sticky;top:0;z-index:100;
- background:#090719;
- border-bottom:1px solid #ffffff18;
-}
-
-.nav{
- max-width:1250px;margin:auto;padding:12px 22px;
- display:flex;align-items:center;justify-content:space-between;gap:20px;
-}
-
-.brand{
- display:flex;align-items:center;gap:12px;
- font-family:'Press Start 2P',cursive;font-size:14px;
-}
-
-.brand span{color:var(--blue)}
-
-.nav-logo{
- width:48px;height:48px;object-fit:contain;
-}
-
-.nav-links{display:flex;align-items:center;gap:25px}
-
-.nav-links a{
- color:#d6d3ed;font-size:15px;font-weight:800;
- letter-spacing:1px;transition:color .2s;
-}
-
-.nav-links a:hover{color:var(--blue)}
-
-.nav-login{
- padding:10px 16px;
- background:linear-gradient(135deg,#2563eb,#9333ea);
- border:1px solid #93c5fd;
- color:white!important;
-}
-
-.menu-btn{
- display:none;background:#17152c;color:white;
- border:1px solid #ffffff33;padding:8px 12px;font-size:23px;
-}
-
-/* HERO */
-
-.hero{
- max-width:1250px;margin:35px auto 25px;padding:25px;
- min-height:440px;
- display:grid;grid-template-columns:1fr 1.5fr 1fr;
- align-items:center;gap:15px;position:relative;overflow:hidden;
- border:1px solid #a855f755;border-radius:20px;
- background:linear-gradient(120deg,#17113aee,#25144bee,#111c43ee);
- box-shadow:0 12px 35px #0007;
-}
-
-.hero:before{
- content:"";position:absolute;inset:0;pointer-events:none;
- background:linear-gradient(120deg,transparent,#ffffff0b,transparent);
-}
-
-.hero-side{
- position:relative;z-index:2;text-align:center;padding:15px;
-}
-
-.side-icon{font-size:43px;margin-bottom:15px}
-
-.hero-side h3{
- font-family:'Press Start 2P',cursive;font-size:13px;line-height:2;
-}
-
-.hero-side p{
- color:#d3c9ed;font-size:16px;font-weight:700;margin-top:9px;
-}
-
-.side-status{
- display:inline-block;margin-top:15px;padding:9px 12px;
- color:var(--gold);border:1px solid #ffd16666;
- background:#ffd16612;
- font-family:'Press Start 2P',cursive;font-size:8px;line-height:1.8;
-}
-
-.play-button{
- display:inline-block;margin-top:17px;padding:13px 18px;
- color:#fff;background:linear-gradient(135deg,#2563eb,#9333ea);
- border:1px solid #93c5fd;
- font-family:'Press Start 2P',cursive;font-size:9px;
- box-shadow:0 0 14px #3b82f644;transition:filter .2s;
-}
-
-.play-button:hover{filter:brightness(1.2)}
-
-.hero-center{text-align:center;position:relative;z-index:2}
-
-.main-logo{
- width:100%;max-width:370px;height:270px;
- object-fit:contain;
- filter:drop-shadow(0 0 15px #8b5cf666);
- animation:logoFloat 6s ease-in-out infinite;
-}
-
-@keyframes logoFloat{
- 0%,100%{transform:translateY(0)}
- 50%{transform:translateY(-5px)}
-}
-
-.hero-center h1{
- font-family:'Press Start 2P',cursive;
- font-size:clamp(17px,2.6vw,28px);
- line-height:1.9;text-shadow:3px 3px #31205e;
-}
-
-.hero-center h1 span{color:#8bdcff}
-
-.hero-center p{
- color:#d3c9ed;font-size:17px;font-weight:700;margin-top:8px;
-}
-
-/* DISCORD */
-
-.discord-box{display:block;color:white;transition:transform .2s}
-.discord-box:hover{transform:translateY(-2px)}
-
-.discord-icon{
- width:66px;height:66px;margin:0 auto 14px;
- display:grid;place-items:center;border-radius:18px;
- background:#5865f2;
- font-size:36px;font-weight:900;
-}
-
-.discord-box h3{
- font-family:'Press Start 2P',cursive;font-size:13px;line-height:2;
-}
-
-.discord-box p{
- font-size:16px;color:#e1dcf3;margin-top:7px;font-weight:700;
-}
-
-/* LOGIN */
-
-.login-section{
- max-width:850px;margin:35px auto 55px;padding:28px 25px;
- border:1px solid #ffffff20;border-radius:18px;
- background:linear-gradient(145deg,#171632,#10172b);
- box-shadow:0 10px 30px #0005;
- text-align:center;
-}
-
-.login-content{
- display:flex;align-items:center;justify-content:center;
- flex-direction:column;gap:13px;
-}
-
-.player-avatar{
- width:86px;height:86px;object-fit:contain;
- image-rendering:pixelated;background:#202b45;
- border:2px solid #38bdf8;border-radius:12px;
- box-shadow:0 0 15px #38bdf844;
- animation:avatarFloat 5s ease-in-out infinite;
-}
-
-@keyframes avatarFloat{
- 0%,100%{transform:translateY(0)}
- 50%{transform:translateY(-4px)}
-}
-
-.login-text{text-align:center}
-
-.login-text h2{
- font-family:'Press Start 2P',cursive;
- font-size:14px;line-height:2;color:#fff;
-}
-
-.login-text p{color:#aebbd4;font-size:16px;font-weight:600}
-
-.edition-label{
- margin:22px 0 12px;color:#8bdcff;
- font-family:'Press Start 2P',cursive;
- font-size:9px;letter-spacing:1px;
-}
-
-.edition-options{
- display:flex;justify-content:center;gap:14px;flex-wrap:wrap;
-}
-
-.edition-btn{
- min-width:175px;padding:14px 20px;
- border:1px solid #64748b;border-radius:9px;color:white;
- background:linear-gradient(145deg,#202b45,#11182d);
- font-family:'Press Start 2P',cursive;font-size:10px;transition:.2s;
-}
-
-.edition-btn:hover{
- border-color:#38bdf8;
- box-shadow:0 0 14px #38bdf844;
+.minecraft-world {
+  position: fixed;
+  inset: 0;
+  z-index: -5;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 35%, rgba(75,60,160,.35), transparent 55%),
+    linear-gradient(180deg, #080b25 0%, #17113c 55%, #090b1b 100%);
+  perspective: 900px;
 }
 
-.edition-btn.active{
- border-color:#86efac;
- background:linear-gradient(135deg,#14532d,#166534);
- box-shadow:0 0 15px #22c55e44;
+.world-glow {
+  position: absolute;
+  width: 650px;
+  height: 650px;
+  border-radius: 50%;
+  filter: blur(110px);
+  opacity: .25;
+  animation: glowMove 12s ease-in-out infinite alternate;
 }
 
-.edition-btn small{
- display:block;margin-top:9px;color:#cbd5e1;
- font-family:'Rajdhani',sans-serif;font-size:13px;letter-spacing:1px;
+.glow-one {
+  background: #533cff;
+  top: -280px;
+  left: -150px;
 }
 
-.login-form-wrap{
- display:none;max-width:520px;margin:22px auto 0;padding:20px;
- border:1px solid #ffffff18;border-radius:12px;
- background:#090e20;
- animation:loginReveal .25s ease both;
-}
-
-.login-form-wrap.show{display:block}
-
-@keyframes loginReveal{
- from{opacity:0;transform:translateY(8px)}
- to{opacity:1;transform:translateY(0)}
-}
-
-.form-heading{
- color:#d9c5ff;font-family:'Press Start 2P',cursive;
- font-size:10px;line-height:1.9;margin-bottom:14px;
-}
-
-.login-form{display:flex;gap:10px;width:100%}
-
-.login-form input{
- flex:1;min-width:0;padding:14px;
- border:1px solid #52658d;background:#090e20;
- color:white;font-size:16px;outline:none;border-radius:6px;
-}
-
-.login-form input:focus{
- border-color:var(--blue);
-}
-
-.login-form button{
- padding:13px 20px;border:1px solid #86efac;border-radius:6px;
- color:#052e16;background:linear-gradient(135deg,#4ade80,#22c55e);
- font-family:'Press Start 2P',cursive;font-size:9px;
- box-shadow:0 4px 0 #14532d;transition:filter .2s;
-}
+.glow-two {
+  background: #008cff;
+  right: -220px;
+  top: 15%;
+  animation-delay: -5s;
+}
 
-.login-form button:hover{filter:brightness(1.1)}
-
-.login-note{text-align:center;color:#8391ad;font-size:12px;margin-top:13px}
-
-.login-message{
- text-align:center;color:#86efac;font-size:15px;
- font-weight:800;margin-top:14px;min-height:20px;
+.glow-three {
+  background: #9c39ff;
+  bottom: -450px;
+  left: 35%;
 }
-
-/* GAME MODES */
 
-.modes-section{
- max-width:1150px;margin:auto;padding:35px 22px 80px;
+@keyframes glowMove {
+  from { transform: translate3d(-20px,0,0) scale(1); }
+  to { transform: translate3d(40px,60px,0) scale(1.2); }
 }
 
-.section-head{text-align:center;margin-bottom:38px}
+/* Stars */
 
-.eyebrow{
- color:var(--blue);font-weight:800;letter-spacing:4px;
- font-size:13px;margin-bottom:15px;
+.stars {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(2px 2px at 10% 20%, #fff 50%, transparent 100%),
+    radial-gradient(2px 2px at 30% 70%, #9cdfff 50%, transparent 100%),
+    radial-gradient(2px 2px at 70% 15%, #fff 50%, transparent 100%),
+    radial-gradient(2px 2px at 85% 45%, #fff 50%, transparent 100%),
+    radial-gradient(2px 2px at 50% 35%, #a88aff 50%, transparent 100%),
+    radial-gradient(2px 2px at 92% 80%, #fff 50%, transparent 100%);
+  background-size: 350px 300px;
+  opacity: .6;
+  animation: starsMove 45s linear infinite;
 }
 
-.section-title{
- font-family:'Press Start 2P',cursive;
- font-size:clamp(16px,3vw,25px);line-height:1.9;
+@keyframes starsMove {
+  to { background-position: 350px 300px; }
 }
 
-.section-desc{color:#aab8cf;font-size:18px;margin-top:10px}
+/* Moving particles */
 
-.mode-grid{
- display:grid;
- grid-template-columns:repeat(2,minmax(0,1fr));
- gap:24px;
+.particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
 }
 
-.mode-card{
- min-height:235px;position:relative;overflow:hidden;
- display:flex;align-items:center;justify-content:center;
- flex-direction:column;text-align:center;padding:28px 20px;
- border-radius:16px;border:1px solid #ffffff25;
- transition:transform .2s,border-color .2s;
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #7bdcff;
+  border-radius: 50%;
+  box-shadow: 0 0 12px #46cfff;
+  animation: particleFloat 9s linear infinite;
+}
+
+.particle:nth-child(1) { left: 8%; top: 80%; animation-delay: -2s; }
+.particle:nth-child(2) { left: 20%; top: 60%; animation-delay: -5s; }
+.particle:nth-child(3) { left: 35%; top: 90%; animation-delay: -1s; }
+.particle:nth-child(4) { left: 48%; top: 75%; animation-delay: -7s; }
+.particle:nth-child(5) { left: 62%; top: 90%; animation-delay: -3s; }
+.particle:nth-child(6) { left: 75%; top: 65%; animation-delay: -6s; }
+.particle:nth-child(7) { left: 90%; top: 85%; animation-delay: -4s; }
+.particle:nth-child(8) { left: 55%; top: 45%; animation-delay: -8s; }
+.particle:nth-child(9) { left: 15%; top: 35%; animation-delay: -3s; }
+.particle:nth-child(10) { left: 85%; top: 30%; animation-delay: -5s; }
+
+@keyframes particleFloat {
+  0% { transform: translateY(80px); opacity: 0; }
+  20% { opacity: .9; }
+  80% { opacity: .7; }
+  100% { transform: translateY(-250px); opacity: 0; }
+}
+
+/* 3D terrain */
+
+.terrain-scene {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: rotateX(8deg);
+  transition: transform .25s ease-out;
+}
+
+.mountain {
+  position: absolute;
+  bottom: 8%;
+  width: 0;
+  height: 0;
+  border-left: 180px solid transparent;
+  border-right: 180px solid transparent;
+  border-bottom: 310px solid #151c43;
+  filter: drop-shadow(0 0 30px rgba(63,104,255,.15));
+}
+
+.mountain::after {
+  content: "";
+  position: absolute;
+  top: 70px;
+  left: -90px;
+  border-left: 90px solid transparent;
+  border-right: 90px solid transparent;
+  border-bottom: 150px solid #28305e;
+}
+
+.mountain.one {
+  left: -100px;
+  transform: scale(1.1);
+}
+
+.mountain.two {
+  right: -100px;
+  bottom: 10%;
+  transform: scale(1.25);
+}
+
+.mountain.three {
+  left: 35%;
+  bottom: 4%;
+  transform: scale(.8);
+  opacity: .65;
+}
+
+.world-ground {
+  position: absolute;
+  bottom: -80px;
+  left: -10%;
+  width: 120%;
+  height: 220px;
+  background:
+    linear-gradient(180deg, #20234a, #0b1025);
+  transform: rotateX(55deg);
+  box-shadow: 0 -20px 80px rgba(60,90,255,.2);
+}
+
+/* Floating 3D blocks */
+
+.voxel {
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  transform-style: preserve-3d;
+  animation: voxelFloat 7s ease-in-out infinite;
+}
+
+.voxel-face {
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+.voxel-front { transform: translateZ(27.5px); }
+.voxel-back { transform: rotateY(180deg) translateZ(27.5px); }
+.voxel-right { transform: rotateY(90deg) translateZ(27.5px); }
+.voxel-left { transform: rotateY(-90deg) translateZ(27.5px); }
+.voxel-top { transform: rotateX(90deg) translateZ(27.5px); }
+.voxel-bottom { transform: rotateX(-90deg) translateZ(27.5px); }
+
+.grass .voxel-front,
+.grass .voxel-back,
+.grass .voxel-left,
+.grass .voxel-right {
+  background: #59412d;
+}
+.grass .voxel-top { background: #48a93c; }
+.grass .voxel-bottom { background: #382b29; }
+
+.stone .voxel-face { background: #62677b; }
+.gold .voxel-face { background: #c99526; }
+.diamond .voxel-face { background: #28c6c8; }
+
+.voxel.v1 {
+  left: 10%;
+  top: 25%;
+  animation-delay: -2s;
+}
+.voxel.v2 {
+  right: 12%;
+  top: 35%;
+  transform: scale(.8);
+  animation-delay: -4s;
+}
+.voxel.v3 {
+  left: 25%;
+  bottom: 22%;
+  transform: scale(.65);
+  animation-delay: -1s;
+}
+.voxel.v4 {
+  right: 28%;
+  bottom: 28%;
+  transform: scale(.7);
+  animation-delay: -5s;
+}
+.voxel.v5 {
+  left: 70%;
+  top: 15%;
+  transform: scale(.55);
+  animation-delay: -3s;
+}
+
+@keyframes voxelFloat {
+  0%,100% { translate: 0 0; rotate: 0deg; }
+  50% { translate: 0 -35px; rotate: 12deg; }
+}
+
+/* Dark overlay */
+
+.world-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(5,7,20,.15),
+    rgba(5,7,20,.2) 55%,
+    rgba(5,7,20,.95)
+  );
+}
+
+/* ================= NAVBAR ================= */
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 17px 6%;
+  background: rgba(7,8,24,.72);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(120,130,255,.18);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Press Start 2P';
+  font-size: 12px;
+  color: white;
+  text-decoration: none;
+}
+
+.nav-logo img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-links a {
+  color: #d9e3ff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: 1px;
+  transition: .25s;
+}
+
+.nav-links a:hover {
+  color: var(--blue);
+  text-shadow: 0 0 15px var(--blue);
+}
+
+.nav-login {
+  padding: 10px 22px;
+  border: 1px solid var(--blue);
+  border-radius: 7px;
+  color: white !important;
+  background: rgba(35,160,255,.13);
+}
+
+/* ================= HERO ================= */
+
+.hero {
+  min-height: 670px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 20px 110px;
+  position: relative;
+}
+
+.hero-logo {
+  width: 210px;
+  max-width: 55vw;
+  object-fit: contain;
+  filter: drop-shadow(0 0 22px rgba(70,170,255,.65));
+  animation: logoFloat 4s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+  0%,100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-13px) scale(1.04); }
+}
+
+.hero h1 {
+  font-family: 'Press Start 2P';
+  font-size: clamp(23px, 4vw, 43px);
+  line-height: 1.6;
+  margin-top: 22px;
+  background: linear-gradient(90deg, #fff, #65d6ff, #b58aff);
+  -webkit-background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 18px rgba(80,150,255,.3));
+}
+
+.hero p {
+  font-size: 22px;
+  color: #c8d6ff;
+  margin-top: 15px;
+  letter-spacing: 2px;
 }
-
-.mode-card:hover{
- transform:translateY(-5px);
- border-color:#ffffff88;
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 35px;
 }
-
-.mode-card img{
- width:100px;height:100px;object-fit:contain;
- margin-bottom:15px;
- filter:drop-shadow(0 5px 8px #0007);
- transition:transform .2s;
+
+.btn {
+  padding: 14px 28px;
+  text-decoration: none;
+  color: white;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  border-radius: 7px;
+  transition: .3s;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: linear-gradient(100deg, #257bff, #8b4cff);
+  box-shadow: 0 0 25px rgba(89,100,255,.4);
+}
+
+.btn-secondary {
+  border: 1px solid rgba(120,190,255,.6);
+  background: rgba(255,255,255,.07);
+}
+
+.btn:hover {
+  transform: translateY(-5px) scale(1.04);
+  box-shadow: 0 0 30px rgba(73,176,255,.5);
+}
+
+.discord-note {
+  color: #9eacd2;
+  font-size: 15px;
+  margin-top: 20px;
+}
+
+/* ================= SECTION ================= */
+
+.section {
+  position: relative;
+  padding: 75px 6%;
+  z-index: 2;
+}
+
+.section-title {
+  text-align: center;
+  font-family: 'Press Start 2P';
+  font-size: clamp(17px, 2.5vw, 25px);
+  color: #fff;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #aab9e1;
+  font-size: 19px;
+  margin-bottom: 45px;
+}
+
+/* ================= LOGIN ================= */
+
+.login-section {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.login-card {
+  padding: 35px;
+  border-radius: 18px;
+  background: linear-gradient(145deg, rgba(25,28,65,.88), rgba(11,15,38,.93));
+  border: 1px solid rgba(100,160,255,.3);
+  box-shadow: 0 15px 60px rgba(0,0,0,.35), 0 0 30px rgba(66,95,255,.12);
+  text-align: center;
+}
+
+.steve-head {
+  width: 85px;
+  height: 85px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 0 15px rgba(75,160,255,.35));
+}
+
+.login-card h2 {
+  font-family: 'Press Start 2P';
+  font-size: 17px;
+  line-height: 1.8;
+  margin-bottom: 25px;
+}
+
+.edition-buttons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.edition-btn {
+  flex: 1;
+  padding: 14px;
+  border: 1px solid #5263a6;
+  background: rgba(60,80,160,.15);
+  color: white;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 18px;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.edition-btn.active,
+.edition-btn:hover {
+  background: linear-gradient(100deg, #287bff, #844cff);
+  border-color: transparent;
+  box-shadow: 0 0 20px rgba(70,130,255,.3);
+}
+
+.login-card input {
+  width: 100%;
+  padding: 15px;
+  border-radius: 7px;
+  border: 1px solid #45538c;
+  background: rgba(5,8,25,.75);
+  color: white;
+  outline: none;
+  font-family: 'Rajdhani';
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.login-card input:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 12px rgba(60,180,255,.2);
+}
+
+.login-submit {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 7px;
+  background: linear-gradient(100deg, #287bff, #874dff);
+  color: white;
+  font-family: 'Rajdhani';
+  font-size: 19px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: .3s;
 }
 
-.mode-card:hover img{transform:scale(1.06)}
-
-.mode-card h3{
- font-family:'Press Start 2P',cursive;font-size:15px;line-height:2;
+.login-submit:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 22px rgba(60,130,255,.4);
+}
+
+.login-message {
+  margin-top: 15px;
+  color: #79d6ff;
+  font-size: 17px;
+  min-height: 24px;
 }
-
-.mode-card p{
- font-size:17px;font-weight:700;margin-top:5px;color:#ffffffdc;
+
+.login-warning {
+  color: #8d9bc2;
+  font-size: 13px;
+  margin-top: 15px;
 }
 
-.card-link{font-size:13px;font-weight:900;letter-spacing:1px;margin-top:15px;color:#fff}
+/* ================= GAME MODES ================= */
 
-.survival-card{
- background:linear-gradient(135deg,#315e42ee,#152c32ee 80%);
+.mode-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+  max-width: 1250px;
+  margin: auto;
 }
 
-.lifesteal-card{
- background:linear-gradient(135deg,#761c3cee,#301329ee 85%);
+.mode-card {
+  position: relative;
+  min-height: 260px;
+  padding: 28px 18px;
+  border-radius: 15px;
+  background: linear-gradient(145deg, rgba(28,32,75,.9), rgba(10,13,34,.95));
+  border: 1px solid rgba(120,145,255,.23);
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  overflow: hidden;
+  transition: transform .35s, box-shadow .35s, border-color .35s;
+  transform-style: preserve-3d;
 }
 
-.pvp-card{
- background:linear-gradient(135deg,#34276eee,#142b52ee 85%);
+.mode-card::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(transparent, rgba(100,180,255,.13), transparent);
+  transform: rotate(25deg);
+  transition: .6s;
 }
 
-.coin-card{
- background:linear-gradient(135deg,#8a5512ee,#372319ee 85%);
+.mode-card:hover::before {
+  top: 100%;
 }
 
-/* FOOTER */
+.mode-card:hover {
+  transform: translateY(-12px) rotateX(5deg) rotateY(-4deg);
+  border-color: var(--blue);
+  box-shadow: 0 18px 40px rgba(45,105,255,.2);
+}
+
+.mode-card img {
+  width: 85px;
+  height: 85px;
+  object-fit: contain;
+  margin-bottom: 18px;
+  filter: drop-shadow(0 0 12px rgba(90,160,255,.25));
+  transition: .35s;
+}
 
-footer{
- text-align:center;padding:28px 15px;color:#7e8ba5;
- font-size:14px;border-top:1px solid #ffffff15;background:#080713;
-}
-
-footer span{color:var(--blue)}
-
-/* MOBILE */
+.mode-card:hover img {
+  transform: translateY(-5px) scale(1.12) rotate(5deg);
+}
 
-@media(max-width:850px){
- .nav-links{
-  display:none;position:absolute;top:72px;left:0;right:0;
-  background:#090719;padding:22px;flex-direction:column;
-  border-bottom:1px solid #ffffff22;
- }
- .nav-links.open{display:flex}
- .menu-btn{display:block}
- .hero{
-  margin:20px 12px;grid-template-columns:1fr 1fr;padding:25px 12px;
- }
- .hero-center{grid-column:1/-1;grid-row:1}
- .main-logo{height:190px}
- .hero-side{padding:12px 5px}
- .hero-side h3,.discord-box h3{font-size:10px}
- .side-icon{font-size:32px}
- .side-status{font-size:7px}
- .login-section{margin:25px 15px 40px}
- .mode-grid{gap:15px}
-}
-
-@media(max-width:520px){
- .brand{font-size:11px}
- .nav-logo{width:40px;height:40px}
- .hero{grid-template-columns:1fr 1fr;min-height:420px}
- .main-logo{height:165px}
- .hero-center h1{font-size:15px}
- .hero-center p{font-size:14px}
- .hero-side h3,.discord-box h3{font-size:8px}
- .hero-side p,.discord-box p{font-size:13px}
- .side-status{font-size:6px;padding:7px 5px}
- .play-button{font-size:7px;padding:11px 8px}
- .discord-icon{width:52px;height:52px;font-size:28px}
- .login-section{padding:20px 14px}
- .player-avatar{width:65px;height:65px}
- .login-text h2{font-size:10px}
- .login-text p{font-size:14px}
- .login-form{flex-direction:column}
- .login-form button{width:100%;padding:15px}
- .mode-grid{grid-template-columns:1fr}
- .mode-card{min-height:215px}
- .mode-card img{width:95px;height:95px}
- .section-title{font-size:15px}
- .voxel{display:none}
- .world-ground{height:130px}
- .world-mountains{height:25%}
-}
+.mode-card h3 {
+  font-family: 'Press Start 2P';
+  font-size: 12px;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+.mode-card p {
+  color: #aebcdd;
+  font-size: 16px;
+}
+
+.mode-arrow {
+  display: inline-block;
+  margin-top: 18px;
+  color: var(--blue);
+  font-weight: 800;
+}
 
-@media(max-width:850px), (prefers-reduced-motion:reduce){
- .voxel{animation:none!important}
- .main-logo,.player-avatar{animation:none!important}
-}
+/* ================= FOOTER ================= */
 
-@media(prefers-reduced-motion:reduce){
- *,*:before,*:after{
-  animation-duration:.01ms!important;
-  animation-iteration-count:1!important;
-  scroll-behavior:auto!important;
-  transition-duration:.01ms!important;
- }
+footer {
+  position: relative;
+  text-align: center;
+  padding: 35px 15px;
+  background: rgba(5,7,19,.8);
+  border-top: 1px solid rgba(110,140,255,.18);
+  color: #8998c0;
+  font-size: 16px;
+}
+
+footer strong {
+  color: white;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width: 900px) {
+  .mode-grid {
+    grid-template-columns: repeat(2, minmax(0,1fr));
+  }
+
+  .nav-links {
+    gap: 15px;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+  }
+}
+
+@media(max-width: 600px) {
+  nav {
+    padding: 13px 4%;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .nav-logo {
+    font-size: 9px;
+  }
+
+  .nav-logo img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 13px;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+  }
+
+  .hero {
+    min-height: 570px;
+    padding-top: 55px;
+  }
+
+  .hero-logo {
+    width: 160px;
+  }
+
+  .hero p {
+    font-size: 17px;
+  }
+
+  .section {
+    padding: 55px 5%;
+  }
+
+  .mode-grid {
+    gap: 12px;
+  }
+
+  .mode-card {
+    min-height: 225px;
+    padding: 22px 10px;
+  }
+
+  .mode-card img {
+    width: 65px;
+    height: 65px;
+  }
+
+  .mode-card h3 {
+    font-size: 9px;
+  }
+
+  .login-card {
+    padding: 23px 17px;
+  }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- MINECRAFT WORLD -->
+<!-- ================= 3D MINECRAFT WORLD ================= -->
 
-<div class="minecraft-world" id="minecraftWorld">
- <div class="world-glow"></div>
- <div class="world-glow blue"></div>
- <div class="world-stars"></div>
- <div class="world-mountains"></div>
+<div class="minecraft-world">
 
- <div class="voxel v1">
-  <span class="front"></span><span class="back"></span>
-  <span class="right"></span><span class="left"></span>
-  <span class="top"></span><span class="bottom"></span>
- </div>
+  <div class="world-glow glow-one"></div>
+  <div class="world-glow glow-two"></div>
+  <div class="world-glow glow-three"></div>
 
- <div class="voxel stone v2">
-  <span class="front"></span><span class="back"></span>
-  <span class="right"></span><span class="left"></span>
-  <span class="top"></span><span class="bottom"></span>
- </div>
+  <div class="stars"></div>
 
- <div class="voxel dirt v3">
-  <span class="front"></span><span class="back"></span>
-  <span class="right"></span><span class="left"></span>
-  <span class="top"></span><span class="bottom"></span>
- </div>
+  <div class="particles">
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+  </div>
 
- <div class="voxel v4">
-  <span class="front"></span><span class="back"></span>
-  <span class="right"></span><span class="left"></span>
-  <span class="top"></span><span class="bottom"></span>
- </div>
+  <div class="terrain-scene" id="terrain">
 
- <div class="voxel stone v5">
-  <span class="front"></span><span class="back"></span>
-  <span class="right"></span><span class="left"></span>
-  <span class="top"></span><span class="bottom"></span>
- </div>
+    <div class="mountain one"></div>
+    <div class="mountain two"></div>
+    <div class="mountain three"></div>
+    <div class="world-ground"></div>
 
- <div class="voxel gold v6">
-  <span class="front"></span><span class="back"></span>
-  <span class="right"></span><span class="left"></span>
-  <span class="top"></span><span class="bottom"></span>
- </div>
+    <div class="voxel grass v1">
+      <div class="voxel-face voxel-front"></div>
+      <div class="voxel-face voxel-back"></div>
+      <div class="voxel-face voxel-right"></div>
+      <div class="voxel-face voxel-left"></div>
+      <div class="voxel-face voxel-top"></div>
+      <div class="voxel-face voxel-bottom"></div>
+    </div>
 
- <div class="voxel dirt v7">
-  <span class="front"></span><span class="back"></span>
-  <span class="right"></span><span class="left"></span>
-  <span class="top"></span><span class="bottom"></span>
- </div>
+    <div class="voxel diamond v2">
+      <div class="voxel-face voxel-front"></div>
+      <div class="voxel-face voxel-back"></div>
+      <div class="voxel-face voxel-right"></div>
+      <div class="voxel-face voxel-left"></div>
+      <div class="voxel-face voxel-top"></div>
+      <div class="voxel-face voxel-bottom"></div>
+    </div>
 
- <div class="voxel stone v8">
-  <span class="front"></span><span class="back"></span>
-  <span class="right"></span><span class="left"></span>
-  <span class="top"></span><span class="bottom"></span>
- </div>
+    <div class="voxel gold v3">
+      <div class="voxel-face voxel-front"></div>
+      <div class="voxel-face voxel-back"></div>
+      <div class="voxel-face voxel-right"></div>
+      <div class="voxel-face voxel-left"></div>
+      <div class="voxel-face voxel-top"></div>
+      <div class="voxel-face voxel-bottom"></div>
+    </div>
 
- <div class="world-ground"></div>
+    <div class="voxel stone v4">
+      <div class="voxel-face voxel-front"></div>
+      <div class="voxel-face voxel-back"></div>
+      <div class="voxel-face voxel-right"></div>
+      <div class="voxel-face voxel-left"></div>
+      <div class="voxel-face voxel-top"></div>
+      <div class="voxel-face voxel-bottom"></div>
+    </div>
+
+    <div class="voxel grass v5">
+      <div class="voxel-face voxel-front"></div>
+      <div class="voxel-face voxel-back"></div>
+      <div class="voxel-face voxel-right"></div>
+      <div class="voxel-face voxel-left"></div>
+      <div class="voxel-face voxel-top"></div>
+      <div class="voxel-face voxel-bottom"></div>
+    </div>
+
+  </div>
+
+  <div class="world-overlay"></div>
 </div>
 
-<header>
-<nav class="nav">
+<!-- ================= NAVBAR ================= -->
 
- <a href="/Vajra-smp-website/" class="brand">
-  <img src="assets/vajra-logo.png" class="nav-logo" alt="VAJRA Logo">
-  VAJRA <span>SMP</span>
- </a>
+<nav>
 
- <div class="nav-links" id="navLinks">
-  <a href="/Vajra-smp-website/">HOME</a>
-  <a href="/Vajra-smp-website/staff/">STAFF</a>
-  <a href="/Vajra-smp-website/rules/">RULES</a>
-  <a href="/Vajra-smp-website/coinstore/">COIN STORE</a>
-  <a href="#login" class="nav-login">LOGIN</a>
- </div>
+  <a href="/Vajra-smp-website/" class="nav-logo">
+    <img src="assets/vajra-logo.png" alt="VAJRA SMP">
+    VAJRA SMP
+  </a>
 
- <button class="menu-btn" onclick="toggleMenu()">☰</button>
+  <div class="nav-links">
+    <a href="/Vajra-smp-website/">HOME</a>
+    <a href="/Vajra-smp-website/staff/">STAFF</a>
+    <a href="/Vajra-smp-website/rules/">RULES</a>
+    <a href="/Vajra-smp-website/coinstore/">COIN STORE</a>
+    <a href="#login" class="nav-login">LOGIN</a>
+  </div>
 
 </nav>
+
+<!-- ================= HERO ================= -->
+
+<header class="hero">
+
+  <img src="assets/vajra-logo.png" class="hero-logo" alt="VAJRA SMP Logo">
+
+  <h1>WELCOME TO<br>VAJRA SMP</h1>
+
+  <p>YOUR WORLD. YOUR RULES. YOUR LEGACY.</p>
+
+  <div class="hero-buttons">
+    <a href="#login" class="btn btn-primary">PLAY NOW</a>
+    <a href="#modes" class="btn btn-secondary">EXPLORE MODES</a>
+  </div>
+
+  <div class="discord-note">
+    DISCORD COMMUNITY — COMING SOON
+  </div>
+
 </header>
 
-<main>
+<!-- ================= LOGIN ================= -->
 
-<section class="hero">
+<section class="section" id="login">
 
- <div class="hero-side">
-  <div class="side-icon">🎮</div>
-  <h3>PLAY NOW</h3>
-  <p>Your adventure begins here.</p>
-  <div class="side-status">IP: COMING SOON</div>
-  <br>
-  <a href="#login" class="play-button">LOGIN NOW</a>
- </div>
+  <h2 class="section-title">JOIN THE ADVENTURE</h2>
+  <p class="section-subtitle">Choose your Minecraft edition</p>
 
- <div class="hero-center">
-  <img src="assets/vajra-logo.png" class="main-logo" alt="VAJRA SMP Logo">
-  <h1>WELCOME TO<br><span>VAJRA SMP</span></h1>
-  <p>YOUR WORLD. YOUR LEGACY.</p>
- </div>
+  <div class="login-section">
 
- <div class="hero-side">
-  <div class="discord-box">
-   <div class="discord-icon">☁</div>
-   <h3>DISCORD</h3>
-   <p>Click to join</p>
-   <div class="side-status">COMING SOON</div>
+    <div class="login-card">
+
+      <img
+        src="https://mc-heads.net/avatar/Steve/100"
+        class="steve-head"
+        alt="Steve"
+      >
+
+      <h2>PLAYER LOGIN</h2>
+
+      <div class="edition-buttons">
+        <button class="edition-btn active" id="javaBtn" onclick="chooseEdition('JAVA')">
+          JAVA
+        </button>
+
+        <button class="edition-btn" id="bedrockBtn" onclick="chooseEdition('BEDROCK')">
+          BEDROCK
+        </button>
+      </div>
+
+      <input
+        type="text"
+        id="playerName"
+        placeholder="Enter your Minecraft username"
+        maxlength="16"
+      >
+
+      <button class="login-submit" onclick="playerLogin()">
+        ENTER VAJRA SMP
+      </button>
+
+      <div class="login-message" id="loginMessage"></div>
+
+      <div class="login-warning">
+        Demo username interface only. This is not official Microsoft authentication.
+      </div>
+
+    </div>
+
   </div>
- </div>
 
 </section>
 
-<section class="login-section" id="login">
+<!-- ================= MODES ================= -->
 
- <div class="login-content">
+<section class="section" id="modes">
 
-  <img
-   src="https://mc-heads.net/avatar/MHF_Steve/100"
-   class="player-avatar"
-   id="playerAvatar"
-   alt="Minecraft Steve Head"
-  >
+  <h2 class="section-title">CHOOSE YOUR WORLD</h2>
+  <p class="section-subtitle">Explore different adventures inside VAJRA SMP</p>
 
-  <div class="login-text">
-   <h2 id="welcomeText">WELCOME, PLAYER!</h2>
-   <p>Select your Minecraft edition to continue.</p>
+  <div class="mode-grid">
+
+    <a href="/Vajra-smp-website/survival/" class="mode-card">
+
+      <img src="assets/survival-pickaxe.png" alt="Survival">
+
+      <h3>SURVIVAL</h3>
+
+      <p>Build, explore and survive.</p>
+
+      <span class="mode-arrow">EXPLORE →</span>
+
+    </a>
+
+    <a href="/Vajra-smp-website/lifesteal/" class="mode-card">
+
+      <img src="assets/lifesteal-heart.png" alt="Lifesteal">
+
+      <h3>LIFESTEAL</h3>
+
+      <p>Fight for hearts and power.</p>
+
+      <span class="mode-arrow">EXPLORE →</span>
+
+    </a>
+
+    <a href="/Vajra-smp-website/pvp/" class="mode-card">
+
+      <img src="assets/pvp-sword.png" alt="PvP">
+
+      <h3>PVP ARENA</h3>
+
+      <p>Test your skills in battle.</p>
+
+      <span class="mode-arrow">EXPLORE →</span>
+
+    </a>
+
+    <a href="/Vajra-smp-website/coinstore/" class="mode-card">
+
+      <img src="assets/coin-icon.png" alt="Coin Store">
+
+      <h3>COIN STORE</h3>
+
+      <p>Discover coins and rewards.</p>
+
+      <span class="mode-arrow">EXPLORE →</span>
+
+    </a>
+
   </div>
 
- </div>
-
- <div class="edition-label">CHOOSE YOUR EDITION</div>
-
- <div class="edition-options">
-
-  <button type="button" class="edition-btn" id="javaBtn" onclick="selectEdition('java')">
-   JAVA
-   <small>Java Edition</small>
-  </button>
-
-  <button type="button" class="edition-btn" id="bedrockBtn" onclick="selectEdition('bedrock')">
-   BEDROCK
-   <small>Bedrock Edition</small>
-  </button>
-
- </div>
-
- <div class="login-form-wrap" id="loginFormWrap">
-
-  <div class="form-heading" id="formHeading">JAVA LOGIN</div>
-
-  <form class="login-form" id="editionLoginForm" onsubmit="demoLogin(event)">
-   <input
-    type="text"
-    id="playerName"
-    placeholder="Enter Minecraft Username"
-    maxlength="16"
-    autocomplete="off"
-    required
-   >
-   <button type="submit">LOGIN</button>
-  </form>
-
- </div>
-
- <div class="login-message" id="loginMessage"></div>
-
- <p class="login-note">
-  Demo name display only. This does not authenticate Minecraft or Microsoft accounts.
- </p>
-
 </section>
 
-<section class="modes-section" id="modes">
-
- <div class="section-head">
-  <div class="eyebrow">CHOOSE YOUR ADVENTURE</div>
-  <h2 class="section-title">EXPLORE VAJRA SMP</h2>
-  <p class="section-desc">Choose your world and begin your journey.</p>
- </div>
-
- <div class="mode-grid">
-
-  <a href="/Vajra-smp-website/survival/" class="mode-card survival-card">
-   <img src="assets/survival-pickaxe.png" alt="Survival Pickaxe">
-   <h3>SURVIVAL</h3>
-   <p>Ranks &amp; Perks</p>
-   <div class="card-link">CLICK TO VIEW →</div>
-  </a>
-
-  <a href="/Vajra-smp-website/lifesteal/" class="mode-card lifesteal-card">
-   <img src="assets/lifesteal-heart.png" alt="Lifesteal Heart">
-   <h3>LIFESTEAL</h3>
-   <p>Ranks, Keys &amp; Coins</p>
-   <div class="card-link">CLICK TO VIEW →</div>
-  </a>
-
-  <a href="/Vajra-smp-website/pvp/" class="mode-card pvp-card">
-   <img src="assets/pvp-sword.png" alt="Minecraft Diamond Sword">
-   <h3>PVP</h3>
-   <p>Kits &amp; Upgrades</p>
-   <div class="card-link">CLICK TO VIEW →</div>
-  </a>
-
-  <a href="/Vajra-smp-website/coinstore/" class="mode-card coin-card">
-   <img src="assets/coin-icon.png" alt="Minecraft Coin">
-   <h3>COINSTORE</h3>
-   <p>Coins &amp; Special Items</p>
-   <div class="card-link">CLICK TO VIEW →</div>
-  </a>
-
- </div>
-</section>
-
-</main>
+<!-- ================= FOOTER ================= -->
 
 <footer>
- <p class="pixel" style="font-size:11px;margin-bottom:14px">VAJRA SMP</p>
- © 2026 VAJRA SMP. All Rights Reserved.
- <br><br>
- <span>BUILT FOR MINECRAFT PLAYERS</span>
+
+  <strong>VAJRA SMP</strong>
+
+  <p>Built for players. Powered by adventure.</p>
+
+  <p style="margin-top:10px;">© 2026 VAJRA SMP. All Rights Reserved.</p>
+
 </footer>
+
+<!-- ================= JAVASCRIPT ================= -->
 
 <script>
 
-/* MOBILE MENU */
+let selectedEdition = "JAVA";
 
-function toggleMenu(){
- document.getElementById('navLinks').classList.toggle('open');
+function chooseEdition(edition) {
+
+  selectedEdition = edition;
+
+  document.getElementById("javaBtn").classList.toggle("active", edition === "JAVA");
+  document.getElementById("bedrockBtn").classList.toggle("active", edition === "BEDROCK");
+
+  document.getElementById("loginMessage").textContent =
+    edition + " EDITION SELECTED";
 }
 
-document.querySelectorAll('#navLinks a').forEach(link=>{
- link.addEventListener('click',()=>{
-  document.getElementById('navLinks').classList.remove('open');
- });
-});
+function playerLogin() {
 
-/* EDITION SELECT + DEMO LOGIN */
+  const username = document.getElementById("playerName").value.trim();
+  const message = document.getElementById("loginMessage");
 
-let selectedEdition='';
-
-function selectEdition(edition){
-
- selectedEdition=edition;
-
- const javaBtn=document.getElementById('javaBtn');
- const bedrockBtn=document.getElementById('bedrockBtn');
- const formWrap=document.getElementById('loginFormWrap');
- const input=document.getElementById('playerName');
- const heading=document.getElementById('formHeading');
- const message=document.getElementById('loginMessage');
-
- javaBtn.classList.toggle('active',edition==='java');
- bedrockBtn.classList.toggle('active',edition==='bedrock');
-
- formWrap.classList.remove('show');
- formWrap.classList.add('show');
-
- if(edition==='java'){
-  heading.textContent='JAVA LOGIN';
-  input.placeholder='Enter Java Username';
- }else{
-  heading.textContent='BEDROCK LOGIN';
-  input.placeholder='Enter Bedrock Gamertag';
- }
-
- input.value='';
- message.textContent='';
- input.focus();
-}
-
-function demoLogin(event){
-
- event.preventDefault();
-
- const playerName=document.getElementById('playerName').value.trim();
- const message=document.getElementById('loginMessage');
-
- if(!selectedEdition){
-  message.style.color='#fca5a5';
-  message.textContent='Please select Java or Bedrock first.';
-  return;
- }
-
- if(!playerName||playerName.length>16){
-  message.style.color='#fca5a5';
-  message.textContent='Please enter a valid player name.';
-  return;
- }
-
- if(selectedEdition==='java'&&!/^[A-Za-z0-9_]{3,16}$/.test(playerName)){
-  message.style.color='#fca5a5';
-  message.textContent='Java username must be 3-16 letters, numbers or underscores.';
-  return;
- }
-
- document.getElementById('welcomeText').textContent=
-  'WELCOME, '+playerName.toUpperCase()+'!';
-
- if(selectedEdition==='java'){
-  document.getElementById('playerAvatar').src=
-   'https://mc-heads.net/avatar/'+encodeURIComponent(playerName)+'/100';
- }else{
-  document.getElementById('playerAvatar').src=
-   'https://mc-heads.net/avatar/MHF_Steve/100';
- }
-
- message.style.color='#86efac';
- message.textContent=
-  (selectedEdition==='java'?'Java username':'Bedrock gamertag')+
-  ' displayed successfully!';
-}
-
-/* LIGHTWEIGHT MOUSE PARALLAX */
-
-const world=document.getElementById('minecraftWorld');
-const canUseParallax=window.matchMedia('(pointer:fine) and (prefers-reduced-motion: no-preference)').matches;
-
-let mouseX=0;
-let mouseY=0;
-let ticking=false;
-
-if(world&&canUseParallax){
-
- document.addEventListener('mousemove',function(e){
-
-  mouseX=(e.clientX/window.innerWidth-.5)*5;
-  mouseY=(e.clientY/window.innerHeight-.5)*5;
-
-  if(!ticking){
-   requestAnimationFrame(()=>{
-    world.style.transform=`translate3d(${mouseX}px,${mouseY}px,0)`;
-    ticking=false;
-   });
-   ticking=true;
+  if (!username) {
+    message.textContent = "PLEASE ENTER YOUR USERNAME!";
+    return;
   }
 
- },{passive:true});
+  if (!/^[A-Za-z0-9_]{3,16}$/.test(username)) {
+    message.textContent = "PLEASE ENTER A VALID USERNAME!";
+    return;
+  }
 
+  message.textContent =
+    "WELCOME " + username.toUpperCase() + " | " + selectedEdition + " SELECTED!";
 }
+
+/* Smooth mouse parallax */
+
+const terrain = document.getElementById("terrain");
+
+let mouseX = 0;
+let mouseY = 0;
+let currentX = 0;
+let currentY = 0;
+
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+if (!reduceMotion && window.matchMedia("(pointer: fine)").matches) {
+
+  window.addEventListener("mousemove", (event) => {
+
+    mouseX = (event.clientX / window.innerWidth - 0.5) * 7;
+    mouseY = (event.clientY / window.innerHeight - 0.5) * 5;
+
+  });
+
+  function animateCamera() {
+
+    currentX += (mouseX - currentX) * 0.035;
+    currentY += (mouseY - currentY) * 0.035;
+
+    terrain.style.transform =
+      "rotateX(" + (8 - currentY) + "deg) rotateY(" + currentX + "deg)";
+
+    requestAnimationFrame(animateCamera);
+  }
+
+  animateCamera();
+}
+
+/* Pause some animations when tab is hidden */
+
+document.addEventListener("visibilitychange", () => {
+
+  document.querySelectorAll(".particle, .voxel").forEach((element) => {
+    element.style.animationPlayState = document.hidden ? "paused" : "running";
+  });
+
+});
 
 </script>
 
